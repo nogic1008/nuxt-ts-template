@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/inspire.vue renders correctly 1`] = `
+<section
+  class="section"
+>
+  <h2
+    class="title is-3 has-text-grey"
+  >
+    
+    "Just start 
+    <span
+      class="icon is-large"
+    >
+      <i
+        class="mdi mdi-rocket mdi-48px"
+      />
+    </span>
+    "
+  
+  </h2>
+   
+  <h3
+    class="subtitle is-6 has-text-grey"
+  >
+    
+    Author:
+    
+    <a
+      href="https://github.com/anteriovieira"
+    >
+      
+      Antério Vieira
+    
+    </a>
+  </h3>
+</section>
+`;

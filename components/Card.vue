@@ -22,17 +22,15 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    title: {
-      type: String,
-      required: true
-    },
-    icon: {
-      type: String,
-      required: true
-    }
-  }
+<script lang="ts">
+import { Vue, Component, Prop } from 'vue-property-decorator'
+
+@Component
+export default class CardComponent extends Vue {
+  @Prop({ required: true, type: String })
+  title!: string
+
+  @Prop({ required: true, type: String })
+  icon!: string
 }
 </script>

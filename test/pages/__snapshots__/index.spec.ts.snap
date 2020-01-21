@@ -1,0 +1,242 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pages/index.vue renders correctly 1`] = `
+<section
+  class="section"
+>
+  <div
+    class="columns is-mobile"
+  >
+    <div
+      class="column"
+    >
+      <div
+        class="card"
+      >
+        <header
+          class="card-header"
+        >
+          <p
+            class="card-header-title has-text-grey"
+          >
+            
+        Free
+      
+          </p>
+        </header>
+         
+        <div
+          class="card-content"
+        >
+          <div
+            class="content has-text-centered"
+          >
+            <span
+              class="icon has-text-primary is-large"
+            >
+              <i
+                class="mdi mdi-github-circle mdi-48px"
+              />
+            </span>
+          </div>
+        </div>
+         
+        <footer
+          class="card-footer"
+        >
+          <div
+            class="card-footer-item"
+          >
+            <span>
+              
+      Open source on
+      
+              <a
+                href="https://github.com/buefy/buefy"
+              >
+                
+        GitHub
+      
+              </a>
+            </span>
+          </div>
+        </footer>
+      </div>
+    </div>
+     
+    <div
+      class="column"
+    >
+      <div
+        class="card"
+      >
+        <header
+          class="card-header"
+        >
+          <p
+            class="card-header-title has-text-grey"
+          >
+            
+        Responsive
+      
+          </p>
+        </header>
+         
+        <div
+          class="card-content"
+        >
+          <div
+            class="content has-text-centered"
+          >
+            <span
+              class="icon has-text-primary is-large"
+            >
+              <i
+                class="mdi mdi-cellphone-link mdi-48px"
+              />
+            </span>
+          </div>
+        </div>
+         
+        <footer
+          class="card-footer"
+        >
+          <div
+            class="card-footer-item"
+          >
+            <span>
+              <b
+                class="has-text-grey"
+              >
+                
+        Every
+      
+              </b>
+              
+      component is responsive
+    
+            </span>
+          </div>
+        </footer>
+      </div>
+    </div>
+     
+    <div
+      class="column"
+    >
+      <div
+        class="card"
+      >
+        <header
+          class="card-header"
+        >
+          <p
+            class="card-header-title has-text-grey"
+          >
+            
+        Modern
+      
+          </p>
+        </header>
+         
+        <div
+          class="card-content"
+        >
+          <div
+            class="content has-text-centered"
+          >
+            <span
+              class="icon has-text-primary is-large"
+            >
+              <i
+                class="mdi mdi-alert-decagram mdi-48px"
+              />
+            </span>
+          </div>
+        </div>
+         
+        <footer
+          class="card-footer"
+        >
+          <div
+            class="card-footer-item"
+          >
+            <span>
+              
+      Built with
+      
+              <a
+                href="https://vuejs.org/"
+              >
+                
+        Vue.js
+      
+              </a>
+              
+      and
+      
+              <a
+                href="http://bulma.io/"
+              >
+                
+        Bulma
+      
+              </a>
+            </span>
+          </div>
+        </footer>
+      </div>
+    </div>
+     
+    <div
+      class="column"
+    >
+      <div
+        class="card"
+      >
+        <header
+          class="card-header"
+        >
+          <p
+            class="card-header-title has-text-grey"
+          >
+            
+        Lightweight
+      
+          </p>
+        </header>
+         
+        <div
+          class="card-content"
+        >
+          <div
+            class="content has-text-centered"
+          >
+            <span
+              class="icon has-text-primary is-large"
+            >
+              <i
+                class="mdi mdi-arrange-bring-to-front mdi-48px"
+              />
+            </span>
+          </div>
+        </div>
+         
+        <footer
+          class="card-footer"
+        >
+          <div
+            class="card-footer-item"
+          >
+            <span>
+              
+      No other internal dependency
+    
+            </span>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </div>
+</section>
+`;

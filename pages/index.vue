@@ -33,14 +33,13 @@
   </section>
 </template>
 
-<script>
-import Card from '~/components/Card'
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator'
+import Card from '~/components/Card.vue'
 
-export default {
+@Component({
   name: 'HomePage',
-
-  components: {
-    Card
-  }
-}
+  components: { Card }
+})
+export default class IndexPage extends Vue {}
 </script>

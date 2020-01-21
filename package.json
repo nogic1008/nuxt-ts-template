@@ -5,15 +5,22 @@
   "author": "nogic",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate",
+    "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
     "test": "jest"
   },
   "lint-staged": {
-    "*.{js,vue}": "eslint"
+    "*.{js,ts,vue}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,yml,yaml}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
@@ -21,25 +28,29 @@
     }
   },
   "dependencies": {
+    "@nuxt/typescript-runtime": "^0.3.8",
+    "@nuxtjs/dotenv": "^1.4.0",
+    "@nuxtjs/pwa": "^3.0.0-0",
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
-    "@nuxtjs/pwa": "^3.0.0-0",
-    "@nuxtjs/dotenv": "^1.4.0"
+    "nuxt-property-decorator": "^2.5.0"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^1.0.1",
+    "@nuxt/typescript-build": "^0.5.6",
+    "@nuxtjs/eslint-config-typescript": "^1.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^6.1.0",
-    "eslint-plugin-nuxt": ">=0.4.2",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-prettier": "^3.0.1",
-    "prettier": "^1.16.4",
-    "husky": "^2.6.0",
-    "lint-staged": "^8.2.1",
+    "@types/jest": "^24.9.0",
     "@vue/test-utils": "^1.0.0-beta.27",
-    "babel-jest": "^24.1.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "eslint-plugin-prettier": "^3.0.1",
+    "husky": "^2.6.0",
     "jest": "^24.1.0",
+    "jest-serializer-vue": "^2.0.2",
+    "lint-staged": "^8.2.1",
+    "prettier": "^1.16.4",
+    "ts-jest": "^24.3.0",
     "vue-jest": "^4.0.0-0"
   }
 }
