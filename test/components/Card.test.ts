@@ -6,7 +6,7 @@ const localVue = createLocalVue()
 localVue.use(Buefy)
 
 describe('components/Card.vue', () => {
-  let wrapper: Wrapper<Card>
+  let wrapper: Wrapper<Vue>
   const props = {
     title: 'title',
     icon: 'github-circle'
