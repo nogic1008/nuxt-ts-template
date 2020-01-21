@@ -39,23 +39,22 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      items: [
-        {
-          title: 'Home',
-          icon: 'home',
-          to: { name: 'index' }
-        },
-        {
-          title: 'Inspire',
-          icon: 'lightbulb',
-          to: { name: 'inspire' }
-        }
-      ]
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator'
+
+@Component
+export default class DefaultLayout extends Vue {
+  items = [
+    {
+      title: 'Home',
+      icon: 'home',
+      to: { name: 'index' }
+    },
+    {
+      title: 'Inspire',
+      icon: 'lightbulb',
+      to: { name: 'inspire' }
     }
-  }
+  ]
 }
 </script>
