@@ -1,8 +1,10 @@
 import { Configuration } from '@nuxt/types'
 import consola from 'consola'
-import { environments } from '~/plugins/environments'
+import pkg from './package.json'
+import { environments } from './plugins/environments'
 
 // Validate environment variables
+// eslint-disable-next-line no-process-env
 if (!process.env.CI) {
   Object.entries(environments).forEach(([key]) => {
     if (
@@ -24,14 +26,14 @@ const config: Configuration = {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: pkg.name || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: pkg.description || ''
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]

@@ -10,6 +10,7 @@ export type EnvironmentVariables = {
   static: boolean
 }
 
+/* eslint-disable no-process-env */
 export const environments: EnvironmentVariables = {
   NODE_ENV: process.env.NODE_ENV!,
   browser: process.browser!,
@@ -19,6 +20,7 @@ export const environments: EnvironmentVariables = {
   server: process.server!,
   static: process.static!
 }
+/* eslint-enable no-process-env */
 
 declare module 'vue/types/vue' {
   interface Vue {
