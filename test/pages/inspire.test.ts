@@ -6,7 +6,7 @@ const localVue = createLocalVue()
 localVue.use(Buefy)
 
 describe('pages/inspire.vue', () => {
-  let wrapper: Wrapper<Inspire>
+  let wrapper: Wrapper<Vue>
 
   beforeEach(() => {
     wrapper = shallowMount(Inspire, { localVue })
