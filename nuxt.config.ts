@@ -1,4 +1,22 @@
 import { Configuration } from '@nuxt/types'
+import consola from 'consola'
+import { environments } from '~/plugins/environments'
+
+// Validate environment variables
+if (!process.env.CI) {
+  Object.entries(environments).forEach(([key]) => {
+    if (
+      ['browser', 'client', 'mode', 'modern', 'server', 'static'].includes(key)
+    ) {
+      return
+    }
+    const value: unknown = (environments as any)[key]
+    if (value === undefined || value === null) {
+      consola.error(`Missing environment variable: '${key}'`)
+      process.exit(1)
+    }
+  })
+}
 
 const config: Configuration = {
   mode: 'spa',
