@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/Card.vue renders correctly 1`] = `
+<div
+  class="column"
+>
+  <div
+    class="card"
+  >
+    <header
+      class="card-header"
+    >
+      <p
+        class="card-header-title has-text-grey"
+      >
+        
+        title
+      
+      </p>
+    </header>
+     
+    <div
+      class="card-content"
+    >
+      <div
+        class="content has-text-centered"
+      >
+        <span
+          class="icon has-text-primary is-large"
+        >
+          <i
+            class="mdi mdi-github-circle mdi-48px"
+          />
+        </span>
+      </div>
+    </div>
+     
+    <footer
+      class="card-footer"
+    >
+      <div
+        class="card-footer-item"
+      >
+        <span />
+      </div>
+    </footer>
+  </div>
+</div>
+`;
