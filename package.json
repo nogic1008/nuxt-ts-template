@@ -9,11 +9,18 @@
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
     "test": "jest"
   },
   "lint-staged": {
-    "*.{js,vue}": "eslint"
+    "*.{js,ts,vue}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{json,yml,yaml}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "husky": {
     "hooks": {
@@ -29,10 +36,9 @@
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^0.5.6",
-    "@nuxtjs/eslint-config": "^1.0.1",
+    "@nuxtjs/eslint-config-typescript": "^1.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
     "@vue/test-utils": "^1.0.0-beta.27",
-    "babel-eslint": "^10.0.1",
     "babel-jest": "^24.1.0",
     "eslint": "^6.1.0",
     "eslint-config-prettier": "^4.1.0",
