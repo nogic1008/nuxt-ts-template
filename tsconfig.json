@@ -6,6 +6,7 @@
     "lib": ["esnext", "esnext.asynciterable", "dom"],
     "esModuleInterop": true,
     "allowJs": true,
+    "experimentalDecorators": true,
     "sourceMap": true,
     "strict": true,
     "noEmit": true,
