@@ -1,4 +1,7 @@
 import { Plugin } from '@nuxt/types'
+import { config } from 'dotenv'
+
+config()
 
 export type EnvironmentVariables = {
   NODE_ENV: string
@@ -13,15 +16,17 @@ export const environments: EnvironmentVariables = {
 /** Validate environments values. */
 export const validateEnvironments = ():
   | { valid: true }
-  | { valid: false; keys: string[] } => {
-  const keys: string[] = []
-  Object.entries(environments).forEach(([key]) => {
+  | { valid: false; keys: Extract<keyof EnvironmentVariables, string>[] } => {
+  const invalidKeys: string[] = Object.keys(environments).filter((key) => {
     const value: unknown = (environments as any)[key]
-    if (value === undefined || value === null || value === '') {
-      keys.push(key)
-    }
+    return value === undefined || value === null || value === ''
   })
-  return keys.length === 0 ? { valid: true } : { valid: false, keys }
+  return invalidKeys.length === 0
+    ? { valid: true }
+    : {
+        valid: false,
+        keys: invalidKeys as Extract<keyof EnvironmentVariables, string>[]
+      }
 }
 
 declare module 'vue/types/vue' {

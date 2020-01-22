@@ -1,7 +1,10 @@
 /* eslint-disable no-process-env */
 import { Context } from '@nuxt/types'
-import { generateRandomString, nameof } from '@/test/test-utils'
+import { generateRandomString } from '@/test/test-utils'
 import { EnvironmentVariables } from '@/plugins/environments'
+
+// mock 'dotenv' to avoid change process.env
+jest.mock('dotenv')
 
 describe('plugins/environments.ts', () => {
   const OLD_ENV = process.env
@@ -12,7 +15,8 @@ describe('plugins/environments.ts', () => {
 
     // load process.env except used for testing
     process.env = { ...OLD_ENV }
-    delete process.env.NODE_ENV
+    const keys: Extract<keyof EnvironmentVariables, string>[] = ['NODE_ENV']
+    keys.forEach((key) => delete process.env[key])
   })
 
   afterEach(() => {
@@ -48,19 +52,23 @@ describe('plugins/environments.ts', () => {
       // Assert
       expect(returnVal.valid).toBe(true)
     })
-    test('returns { valid: false, keys: [key] } if not set process.env', () => {
-      // Arrange
+    test.each([undefined, null, ''])(
+      'returns { valid: false, keys: [key] } if not set process.env',
+      (env) => {
+        // Arrange
+        process.env.NODE_ENV = env!
 
-      // Act
-      const returnVal = require('@/plugins/environments').validateEnvironments() as {
-        valid: boolean
-        keys: string[]
+        // Act
+        const returnVal = require('@/plugins/environments').validateEnvironments() as {
+          valid: boolean
+          keys: Extract<keyof EnvironmentVariables, string>[]
+        }
+
+        // Assert
+        expect(returnVal.valid).toBe(false)
+        expect(returnVal.keys).toContain<keyof EnvironmentVariables>('NODE_ENV')
       }
-
-      // Assert
-      expect(returnVal.valid).toBe(false)
-      expect(returnVal.keys).toContain(nameof<EnvironmentVariables>('NODE_ENV'))
-    })
+    )
   })
 
   describe('default export', () => {
