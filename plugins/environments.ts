@@ -1,4 +1,7 @@
 import { Plugin } from '@nuxt/types'
+import { config } from 'dotenv'
+
+config()
 
 export type EnvironmentVariables = {
   NODE_ENV: string

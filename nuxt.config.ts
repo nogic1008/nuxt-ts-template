@@ -57,7 +57,7 @@ const config: Configuration = {
    ** Nuxt.js modules
    */
   modules: [
-    // Doc: https://buefy.github.io/#/documentation
+    // Doc: https://buefy.org/documentation/
     'nuxt-buefy',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
@@ -66,7 +66,13 @@ const config: Configuration = {
   /*
    ** Build configuration
    */
-  build: {}
+  build: {
+    extend: (config, _) => {
+      config.node = {
+        fs: 'empty'
+      }
+    }
+  }
 }
 
 export default config

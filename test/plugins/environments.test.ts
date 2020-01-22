@@ -3,6 +3,8 @@ import { Context } from '@nuxt/types'
 import { generateRandomString, nameof } from '@/test/test-utils'
 import { EnvironmentVariables } from '@/plugins/environments'
 
+jest.mock('dotenv')
+
 describe('plugins/environments.ts', () => {
   const OLD_ENV = process.env
 
