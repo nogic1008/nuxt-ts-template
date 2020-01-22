@@ -59,9 +59,7 @@ const config: Configuration = {
   modules: [
     // Doc: https://buefy.org/documentation/
     'nuxt-buefy',
-    '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/pwa'
   ],
   /*
    ** Build configuration
