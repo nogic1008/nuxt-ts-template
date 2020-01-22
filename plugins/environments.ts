@@ -11,9 +11,9 @@ export const environments: EnvironmentVariables = {
 /* eslint-enable no-process-env */
 
 /** Validate environments values. */
-export function validateEnvironments():
+export const validateEnvironments = ():
   | { valid: true }
-  | { valid: false; keys: string[] } {
+  | { valid: false; keys: string[] } => {
   const keys: string[] = []
   Object.entries(environments).forEach(([key]) => {
     const value: unknown = (environments as any)[key]
@@ -30,7 +30,7 @@ declare module 'vue/types/vue' {
   }
 }
 
-const environmentsPlugin: Plugin = (_context, inject) => {
+const environmentsPlugin: Plugin = (_, inject) => {
   inject('environments', environments)
 }
 
