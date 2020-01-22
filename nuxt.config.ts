@@ -1,23 +1,17 @@
 import { Configuration } from '@nuxt/types'
 import consola from 'consola'
 import pkg from './package.json'
-import { environments } from './plugins/environments'
+import { validateEnvironments } from './plugins/environments'
 
-// Validate environment variables
 // eslint-disable-next-line no-process-env
 if (!process.env.CI) {
-  Object.entries(environments).forEach(([key]) => {
-    if (
-      ['browser', 'client', 'mode', 'modern', 'server', 'static'].includes(key)
-    ) {
-      return
-    }
-    const value: unknown = (environments as any)[key]
-    if (value === undefined || value === null) {
-      consola.error(`Missing environment variable: '${key}'`)
-      process.exit(1)
-    }
-  })
+  const validate = validateEnvironments()
+  if (!validate.valid) {
+    consola.error(
+      `Missing environment variable(s): ${validate.keys.join(', ')}`
+    )
+    process.exit(1)
+  }
 }
 
 const config: Configuration = {
