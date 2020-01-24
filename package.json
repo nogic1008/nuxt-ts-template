@@ -13,14 +13,8 @@
     "test": "jest"
   },
   "lint-staged": {
-    "*.{js,ts,vue}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{json,yml,yaml}": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{js,ts,vue}": "eslint --fix",
+    "*.{json,yml,yaml}": "prettier --write"
   },
   "husky": {
     "hooks": {
@@ -49,7 +43,7 @@
     "husky": "^4.2.0",
     "jest": "^24.9.0",
     "jest-serializer-vue": "^2.0.2",
-    "lint-staged": "^10.0.1",
+    "lint-staged": "^10.0.2",
     "prettier": "^1.19.1",
     "ts-jest": "^24.3.0",
     "vue-jest": "^4.0.0-0"
