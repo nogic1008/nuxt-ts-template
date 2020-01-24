@@ -13,14 +13,8 @@
     "test": "jest"
   },
   "lint-staged": {
-    "*.{js,ts,vue}": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.{json,yml,yaml}": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{js,ts,vue}": "eslint --fix",
+    "*.{json,yml,yaml}": "prettier --write"
   },
   "husky": {
     "hooks": {
