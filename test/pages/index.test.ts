@@ -7,9 +7,12 @@ localVue.use(Buefy)
 
 describe('pages/index.vue', () => {
   let wrapper: Wrapper<Vue>
+  const $vxm = {
+    counter: { count: 0 }
+  }
 
   beforeEach(() => {
-    wrapper = shallowMount(Index, { localVue })
+    wrapper = shallowMount(Index, { localVue, mocks: { $vxm } })
   })
 
   test('is a Vue instance', () => {
@@ -17,7 +20,7 @@ describe('pages/index.vue', () => {
   })
 
   test('renders correctly', () => {
-    const wrapper = mount(Index, { localVue })
+    const wrapper = mount(Index, { localVue, mocks: { $vxm } })
     expect(wrapper.element).toMatchSnapshot()
   })
 })

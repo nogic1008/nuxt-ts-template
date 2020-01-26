@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`components/Counter.vue renders correctly 1`] = `
+<div
+  class="column"
+>
+  <div
+    class="card"
+  >
+    <header
+      class="card-header"
+    >
+      <p
+        class="card-header-title has-text-grey"
+      >
+        
+        Store Sample
+      
+      </p>
+    </header>
+     
+    <div
+      class="card-content"
+    >
+      <div
+        class="content has-text-centered"
+      >
+        <span
+          class="icon has-text-primary is-large"
+        >
+          <i
+            class="mdi mdi-counter mdi-48px"
+          />
+        </span>
+      </div>
+    </div>
+     
+    <footer
+      class="card-footer"
+    >
+      <div
+        class="card-footer-item"
+      >
+        <span>
+          <button
+            class="button plus"
+            type="button"
+          >
+            <span
+              class="icon is-small"
+            >
+              <i
+                class="mdi mdi-plus"
+              />
+            </span>
+             
+            <!---->
+             
+            <!---->
+          </button>
+           
+          <span
+            class="subtitle"
+          >
+            0
+          </span>
+           
+          <button
+            class="button minus"
+            type="button"
+          >
+            <span
+              class="icon is-small"
+            >
+              <i
+                class="mdi mdi-minus"
+              />
+            </span>
+             
+            <!---->
+             
+            <!---->
+          </button>
+        </span>
+      </div>
+    </footer>
+  </div>
+</div>
+`;

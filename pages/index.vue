@@ -29,6 +29,8 @@
       <card title="Lightweight" icon="arrange-bring-to-front">
         No other internal dependency
       </card>
+
+      <counter />
     </div>
   </section>
 </template>
@@ -36,10 +38,11 @@
 <script lang="ts">
 import { Vue, Component } from 'vue-property-decorator'
 import Card from '~/components/Card.vue'
+import Counter from '~/components/Counter.vue'
 
 @Component({
   name: 'HomePage',
-  components: { Card }
+  components: { Card, Counter }
 })
 export default class IndexPage extends Vue {}
 </script>
