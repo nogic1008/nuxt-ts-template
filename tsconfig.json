@@ -13,8 +13,7 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./*"],
-      "@/*": ["./*"]
+      "~/*": ["./*"]
     },
     "types": ["@types/jest", "@types/node", "@nuxt/types"]
   },

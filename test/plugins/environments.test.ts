@@ -1,7 +1,7 @@
 /* eslint-disable no-process-env */
 import { Context } from '@nuxt/types'
-import { generateRandomString } from '@/test/test-utils'
-import { EnvironmentVariables } from '@/plugins/environments'
+import { generateRandomString } from '~/test/test-utils'
+import { EnvironmentVariables } from '~/plugins/environments'
 
 // mock 'dotenv' to avoid change process.env
 jest.mock('dotenv')
@@ -31,7 +31,7 @@ describe('plugins/environments.ts', () => {
       process.env.NODE_ENV = randomString
 
       // Act
-      const env = require('@/plugins/environments')
+      const env = require('~/plugins/environments')
         .environments as EnvironmentVariables
 
       // Assert
@@ -45,7 +45,7 @@ describe('plugins/environments.ts', () => {
       process.env.NODE_ENV = generateRandomString(10)
 
       // Act
-      const returnVal = require('@/plugins/environments').validateEnvironments() as {
+      const returnVal = require('~/plugins/environments').validateEnvironments() as {
         valid: boolean
       }
 
@@ -59,7 +59,7 @@ describe('plugins/environments.ts', () => {
         process.env.NODE_ENV = env!
 
         // Act
-        const returnVal = require('@/plugins/environments').validateEnvironments() as {
+        const returnVal = require('~/plugins/environments').validateEnvironments() as {
           valid: boolean
           keys: Extract<keyof EnvironmentVariables, string>[]
         }
@@ -76,7 +76,7 @@ describe('plugins/environments.ts', () => {
       // Arrange
 
       // Act
-      const environmentPlugin = require('@/plugins/environments').default
+      const environmentPlugin = require('~/plugins/environments').default
 
       // Assert
       expect(typeof environmentPlugin).toBe('function')
@@ -90,7 +90,7 @@ describe('plugins/environments.ts', () => {
 
       // Act
       process.env.NODE_ENV = envObject.NODE_ENV
-      require('@/plugins/environments').default({} as Context, inject)
+      require('~/plugins/environments').default({} as Context, inject)
 
       // Assert
       expect(inject.mock.calls.length).toBe(1)
