@@ -43,7 +43,7 @@ const config: Configuration = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: ['~/plugins/environments.ts'],
+  plugins: ['~/plugins/environments.ts', '~/plugins/vuex-module.ts'],
   /*
    ** Nuxt.js dev-modules
    */
