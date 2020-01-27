@@ -39,7 +39,7 @@ jobs:
     - name: Lint
       run: npm run lint
     - name: Build
-      run: npm run build
+      run: npm run generate
     - name: Test
       run: npm test
     - name: Report Code Coverage to codecov
@@ -66,8 +66,7 @@ jobs:
       with:
         name: dist
     - name: Pack Artifact
-      run: |
-        zip -r dist ./dist
+      run: zip -r dist ./dist
     - name: Create Github Release
       id: create_release
       uses: actions/create-release@v1.0.0
@@ -88,3 +87,12 @@ jobs:
         asset_path: ./dist.zip
         asset_name: dist.zip
         asset_content_type: application/zip
+    - name: Deploy to Github Pages
+      env:
+        PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./dist
+        SCRIPT_MODE: true
+      run: |
+        wget https://raw.githubusercontent.com/peaceiris/actions-gh-pages/v2/entrypoint.sh
+        bash ./entrypoint.sh  
