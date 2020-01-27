@@ -1,7 +1,7 @@
 import { Configuration } from '@nuxt/types'
 import consola from 'consola'
 import pkg from './package.json'
-import { validateEnvironments } from './plugins/environments'
+import { environments, validateEnvironments } from './plugins/environments'
 
 // eslint-disable-next-line no-process-env
 if (!process.env.CI) {
@@ -30,7 +30,31 @@ const config: Configuration = {
         content: pkg.description || ''
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        /**
+         * Replace base path with GITHUB_REPOSITORY("user/project") for Github Pages.
+         * See: https://nuxtjs.org/faq/github-pages/
+         */
+        href: environments.GITHUB_REPOSITORY
+          ? environments.GITHUB_REPOSITORY.replace(
+              /^.+\/(.+)/,
+              '/$1/favicon.ico'
+            )
+          : '/favicon.ico'
+      }
+    ]
+  },
+  router: {
+    /**
+     * Replace base path with GITHUB_REPOSITORY("user/project") for Github Pages.
+     * See: https://nuxtjs.org/faq/github-pages/
+     */
+    base: environments.GITHUB_REPOSITORY
+      ? environments.GITHUB_REPOSITORY.replace(/^.+\/(.+)/, '/$1/')
+      : '/'
   },
   /*
    ** Customize the progress-bar color
