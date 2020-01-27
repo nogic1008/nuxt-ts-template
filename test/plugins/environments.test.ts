@@ -8,6 +8,7 @@ jest.mock('dotenv')
 
 describe('plugins/environments.ts', () => {
   const OLD_ENV = process.env
+  const random = (count: number) => generateRandomString(count)
 
   beforeEach(() => {
     // clear cache
@@ -27,22 +28,25 @@ describe('plugins/environments.ts', () => {
   describe('environments', () => {
     test('eqauls process.env value', () => {
       // Arrange
-      const randomString = generateRandomString(10)
-      process.env.NODE_ENV = randomString
+      const nodeEnvString = random(10)
+      const githubRepositoryString = `${random(5)}/${random(5)}`
+      process.env.NODE_ENV = nodeEnvString
+      process.env.GITHUB_REPOSITORY = githubRepositoryString
 
       // Act
       const env = require('~/plugins/environments')
         .environments as EnvironmentVariables
 
       // Assert
-      expect(env.NODE_ENV).toBe(randomString)
+      expect(env.NODE_ENV).toBe(nodeEnvString)
+      expect(env.GITHUB_REPOSITORY).toBe(githubRepositoryString)
     })
   })
 
   describe('validateEnvironments()', () => {
     test('returns { valid: true } if be set process.env', () => {
       // Arrange
-      process.env.NODE_ENV = generateRandomString(10)
+      process.env.NODE_ENV = random(10)
 
       // Act
       const returnVal = require('~/plugins/environments').validateEnvironments() as {
@@ -52,7 +56,7 @@ describe('plugins/environments.ts', () => {
       // Assert
       expect(returnVal.valid).toBe(true)
     })
-    test.each([undefined, null, ''])(
+    test.each([undefined, null])(
       'returns { valid: false, keys: [key] } if not set process.env',
       (env) => {
         // Arrange
@@ -84,12 +88,14 @@ describe('plugins/environments.ts', () => {
     test('calls inject()', () => {
       // Arrange
       const envObject: EnvironmentVariables = {
-        NODE_ENV: generateRandomString(10)
+        NODE_ENV: random(10),
+        GITHUB_REPOSITORY: `${random(5)}/${random(5)}`
       }
       const inject = jest.fn()
 
       // Act
       process.env.NODE_ENV = envObject.NODE_ENV
+      process.env.GITHUB_REPOSITORY = envObject.GITHUB_REPOSITORY
       require('~/plugins/environments').default({} as Context, inject)
 
       // Assert
