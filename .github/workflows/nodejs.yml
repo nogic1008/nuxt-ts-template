@@ -39,9 +39,7 @@ jobs:
     - name: Lint
       run: npm run lint
     - name: Build
-      run: |
-        BASE_PATH=${GITHUB_REPOSITORY##*/}
-        npm run generate
+      run: BASE_PATH=${GITHUB_REPOSITORY##*/} npm run generate
     - name: Test
       run: npm test
     - name: Report Code Coverage to codecov
@@ -95,6 +93,7 @@ jobs:
         PUBLISH_BRANCH: gh-pages
         PUBLISH_DIR: ./dist
         SCRIPT_MODE: true
+        INPUT_COMMITMESSAGE: "ci: auto deployment from"
       run: |
         wget https://raw.githubusercontent.com/peaceiris/actions-gh-pages/v2/entrypoint.sh
         bash ./entrypoint.sh
