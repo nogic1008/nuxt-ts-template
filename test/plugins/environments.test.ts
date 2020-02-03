@@ -16,7 +16,10 @@ describe('plugins/environments.ts', () => {
 
     // load process.env except used for testing
     process.env = { ...OLD_ENV }
-    const keys: Extract<keyof EnvironmentVariables, string>[] = ['NODE_ENV']
+    const keys: Extract<keyof EnvironmentVariables, string>[] = [
+      'NODE_ENV',
+      'BASE_PATH'
+    ]
     keys.forEach((key) => delete process.env[key])
   })
 
@@ -29,9 +32,9 @@ describe('plugins/environments.ts', () => {
     test('eqauls process.env value', () => {
       // Arrange
       const nodeEnvString = random(10)
-      const githubRepositoryString = `${random(5)}/${random(5)}`
+      const basePath = `/${random(5)}/`
       process.env.NODE_ENV = nodeEnvString
-      process.env.GITHUB_REPOSITORY = githubRepositoryString
+      process.env.BASE_PATH = basePath
 
       // Act
       const env = require('~/plugins/environments')
@@ -39,7 +42,19 @@ describe('plugins/environments.ts', () => {
 
       // Assert
       expect(env.NODE_ENV).toBe(nodeEnvString)
-      expect(env.GITHUB_REPOSITORY).toBe(githubRepositoryString)
+      expect(env.BASE_PATH).toBe(basePath)
+    })
+    test('BASE_PATH is "/" default', () => {
+      // Arrange
+      const nodeEnvString = random(10)
+      process.env.NODE_ENV = nodeEnvString
+
+      // Act
+      const env = require('~/plugins/environments')
+        .environments as EnvironmentVariables
+
+      // Assert
+      expect(env.BASE_PATH).toBe('/')
     })
   })
 
@@ -89,19 +104,19 @@ describe('plugins/environments.ts', () => {
       // Arrange
       const envObject: EnvironmentVariables = {
         NODE_ENV: random(10),
-        GITHUB_REPOSITORY: `${random(5)}/${random(5)}`
+        BASE_PATH: `/${random(5)}/`
       }
       const inject = jest.fn()
 
       // Act
       process.env.NODE_ENV = envObject.NODE_ENV
-      process.env.GITHUB_REPOSITORY = envObject.GITHUB_REPOSITORY
+      process.env.BASE_PATH = envObject.BASE_PATH
       require('~/plugins/environments').default({} as Context, inject)
 
       // Assert
       expect(inject.mock.calls.length).toBe(1)
-      expect(inject.mock.calls[0]).toContain('environments')
-      expect(inject.mock.calls[0]).toContainEqual(envObject)
+      expect(inject.mock.calls[0][0]).toBe('environments')
+      expect(inject.mock.calls[0][1]).toStrictEqual(envObject)
     })
   })
 })
