@@ -5,20 +5,19 @@ config()
 
 export type EnvironmentVariables = {
   NODE_ENV: string
-  /** The owner and repository name. (optional)
-   * @description This value is set automatically by the GitHub Actions.
-   * DO NOT set manually.
-   * @default ''
-   * @example 'octocat/Hello-World'
-   * @see https://help.github.com/en/actions/automating-your-workflow-with-github-actions/using-environment-variables
+  /** The base URL of the app.
+   * @description if the entire single page application is served under /app/,
+   * then base should use the value '/app/'
+   * @default '/'
+   * @see https://nuxtjs.org/api/configuration-router/#base
    */
-  GITHUB_REPOSITORY: string
+  BASE_PATH: string
 }
 
 /* eslint-disable no-process-env */
 export const environments: EnvironmentVariables = {
   NODE_ENV: process.env.NODE_ENV!,
-  GITHUB_REPOSITORY: process.env.GITHUB_REPOSITORY || ''
+  BASE_PATH: process.env.BASE_PATH || '/'
 }
 /* eslint-enable no-process-env */
 

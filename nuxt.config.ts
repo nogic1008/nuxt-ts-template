@@ -34,27 +34,12 @@ const config: Configuration = {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        /**
-         * Replace base path with GITHUB_REPOSITORY("user/project") for Github Pages.
-         * See: https://nuxtjs.org/faq/github-pages/
-         */
-        href: environments.GITHUB_REPOSITORY
-          ? environments.GITHUB_REPOSITORY.replace(
-              /^.+\/(.+)/,
-              '/$1/favicon.ico'
-            )
-          : '/favicon.ico'
+        href: `${environments.BASE_PATH}favicon.ico`
       }
     ]
   },
   router: {
-    /**
-     * Replace base path with GITHUB_REPOSITORY("user/project") for Github Pages.
-     * See: https://nuxtjs.org/faq/github-pages/
-     */
-    base: environments.GITHUB_REPOSITORY
-      ? environments.GITHUB_REPOSITORY.replace(/^.+\/(.+)/, '/$1/')
-      : '/'
+    base: environments.BASE_PATH
   },
   /*
    ** Customize the progress-bar color
