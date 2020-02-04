@@ -1,14 +1,14 @@
 import { Configuration } from '@nuxt/types'
 import consola from 'consola'
 import pkg from './package.json'
-import { environments, validateEnvironments } from './plugins/environments'
+import { environments } from './plugins/environments'
 
 // eslint-disable-next-line no-process-env
 if (!process.env.CI) {
-  const validate = validateEnvironments()
-  if (!validate.valid) {
+  const validateResult = environments.validate()
+  if (!validateResult.valid) {
     consola.error(
-      `Missing environment variable(s): ${validate.keys.join(', ')}`
+      `Missing environment variable(s): ${validateResult.keys.join(', ')}`
     )
     process.exit(1)
   }
@@ -71,7 +71,7 @@ const config: Configuration = {
     '@nuxtjs/pwa'
   ],
   /** Set environments object for use by client-side code. */
-  env: { ...environments },
+  env: { ...environments, validate: undefined! },
   /*
    ** Build configuration
    */
