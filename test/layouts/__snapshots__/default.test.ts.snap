@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`layouts/default.vue renders correctly 1`] = `
+<div>
+  <nav
+    aria-label="main navigation"
+    class="navbar header has-shadow is-primary"
+    role="navigation"
+  >
+    <div
+      class="navbar-brand"
+    >
+      <a
+        class="navbar-item"
+        href="/"
+      >
+        <img
+          alt="Buefy"
+          height="28"
+          src="~assets/buefy.png"
+        />
+      </a>
+       
+      <div
+        class="navbar-burger"
+      >
+        <span />
+         
+        <span />
+         
+        <span />
+      </div>
+    </div>
+  </nav>
+   
+  <section
+    class="main-content columns"
+  >
+    <aside
+      class="column is-2 section"
+    >
+      <p
+        class="menu-label is-hidden-touch"
+      >
+        
+        General
+      
+      </p>
+       
+      <ul
+        class="menu-list"
+      >
+        <li>
+          <a>
+            <span
+              class="icon"
+            >
+              <i
+                class="mdi mdi-home mdi-24px"
+              />
+            </span>
+             Home
+          
+          </a>
+        </li>
+        <li>
+          <a>
+            <span
+              class="icon"
+            >
+              <i
+                class="mdi mdi-lightbulb mdi-24px"
+              />
+            </span>
+             Inspire
+          
+          </a>
+        </li>
+        <li>
+          <a>
+            <span
+              class="icon"
+            >
+              <i
+                class="mdi mdi-rocket mdi-24px"
+              />
+            </span>
+             Environment
+          
+          </a>
+        </li>
+      </ul>
+    </aside>
+     
+    <div
+      class="container column is-10"
+    >
+      <nuxt-stub />
+    </div>
+  </section>
+</div>
+`;
