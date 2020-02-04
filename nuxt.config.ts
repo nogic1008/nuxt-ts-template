@@ -70,6 +70,8 @@ const config: Configuration = {
     'nuxt-buefy',
     '@nuxtjs/pwa'
   ],
+  /** Set environments object for use by client-side code. */
+  env: { ...environments },
   /*
    ** Build configuration
    */
