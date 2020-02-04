@@ -56,38 +56,39 @@ describe('plugins/environments.ts', () => {
       // Assert
       expect(env.BASE_PATH).toBe('/')
     })
-  })
-
-  describe('validateEnvironments()', () => {
-    test('returns { valid: true } if be set process.env', () => {
-      // Arrange
-      process.env.NODE_ENV = random(10)
-
-      // Act
-      const returnVal = require('~/plugins/environments').validateEnvironments() as {
-        valid: boolean
-      }
-
-      // Assert
-      expect(returnVal.valid).toBe(true)
-    })
-    test.each([undefined, null])(
-      'returns { valid: false, keys: [key] } if not set process.env',
-      (env) => {
+    describe('validate()', () => {
+      test('returns { valid: true } if be set process.env', () => {
         // Arrange
-        process.env.NODE_ENV = env!
+        process.env.NODE_ENV = random(10)
 
         // Act
-        const returnVal = require('~/plugins/environments').validateEnvironments() as {
+        const returnVal = require('~/plugins/environments').environments.validate() as {
           valid: boolean
-          keys: Extract<keyof EnvironmentVariables, string>[]
         }
 
         // Assert
-        expect(returnVal.valid).toBe(false)
-        expect(returnVal.keys).toContain<keyof EnvironmentVariables>('NODE_ENV')
-      }
-    )
+        expect(returnVal.valid).toBe(true)
+      })
+      test.each([undefined, null])(
+        'returns { valid: false, keys: [key] } if not set process.env',
+        (env) => {
+          // Arrange
+          process.env.NODE_ENV = env!
+
+          // Act
+          const returnVal = require('~/plugins/environments').environments.validate() as {
+            valid: boolean
+            keys: Extract<keyof EnvironmentVariables, string>[]
+          }
+
+          // Assert
+          expect(returnVal.valid).toBe(false)
+          expect(returnVal.keys).toContain<keyof EnvironmentVariables>(
+            'NODE_ENV'
+          )
+        }
+      )
+    })
   })
 
   describe('default export', () => {

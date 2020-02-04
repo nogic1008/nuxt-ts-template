@@ -15,27 +15,29 @@ export type EnvironmentVariables = {
 }
 
 /* eslint-disable no-process-env */
-export const environments: EnvironmentVariables = {
+export const environments: EnvironmentVariables & {
+  validate: () =>
+    | { valid: true }
+    | { valid: false; keys: Extract<keyof EnvironmentVariables, string>[] }
+} = {
   NODE_ENV: process.env.NODE_ENV!,
-  BASE_PATH: process.env.BASE_PATH || '/'
+  BASE_PATH: process.env.BASE_PATH || '/',
+  /** Validate environments values. */
+  validate() {
+    const invalidKeys: string[] = Object.keys(this).filter((key) => {
+      if (key === 'validate') return false
+      const value: unknown = (this as any)[key]
+      return value === undefined || value === null
+    })
+    return invalidKeys.length === 0
+      ? { valid: true }
+      : {
+          valid: false,
+          keys: invalidKeys as Extract<keyof EnvironmentVariables, string>[]
+        }
+  }
 }
 /* eslint-enable no-process-env */
-
-/** Validate environments values. */
-export const validateEnvironments = ():
-  | { valid: true }
-  | { valid: false; keys: Extract<keyof EnvironmentVariables, string>[] } => {
-  const invalidKeys: string[] = Object.keys(environments).filter((key) => {
-    const value: unknown = (environments as any)[key]
-    return value === undefined || value === null
-  })
-  return invalidKeys.length === 0
-    ? { valid: true }
-    : {
-        valid: false,
-        keys: invalidKeys as Extract<keyof EnvironmentVariables, string>[]
-      }
-}
 
 declare module 'vue/types/vue' {
   interface Vue {
@@ -44,7 +46,9 @@ declare module 'vue/types/vue' {
 }
 
 const environmentsPlugin: Plugin = (_, inject) => {
-  inject('environments', environments)
+  const env = { ...environments }
+  delete env.validate
+  inject('environments', env)
 }
 
 export default environmentsPlugin
