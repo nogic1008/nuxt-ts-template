@@ -1,5 +1,6 @@
 import { Configuration } from '@nuxt/types'
 import consola from 'consola'
+
 import pkg from './package.json'
 import { environments } from './plugins/environments'
 

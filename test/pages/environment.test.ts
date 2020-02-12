@@ -1,4 +1,5 @@
-import { shallowMount, createLocalVue, Wrapper, mount } from '@vue/test-utils'
+import { createLocalVue, mount, shallowMount, Wrapper } from '@vue/test-utils'
+
 import Environment from '~/pages/environment.vue'
 import { EnvironmentVariables } from '~/plugins/environments'
 

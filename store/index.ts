@@ -1,4 +1,5 @@
 import Vuex from 'vuex'
+
 import { Counter, CounterStore } from '~/store/counter'
 
 export const store = new Vuex.Store({

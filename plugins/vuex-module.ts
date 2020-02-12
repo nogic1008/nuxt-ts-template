@@ -1,4 +1,5 @@
 import { Plugin } from '@nuxt/types'
+
 import { VuexTypeModule, vxm } from '~/store'
 
 declare module 'vue/types/vue' {
