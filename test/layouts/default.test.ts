@@ -1,11 +1,12 @@
 import {
   createLocalVue,
   mount,
-  shallowMount,
   RouterLinkStub,
+  shallowMount,
   Wrapper
 } from '@vue/test-utils'
 import Buefy from 'buefy'
+
 import DefaultLayout from '~/layouts/default.vue'
 
 const localVue = createLocalVue()

@@ -1,3 +1,4 @@
+/** @type {import('@jest/types/build/Config').InitialOptions} */
 module.exports = {
   moduleNameMapper: {
     '^~/(.*)$': '<rootDir>/$1',

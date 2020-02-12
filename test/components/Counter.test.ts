@@ -1,7 +1,8 @@
-import { shallowMount, createLocalVue, Wrapper, mount } from '@vue/test-utils'
+import { createLocalVue, mount, shallowMount, Wrapper } from '@vue/test-utils'
 import Buefy from 'buefy'
-import { VuexTypeModule } from '~/store'
+
 import CounterComponent from '~/components/Counter.vue'
+import { VuexTypeModule } from '~/store'
 import { CounterStore } from '~/store/counter'
 
 const localVue = createLocalVue()

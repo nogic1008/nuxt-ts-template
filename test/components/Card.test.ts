@@ -1,5 +1,6 @@
-import { shallowMount, createLocalVue, Wrapper, mount } from '@vue/test-utils'
+import { createLocalVue, mount, shallowMount, Wrapper } from '@vue/test-utils'
 import Buefy from 'buefy'
+
 import Card from '~/components/Card.vue'
 
 const localVue = createLocalVue()

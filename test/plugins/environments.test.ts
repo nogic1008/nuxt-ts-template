@@ -1,7 +1,8 @@
 /* eslint-disable no-process-env */
 import { Context } from '@nuxt/types'
-import { generateRandomString } from '~/test/test-utils'
+
 import { EnvironmentVariables } from '~/plugins/environments'
+import { generateRandomString } from '~/test/test-utils'
 
 // mock 'dotenv' to avoid change process.env
 jest.mock('dotenv')

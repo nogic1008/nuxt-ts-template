@@ -36,7 +36,8 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Component, Vue } from 'vue-property-decorator'
+
 import Card from '~/components/Card.vue'
 import Counter from '~/components/Counter.vue'
 
