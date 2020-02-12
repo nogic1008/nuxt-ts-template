@@ -9,12 +9,15 @@
     "build": "nuxt-ts build",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
-    "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
+    "lint": "run-p lint:*",
+    "lint:eslint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore .",
+    "lint:prettier": "prettier --ignore-path .gitignore -l \"**/*.{json,yaml,yml}\"",
+    "lint:tsc": "tsc --noEmit",
     "test": "jest"
   },
   "lint-staged": {
     "*.{js,ts,vue}": "eslint --fix",
-    "*.{json,yml,yaml}": "prettier --write"
+    "*.{json,yaml,yml}": "prettier --write"
   },
   "husky": {
     "hooks": {
