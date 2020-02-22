@@ -54,7 +54,7 @@ exports[`components/Counter.vue renders correctly 1`] = `
               />
             </span>
              
-            <!---->
+            <span />
              
             <!---->
           </button>
@@ -77,7 +77,7 @@ exports[`components/Counter.vue renders correctly 1`] = `
               />
             </span>
              
-            <!---->
+            <span />
              
             <!---->
           </button>
