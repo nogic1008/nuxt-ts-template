@@ -21,14 +21,6 @@ exports[`pages/environment.vue renders correctly 1`] = `
       : foo
     
     </li>
-    <li>
-      <b>
-        NODE_ENV
-      </b>
-      
-      : bar
-    
-    </li>
   </ul>
 </section>
 `;

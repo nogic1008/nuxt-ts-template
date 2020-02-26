@@ -3,8 +3,8 @@ import { config } from 'dotenv'
 
 config()
 
+/** Environment values used on client-side and server-side. */
 export type EnvironmentVariables = {
-  NODE_ENV: string
   /** The base URL of the app.
    * @description if the entire single page application is served under /app/,
    * then base should use the value '/app/'
@@ -14,18 +14,26 @@ export type EnvironmentVariables = {
   BASE_PATH: string
 }
 
-/* eslint-disable no-process-env */
-export const environments: EnvironmentVariables & {
+/** Environment values used on only server-side. */
+export type ServerEnvironmentVariables = {
+  NODE_ENV: string
+  /** Validate environments values. */
   validate: () =>
     | { valid: true }
-    | { valid: false; keys: Extract<keyof EnvironmentVariables, string>[] }
-} = {
+    | {
+        valid: false
+        keys: Extract<keyof AllEnvironmentVariables, string>[]
+      }
+}
+
+type AllEnvironmentVariables = EnvironmentVariables & ServerEnvironmentVariables
+
+/* eslint-disable no-process-env */
+export const environments: AllEnvironmentVariables = {
   NODE_ENV: process.env.NODE_ENV!,
   BASE_PATH: process.env.BASE_PATH || '/',
-  /** Validate environments values. */
   validate() {
     const invalidKeys: string[] = Object.keys(this).filter((key) => {
-      if (key === 'validate') return false
       const value: unknown = (this as any)[key]
       return value === undefined || value === null
     })
@@ -33,7 +41,7 @@ export const environments: EnvironmentVariables & {
       ? { valid: true }
       : {
           valid: false,
-          keys: invalidKeys as Extract<keyof EnvironmentVariables, string>[]
+          keys: invalidKeys as Extract<keyof AllEnvironmentVariables, string>[]
         }
   }
 }
@@ -45,9 +53,19 @@ declare module 'vue/types/vue' {
   }
 }
 
+/** Create environment values used on only client-side. */
+export const createClientEnvironments = (): EnvironmentVariables => {
+  const clientEnvironments = { ...environments }
+  const keys: Extract<keyof ServerEnvironmentVariables, string>[] = [
+    'NODE_ENV',
+    'validate'
+  ]
+  keys.forEach((key) => delete clientEnvironments[key])
+  return clientEnvironments
+}
+
 const environmentsPlugin: Plugin = (_, inject) => {
-  const env = { ...environments }
-  delete env.validate
+  const env = createClientEnvironments()
   inject('environments', env)
 }
 
