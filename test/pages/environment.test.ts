@@ -8,8 +8,7 @@ const localVue = createLocalVue()
 describe('pages/environment.vue', () => {
   let wrapper: Wrapper<Vue>
   const $environments: EnvironmentVariables = {
-    BASE_PATH: 'foo',
-    NODE_ENV: 'bar'
+    BASE_PATH: 'foo'
   }
 
   beforeEach(() => {

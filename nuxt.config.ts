@@ -2,7 +2,7 @@ import { Configuration } from '@nuxt/types'
 import consola from 'consola'
 
 import pkg from './package.json'
-import { environments } from './plugins/environments'
+import { createClientEnvironments, environments } from './plugins/environments'
 
 // eslint-disable-next-line no-process-env
 if (!process.env.CI) {
@@ -72,7 +72,7 @@ const config: Configuration = {
     '@nuxtjs/pwa'
   ],
   /** Set environments object for use by client-side code. */
-  env: { ...environments, validate: undefined! },
+  env: { ...createClientEnvironments() },
   /*
    ** Build configuration
    */
