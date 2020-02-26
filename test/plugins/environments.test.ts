@@ -5,7 +5,7 @@ import {
   EnvironmentVariables,
   ServerEnvironmentVariables
 } from '~/plugins/environments'
-import { generateRandomString } from '~/test/test-utils'
+import { generateRandomString } from '~/utils/test-utils'
 
 type AllEnvironmentVariables = EnvironmentVariables & ServerEnvironmentVariables
 // mock 'dotenv' to avoid change process.env
