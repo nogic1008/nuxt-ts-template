@@ -39,7 +39,9 @@ jobs:
       - name: Lint
         run: npm run lint
       - name: Build
-        run: BASE_PATH=/${GITHUB_REPOSITORY##*/} npm run generate
+        run: |
+          BASE_PATH=/${GITHUB_REPOSITORY##*/} npm run generate
+          rm dist/README.md
       - name: Test
         run: npm test
       - name: Report Code Coverage to codecov
