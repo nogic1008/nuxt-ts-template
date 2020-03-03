@@ -67,13 +67,9 @@ jobs:
         uses: actions/download-artifact@v1.0.0
         with:
           name: dist
-      - name: Deploy to Github Pages
-        env:
-          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./dist
-          SCRIPT_MODE: true
-          INPUT_COMMITMESSAGE: 'ci: auto deployment from'
-        run: |
-          wget https://raw.githubusercontent.com/peaceiris/actions-gh-pages/v2/entrypoint.sh
-          bash ./entrypoint.sh
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          commit_message: 'ci: auto deployment from'
