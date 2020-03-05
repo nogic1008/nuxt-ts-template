@@ -16,9 +16,9 @@
 - [Package Description](#package-description)
 - [License](#license)
 - [Services](#services)
-  - [dependabot](#dependabot)
-  - [codecov](#codecov)
-  - [codefactor](#codefactor)
+  - [Dependabot](#dependabot)
+  - [Codecov](#codecov)
+  - [CodeFactor](#codefactor)
 - [GitHub Actions](#github-actions)
 
 ## README badges
@@ -87,7 +87,24 @@ Or replace LICENSE file and [package.json#L7](./package.json#L7) if you want to 
 
 #### Disable Dependabot
 
+1. Delete `/.dependabot` folder and files.
+1. Remove Dependabot badge in [README](./README.md#L7).
+    ```diff
+    - 7: [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=nogic1008/nuxt-ts-template)](https://dependabot.com)
+    ```
+
 #### Enable Dependabot
+
+1. Edit [.dependabot/config.yml](./.dependabot/config.yml) according to your strategy.
+    - **Be sure to change the `default_reviewers` section.** If you leave it as is, review requests will come to me.
+    - [Click here](https://dependabot.com/docs/config-file/) for configuration file documentation.
+1. Sign up from [Dependabot web page](https://dependabot.com/).
+1. Install [Dependabot Preview](https://github.com/marketplace/dependabot-preview) GitHub App.
+1. Change Dependabot badge URL in [README](./README.md#L7).
+    ```diff
+    - 7: [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=nogic1008/nuxt-ts-template)](https://dependabot.com)
+    + 7: [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=owner/repo)](https://dependabot.com)
+    ```
 
 ### Codecov
 
@@ -95,7 +112,30 @@ Or replace LICENSE file and [package.json#L7](./package.json#L7) if you want to 
 
 #### Disable Codecov
 
+1. Remove "Report Code Coverage to codecov" action in [Node CI workflow](./.github/workflows/nodejs.yml#L47-50).
+    ```diff
+    -47:      - name: Report Code Coverage to codecov
+    -48:        uses: codecov/codecov-action@v1.0.5
+    -49:        with:
+    -50:          token: ${{ secrets.CODECOV_TOKEN }}
+    ```
+1. Remove Codecov badge in [README](./README.md#L5).
+    ```diff
+    - 5: [![codecov](https://codecov.io/gh/nogic1008/nuxt-ts-template/branch/master/graph/badge.svg)](https://codecov.io/gh/nogic1008/nuxt-ts-template)
+    ```
+
 #### Enable Codecov
+
+1. Sign up from [Codecov web page](https://codecov.io/).
+1. Add your repository in Codecov web console.
+1. Get `CODECOV_TOKEN` from web console.
+1. Create `CODECOV_TOKEN` [Secret](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) to your GitHub Repository.
+1. Install [Codecov](https://github.com/marketplace/codecov) GitHub App.
+1. Change Codecov badge URL in [README](./README.md#L5).
+    ```diff
+    - 5: [![codecov](https://codecov.io/gh/nogic1008/nuxt-ts-template/branch/master/graph/badge.svg)](https://codecov.io/gh/nogic1008/nuxt-ts-template)
+    + 5: [![codecov](https://codecov.io/gh/owner/repo/branch/master/graph/badge.svg)](https://codecov.io/gh/owner/repo)
+    ```
 
 ### CodeFactor
 
@@ -103,6 +143,32 @@ Or replace LICENSE file and [package.json#L7](./package.json#L7) if you want to 
 
 #### Disable CodeFactor
 
+1. Remove CodeFactor badge in [README](./README.md#L6).
+    ```diff
+    - 6: [![CodeFactor](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template/badge)](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template)
+    ```
+
 #### Enable CodeFactor
 
+1. Sign up from [CodeFactor web page](https://www.codefactor.io/).
+1. Add your repository in CodeFactor web console.
+1. Install [CodeFactor](https://github.com/marketplace/codefactor) GitHub App.
+1. Change Codecov badge URL in [README](./README.md#L6).
+    ```diff
+    - 6: [![CodeFactor](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template/badge)](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template)
+    + 6: [![CodeFactor](https://www.codefactor.io/repository/github/owner/repo/badge)](https://www.codefactor.io/repository/github/owner/repo)
+    ```
+
 ## GitHub Actions
+
+This repository uses GitHub Actions for unit test and deployment.
+The following job is executed when you commit to `master` or send pull request.
+- Lint (ESLint, Prettier)
+- Build (`nuxt generate`)
+- Unit Test (Jest)
+- Report coverage to Codecov
+
+In addition, deploy job is execuded when tag is pushed.
+- Deploy to GitHub Pages
+
+If it does not fit your strategy, change or remove [Node CI workflow](./.github/workflows/nodejs.yml).
