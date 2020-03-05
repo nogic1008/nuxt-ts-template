@@ -3,7 +3,7 @@ import Buefy from 'buefy'
 
 import CounterComponent from '~/components/Counter.vue'
 import { vxm } from '~/store'
-import { CounterStore } from '~/store/counter'
+import CounterStore from '~/store/counter'
 
 const localVue = createLocalVue()
 localVue.use(Buefy)

@@ -6,7 +6,7 @@ const VuexModule = createModule({
   target: 'nuxt'
 })
 
-export class CounterStore extends VuexModule {
+export default class CounterStore extends VuexModule {
   count = 0
 
   @mutation increment() {
