@@ -1,10 +1,10 @@
 import { Plugin } from '@nuxt/types'
 
-import { VuexTypeModule, vxm } from '~/store'
+import { vxm } from '~/store'
 
 declare module 'vue/types/vue' {
   interface Vue {
-    $vxm: VuexTypeModule
+    $vxm: typeof vxm
   }
 }
 

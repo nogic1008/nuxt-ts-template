@@ -1,18 +1,14 @@
 import Vuex from 'vuex'
+import { createProxy, extractVuexModule } from 'vuex-class-component'
 
-import { Counter, CounterStore } from '~/store/counter'
+import { CounterStore } from '~/store/counter'
 
 export const store = new Vuex.Store({
   modules: {
-    counter: CounterStore.ExtractVuexModule(CounterStore)
-  },
-  strict: false
+    ...extractVuexModule(CounterStore)
+  }
 })
 
-export interface VuexTypeModule {
-  counter: Counter
-}
-
-export const vxm: VuexTypeModule = {
-  counter: CounterStore.CreateProxy(store, CounterStore)
+export const vxm = {
+  counter: createProxy(store, CounterStore)
 }

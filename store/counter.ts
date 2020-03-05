@@ -1,13 +1,12 @@
-import { Module, mutation, VuexModule } from 'vuex-class-component'
+import { createModule, mutation } from 'vuex-class-component'
 
-export interface Counter {
-  count: number
-  increment(): void
-  decrement(): void
-}
+const VuexModule = createModule({
+  namespaced: 'counter',
+  strict: false,
+  target: 'nuxt'
+})
 
-@Module({ namespacedPath: 'counter', target: 'nuxt' })
-export class CounterStore extends VuexModule implements Counter {
+export class CounterStore extends VuexModule {
   count = 0
 
   @mutation increment() {

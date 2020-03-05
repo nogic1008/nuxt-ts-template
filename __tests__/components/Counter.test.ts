@@ -2,7 +2,7 @@ import { createLocalVue, mount, shallowMount, Wrapper } from '@vue/test-utils'
 import Buefy from 'buefy'
 
 import CounterComponent from '~/components/Counter.vue'
-import { VuexTypeModule } from '~/store'
+import { vxm } from '~/store'
 import { CounterStore } from '~/store/counter'
 
 const localVue = createLocalVue()
@@ -10,7 +10,7 @@ localVue.use(Buefy)
 
 describe('components/Counter.vue', () => {
   let wrapper: Wrapper<CounterComponent>
-  let $vxm: VuexTypeModule
+  let $vxm: Record<keyof typeof vxm, object>
 
   beforeEach(() => {
     $vxm = {
