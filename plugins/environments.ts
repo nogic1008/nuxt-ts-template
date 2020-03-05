@@ -22,7 +22,7 @@ export type ServerEnvironmentVariables = {
     | { valid: true }
     | {
         valid: false
-        keys: Extract<keyof AllEnvironmentVariables, string>[]
+        keys: (keyof AllEnvironmentVariables)[]
       }
 }
 
@@ -33,35 +33,34 @@ export const environments: AllEnvironmentVariables = {
   NODE_ENV: process.env.NODE_ENV!,
   BASE_PATH: process.env.BASE_PATH || '/',
   validate() {
-    const invalidKeys: string[] = Object.keys(this).filter((key) => {
-      const value: unknown = (this as any)[key]
-      return value === undefined || value === null
-    })
+    const invalidKeys: string[] = Object.entries(this)
+      .filter((v) => v[1] === undefined || v[1] === null)
+      .map((v) => v[0])
     return invalidKeys.length === 0
       ? { valid: true }
       : {
           valid: false,
-          keys: invalidKeys as Extract<keyof AllEnvironmentVariables, string>[]
+          keys: invalidKeys as (keyof AllEnvironmentVariables)[]
         }
   }
 }
 /* eslint-enable no-process-env */
 
+/** Create environment values used on only client-side. */
+export const createClientEnvironments = (): EnvironmentVariables => {
+  const clientEnvironments = { ...environments }
+  const keys = new Set<keyof ServerEnvironmentVariables>([
+    'NODE_ENV',
+    'validate'
+  ])
+  keys.forEach((key) => delete clientEnvironments[key])
+  return clientEnvironments
+}
+
 declare module 'vue/types/vue' {
   interface Vue {
     $environments: EnvironmentVariables
   }
-}
-
-/** Create environment values used on only client-side. */
-export const createClientEnvironments = (): EnvironmentVariables => {
-  const clientEnvironments = { ...environments }
-  const keys: Extract<keyof ServerEnvironmentVariables, string>[] = [
-    'NODE_ENV',
-    'validate'
-  ]
-  keys.forEach((key) => delete clientEnvironments[key])
-  return clientEnvironments
 }
 
 const environmentsPlugin: Plugin = (_, inject) => {
