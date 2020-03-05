@@ -33,10 +33,9 @@ export const environments: AllEnvironmentVariables = {
   NODE_ENV: process.env.NODE_ENV!,
   BASE_PATH: process.env.BASE_PATH || '/',
   validate() {
-    const invalidKeys: string[] = Object.keys(this).filter((key) => {
-      const value: unknown = (this as any)[key]
-      return value === undefined || value === null
-    })
+    const invalidKeys: string[] = Object.entries(this)
+      .filter((v) => v[1] === undefined || v[1] === null)
+      .map((v) => v[0])
     return invalidKeys.length === 0
       ? { valid: true }
       : {
