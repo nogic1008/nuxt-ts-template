@@ -21,10 +21,10 @@ describe('plugins/environments.ts', () => {
 
     // load process.env except used for testing
     process.env = { ...OLD_ENV }
-    const keys: Extract<keyof AllEnvironmentVariables, string>[] = [
+    const keys = new Set<keyof AllEnvironmentVariables>([
       'NODE_ENV',
       'BASE_PATH'
-    ]
+    ])
     keys.forEach((key) => delete process.env[key])
   })
 
