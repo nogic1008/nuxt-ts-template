@@ -14,7 +14,7 @@ import Card from '~/components/Card.vue'
 @Component({
   components: { Card }
 })
-export default class CardComponent extends Vue {
+export default class CounterComponent extends Vue {
   get count() {
     return this.$vxm.counter.count
   }
