@@ -1,4 +1,4 @@
-import { CounterStore } from '~/store/counter'
+import CounterStore from '~/store/counter'
 
 describe('store/counter.ts', () => {
   let store: CounterStore
