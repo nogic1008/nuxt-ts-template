@@ -41,10 +41,17 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
+import { RawLocation } from 'vue-router'
+
+type MenuItem = {
+  title: string
+  icon: string
+  to: RawLocation
+}
 
 @Component
 export default class DefaultLayout extends Vue {
-  items = [
+  items: MenuItem[] = [
     {
       title: 'Home',
       icon: 'home',
