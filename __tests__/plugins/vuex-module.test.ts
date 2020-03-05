@@ -9,25 +9,28 @@ describe('plugins/vuex-module.ts', () => {
   })
 
   describe('default export', () => {
-    test('is typeof function', () => {
+    test('is typeof function', async () => {
       // Arrange
-
       // Act
-      const plugin = require('~/plugins/vuex-module').default
+      const plugin = (await import('~/plugins/vuex-module')).default
 
       // Assert
       expect(typeof plugin).toBe('function')
     })
-    test('calls inject()', () => {
+    test('calls inject()', async () => {
       // Arrange
-      const inject = jest.fn()
+      const vxm = { foo: 'bar' }
+      jest.mock('~/store', () => ({ vxm }))
+      const inject: jest.Mock<void, [string, any]> = jest.fn()
+      const func = (await import('~/plugins/vuex-module')).default
 
       // Act
-      require('~/plugins/vuex-module').default({} as Context, inject)
+      func({} as Context, inject)
 
       // Assert
       expect(inject.mock.calls.length).toBe(1)
       expect(inject.mock.calls[0][0]).toBe('vxm')
+      expect(inject.mock.calls[0][1]).toStrictEqual(vxm)
     })
   })
 })
