@@ -9,6 +9,10 @@
 
 Template
 
+## Use this Template
+
+See [Migrate guide](./migrate.md).
+
 ## Build Setup
 
 ``` bash
