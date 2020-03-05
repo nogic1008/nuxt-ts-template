@@ -1,57 +1,50 @@
-/* eslint-disable no-process-env */
 import { Context } from '@nuxt/types'
 
 import {
   EnvironmentVariables,
   ServerEnvironmentVariables
 } from '~/plugins/environments'
-import { generateRandomString } from '~/utils/test-utils'
+import TestEnvProvider from '~/utils/test-env-provider'
+import { generateRandomString as random } from '~/utils/test-utils'
 
-type AllEnvironmentVariables = EnvironmentVariables & ServerEnvironmentVariables
+type AllEnvironmentVariables = EnvironmentVariables &
+  Omit<ServerEnvironmentVariables, 'validate'>
 // mock 'dotenv' to avoid change process.env
 jest.mock('dotenv')
 
 describe('plugins/environments.ts', () => {
-  const OLD_ENV = process.env
-  const random = (count: number) => generateRandomString(count)
+  const provider = new TestEnvProvider<AllEnvironmentVariables>(
+    'BASE_PATH',
+    'NODE_ENV'
+  )
 
   beforeEach(() => {
-    // clear cache
     jest.resetModules()
-
-    // load process.env except used for testing
-    process.env = { ...OLD_ENV }
-    const keys = new Set<keyof AllEnvironmentVariables>([
-      'NODE_ENV',
-      'BASE_PATH'
-    ])
-    keys.forEach((key) => delete process.env[key])
+    provider.initialize()
   })
-
   afterEach(() => {
-    // restore process.env
-    process.env = OLD_ENV
+    provider.restore()
   })
 
   describe('environments', () => {
     test('eqauls process.env value', async () => {
       // Arrange
-      const nodeEnvString = random(10)
-      const basePath = `/${random(5)}/`
-      process.env.NODE_ENV = nodeEnvString
-      process.env.BASE_PATH = basePath
+      const expected: AllEnvironmentVariables = {
+        BASE_PATH: `/${random(5)}/`,
+        NODE_ENV: random(10)
+      }
+      provider.initialize(expected)
 
       // Act
       const env = (await import('~/plugins/environments')).environments
 
       // Assert
-      expect(env.NODE_ENV).toBe(nodeEnvString)
-      expect(env.BASE_PATH).toBe(basePath)
+      expect(env.NODE_ENV).toBe(expected.NODE_ENV)
+      expect(env.BASE_PATH).toBe(expected.BASE_PATH)
     })
     test('BASE_PATH is "/" default', async () => {
       // Arrange
-      const nodeEnvString = random(10)
-      process.env.NODE_ENV = nodeEnvString
+      provider.initialize({ NODE_ENV: random(10) })
 
       // Act
       const env = (await import('~/plugins/environments')).environments
@@ -62,7 +55,7 @@ describe('plugins/environments.ts', () => {
     describe('validate()', () => {
       test('returns { valid: true } if be set process.env', async () => {
         // Arrange
-        process.env.NODE_ENV = random(10)
+        provider.initialize({ NODE_ENV: random(10) })
 
         // Act
         const returnVal = (
@@ -76,7 +69,7 @@ describe('plugins/environments.ts', () => {
         'returns { valid: false, keys: [key] } if not set process.env',
         async (env) => {
           // Arrange
-          process.env.NODE_ENV = env!
+          provider.initialize({ NODE_ENV: env! })
 
           // Act
           const returnVal = (
@@ -97,7 +90,6 @@ describe('plugins/environments.ts', () => {
   describe('default export', () => {
     test('is typeof function', async () => {
       // Arrange
-
       // Act
       const environmentPlugin = (await import('~/plugins/environments')).default
 
@@ -111,12 +103,10 @@ describe('plugins/environments.ts', () => {
       }
       const serverEnv: AllEnvironmentVariables = {
         ...envObject,
-        NODE_ENV: random(10),
-        validate: jest.fn()
+        NODE_ENV: random(10)
       }
-      const inject = jest.fn()
-      process.env.NODE_ENV = serverEnv.NODE_ENV
-      process.env.BASE_PATH = serverEnv.BASE_PATH
+      provider.initialize(serverEnv)
+      const inject: jest.Mock<void, [string, any]> = jest.fn()
 
       // Act
       const func = (await import('~/plugins/environments')).default
