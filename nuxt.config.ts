@@ -69,7 +69,22 @@ const config: Configuration = {
   modules: [
     // Doc: https://buefy.org/documentation/
     'nuxt-buefy',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    // Doc: https://nuxt-community.github.io/nuxt-i18n/
+    [
+      'nuxt-i18n',
+      {
+        locales: [
+          { code: 'en', iso: 'en-US' },
+          { code: 'ja', iso: 'ja-JP' }
+        ],
+        defaultLocale: 'en',
+        vueI18n: {
+          fallbackLocale: 'en'
+        },
+        vueI18nLoader: true
+      }
+    ]
   ],
   /** Set environments object for use by client-side code. */
   env: { ...createClientEnvironments() },

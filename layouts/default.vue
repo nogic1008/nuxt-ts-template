@@ -25,7 +25,7 @@
         </p>
         <ul class="menu-list">
           <li v-for="(item, key) of items" :key="key">
-            <nuxt-link :to="item.to" exact-active-class="is-active">
+            <nuxt-link :to="localePath(item.to)" exact-active-class="is-active">
               <b-icon :icon="item.icon" /> {{ item.title }}
             </nuxt-link>
           </li>

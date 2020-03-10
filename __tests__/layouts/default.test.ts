@@ -18,6 +18,9 @@ describe('layouts/default.vue', () => {
   beforeEach(() => {
     wrapper = shallowMount(DefaultLayout, {
       localVue,
+      methods: {
+        localePath: (obj: object) => obj
+      },
       stubs: {
         NuxtLink: RouterLinkStub,
         Nuxt: true
@@ -32,6 +35,9 @@ describe('layouts/default.vue', () => {
   test('renders correctly', () => {
     const wrapper = mount(DefaultLayout, {
       localVue,
+      methods: {
+        localePath: (obj: object) => obj
+      },
       stubs: {
         NuxtLink: RouterLinkStub,
         Nuxt: true
