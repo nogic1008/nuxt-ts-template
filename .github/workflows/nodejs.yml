@@ -34,6 +34,9 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+      - name: Clear Cache
+        if: contains(github.ref, 'tags/v')
+        run: npm cache clean --force
       - name: Install Dependencies
         run: npm ci
       - name: Lint
