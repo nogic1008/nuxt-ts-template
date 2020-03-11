@@ -6,6 +6,17 @@ import { EnvironmentVariables } from '~/plugins/environments'
 
 const localVue = createLocalVue()
 localVue.use(VueI18n)
+/* eslint-disable no-console */
+const spyWarn = jest.spyOn(console, 'warn')
+spyWarn.mockImplementation((message, params) => {
+  if (
+    typeof message === 'string' &&
+    /^\[vue-i18n\] Cannot translate the value of keypath.+$/.test(message)
+  )
+    return
+  console.log(message, params)
+})
+/* eslint-enable no-console */
 
 describe('pages/environment.vue', () => {
   let wrapper: Wrapper<Vue>
