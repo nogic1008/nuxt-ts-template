@@ -34,7 +34,7 @@
     "buefy": "^0.8.12",
     "dotenv": "^8.2.0",
     "nuxt": "^2.11.0",
-    "nuxt-buefy": "^0.3.23",
+    "nuxt-buefy": "^0.3.24",
     "nuxt-property-decorator": "^2.5.1",
     "vuex-class-component": "^2.2.1"
   },
