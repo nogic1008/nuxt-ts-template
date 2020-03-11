@@ -45,7 +45,43 @@ exports[`layouts/default.vue renders correctly 1`] = `
       />
       <div
         class="navbar-end"
-      />
+      >
+        <div
+          class="navbar-item has-dropdown"
+        >
+          <a
+            aria-haspopup="true"
+            class="navbar-link"
+            href="#"
+            role="menuitem"
+          >
+            <span
+              class="flag-icon flag-icon-us"
+              title="us"
+            />
+             English
+        
+          </a>
+           
+          <div
+            class="navbar-dropdown is-right"
+          >
+            <a
+              class="navbar-item"
+            >
+              <span
+                class="flag-icon flag-icon-jp"
+                title="jp"
+              />
+               
+              <span>
+                 日本語
+              </span>
+            </a>
+             
+          </div>
+        </div>
+      </div>
     </div>
   </nav>
    

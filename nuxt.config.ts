@@ -75,8 +75,8 @@ const config: Configuration = {
       'nuxt-i18n',
       {
         locales: [
-          { code: 'en', iso: 'en-US' },
-          { code: 'ja', iso: 'ja-JP' }
+          { code: 'en', iso: 'en-US', flag: 'us', name: 'English' },
+          { code: 'ja', iso: 'ja-JP', flag: 'jp', name: '日本語' }
         ],
         defaultLocale: 'en',
         vueI18n: {

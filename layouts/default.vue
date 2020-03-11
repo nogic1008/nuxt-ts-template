@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 <template>
   <div>
     <b-navbar type="is-primary">
@@ -5,6 +6,24 @@
         <b-navbar-item tag="nuxt-link" :to="localePath('/')">
           <img src="~assets/buefy.png" alt="Buefy" height="28" />
         </b-navbar-item>
+      </template>
+      <template slot="end">
+        <b-navbar-dropdown right>
+          <template>
+            <b-navbar-item
+              v-for="locale in availableLocales"
+              :key="locale.code"
+              tag="nuxt-link"
+              :to="switchLocalePath(locale.code)"
+            >
+              <flag :iso="locale.flag" />
+              <span>&nbsp;{{ locale.name }}</span>
+            </b-navbar-item>
+          </template>
+          <template slot="label">
+            <flag :iso="selectedLocale.flag" />&nbsp;{{ selectedLocale.name }}
+          </template>
+        </b-navbar-dropdown>
       </template>
     </b-navbar>
 
@@ -33,14 +52,30 @@
 import { Component, Vue } from 'vue-property-decorator'
 import { RawLocation } from 'vue-router'
 
+import Flag from '~/components/Flag.vue'
+
 type MenuItem = {
   title: string
   icon: string
   to: RawLocation
 }
 
-@Component
+@Component({
+  components: { Flag }
+})
 export default class DefaultLayout extends Vue {
+  get selectedLocale() {
+    return this.$i18n.locales?.find(
+      (i) => typeof i === 'object' && i.code === this.$i18n.locale
+    )
+  }
+
+  get availableLocales() {
+    return this.$i18n.locales?.filter(
+      (i) => typeof i === 'object' && i.code !== this.$i18n.locale
+    )
+  }
+
   items: MenuItem[] = [
     {
       title: 'Home',
