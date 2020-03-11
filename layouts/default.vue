@@ -1,22 +1,12 @@
 <template>
   <div>
-    <nav
-      class="navbar header has-shadow is-primary"
-      role="navigation"
-      aria-label="main navigation"
-    >
-      <div class="navbar-brand">
-        <a class="navbar-item" href="/">
+    <b-navbar type="is-primary">
+      <template slot="brand">
+        <b-navbar-item tag="nuxt-link" :to="localePath('/')">
           <img src="~assets/buefy.png" alt="Buefy" height="28" />
-        </a>
-
-        <div class="navbar-burger">
-          <span />
-          <span />
-          <span />
-        </div>
-      </div>
-    </nav>
+        </b-navbar-item>
+      </template>
+    </b-navbar>
 
     <section class="main-content columns">
       <aside class="column is-2 section">
