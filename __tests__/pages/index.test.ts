@@ -21,12 +21,9 @@ spyWarn.mockImplementation((message, params) => {
 
 describe('pages/index.vue', () => {
   let wrapper: Wrapper<Vue>
-  const $vxm = {
-    counter: { count: 0 }
-  }
 
   beforeEach(async () => {
-    wrapper = shallowMount(Index, { localVue, mocks: { $vxm } })
+    wrapper = shallowMount(Index, { localVue })
     wrapper.vm.$i18n.locale = 'en'
     await localVue.nextTick()
   })
@@ -41,7 +38,7 @@ describe('pages/index.vue', () => {
       async (locale) => {
         const wrapper = mount(Index, {
           localVue,
-          mocks: { $vxm }
+          stubs: ['card', 'counter']
         })
         wrapper.vm.$i18n.locale = locale
         await localVue.nextTick()
