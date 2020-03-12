@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 <template>
   <div>
     <b-navbar type="is-primary">
