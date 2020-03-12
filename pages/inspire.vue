@@ -1,13 +1,32 @@
 <template>
   <section class="section">
-    <h2 class="title is-3 has-text-grey">
-      "Just start <b-icon icon="rocket" size="is-large" />"
-    </h2>
-    <h3 class="subtitle is-6 has-text-grey">
-      Author:
+    <i18n path="title" tag="h2" class="title is-3 has-text-grey">
+      <b-icon icon="rocket" size="is-large" />
+    </i18n>
+    <i18n path="subtitle" tag="h3" class="subtitle is-6 has-text-grey">
       <a href="https://github.com/anteriovieira">
         Antério Vieira
       </a>
-    </h3>
+    </i18n>
   </section>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+
+@Component({
+  i18n: {
+    messages: {
+      en: {
+        title: '"Just start {0}"',
+        subtitle: 'Author: {0}'
+      },
+      ja: {
+        title: '"さあ、始めよう {0}"',
+        subtitle: '著者: {0}'
+      }
+    }
+  }
+})
+export default class InspirePage extends Vue {}
+</script>

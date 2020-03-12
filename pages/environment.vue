@@ -1,7 +1,7 @@
 <template>
   <section class="section">
     <h2 class="title is-3 has-text-grey">
-      Client-side Environments
+      {{ $t('title') }}
     </h2>
     <ul>
       <li v-for="obj in environmentList" :key="obj.key">
@@ -15,7 +15,18 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
-@Component
+@Component({
+  i18n: {
+    messages: {
+      en: {
+        title: 'Client-side Environments'
+      },
+      ja: {
+        title: 'クライアントサイド 環境変数'
+      }
+    }
+  }
+})
 export default class EnvironmentPage extends Vue {
   get environmentList() {
     return Object.entries(this.$environments)

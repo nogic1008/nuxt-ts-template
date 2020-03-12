@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`pages/environment.vue renders correctly 1`] = `
+exports[`pages/environment.vue snapshot renders correctly if locale is "en" 1`] = `
 <section
   class="section"
 >
@@ -9,6 +9,31 @@ exports[`pages/environment.vue renders correctly 1`] = `
   >
     
     Client-side Environments
+  
+  </h2>
+   
+  <ul>
+    <li>
+      <b>
+        BASE_PATH
+      </b>
+      
+      : foo
+    
+    </li>
+  </ul>
+</section>
+`;
+
+exports[`pages/environment.vue snapshot renders correctly if locale is "ja" 1`] = `
+<section
+  class="section"
+>
+  <h2
+    class="title is-3 has-text-grey"
+  >
+    
+    クライアントサイド 環境変数
   
   </h2>
    
