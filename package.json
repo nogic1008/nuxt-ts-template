@@ -35,7 +35,7 @@
     "dotenv": "^8.2.0",
     "flag-icon-css": "^3.4.6",
     "nuxt": "^2.11.0",
-    "nuxt-buefy": "^0.3.23",
+    "nuxt-buefy": "^0.3.24",
     "nuxt-i18n": "^6.6.0",
     "nuxt-property-decorator": "^2.5.1",
     "vuex-class-component": "^2.2.1"
@@ -51,7 +51,7 @@
     "eslint-plugin-jest": "^23.8.2",
     "eslint-plugin-nuxt": ">=0.5.1",
     "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-simple-import-sort": "^5.0.1",
+    "eslint-plugin-simple-import-sort": "^5.0.2",
     "husky": "^4.2.3",
     "jest": "^24.9.0",
     "jest-serializer-vue": "^2.0.2",
