@@ -51,4 +51,19 @@ describe('pages/environment.vue', () => {
       }
     )
   })
+
+  describe('head()', () => {
+    test.each([
+      ['Client-side Environments', 'en'],
+      ['クライアントサイド 環境変数', 'ja']
+    ])('returns "%s" if locale is "%s"', async (expected, locale) => {
+      // Arrange
+      wrapper.vm.$i18n.locale = locale
+      await localVue.nextTick()
+      const head = wrapper.vm.$options.head as Function
+
+      // Act & Assert
+      expect(head.call(wrapper.vm)).toStrictEqual({ title: expected })
+    })
+  })
 })

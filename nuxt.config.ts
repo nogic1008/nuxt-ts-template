@@ -17,11 +17,9 @@ if (!process.env.CI) {
 
 const config: Configuration = {
   mode: 'spa',
-  /*
-   ** Headers of the page
-   */
+  /** Headers of the page */
   head: {
-    title: pkg.name || '',
+    titleTemplate: `%s - ${pkg.name}`,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -42,28 +40,18 @@ const config: Configuration = {
   router: {
     base: environments.BASE_PATH
   },
-  /*
-   ** Customize the progress-bar color
-   */
+  /** Customize the progress-bar color */
   loading: { color: '#fff' },
-  /*
-   ** Global CSS
-   */
+  /** Global CSS */
   css: [],
-  /*
-   ** Plugins to load before mounting the App
-   */
+  /** Plugins to load before mounting the App */
   plugins: ['~/plugins/environments.ts', '~/plugins/vuex-module.ts'],
-  /*
-   ** Nuxt.js dev-modules
-   */
+  /** Nuxt.js dev-modules */
   buildModules: [
     // Doc: https://typescript.nuxtjs.org/
     '@nuxt/typescript-build'
   ],
-  /*
-   ** Nuxt.js modules
-   */
+  /** Nuxt.js modules */
   modules: [
     // Doc: https://buefy.org/documentation/
     'nuxt-buefy',
@@ -86,14 +74,10 @@ const config: Configuration = {
   ],
   /** Set environments object for use by client-side code. */
   env: { ...createClientEnvironments() },
-  /*
-   ** Build configuration
-   */
+  /** Build configuration */
   build: {
     extend: (config, _) => {
-      config.node = {
-        fs: 'empty'
-      }
+      config.node = { fs: 'empty' }
     }
   }
 }

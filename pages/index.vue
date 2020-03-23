@@ -30,10 +30,12 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
+import { MetaInfo } from 'vue-meta'
 
 import Card from '~/components/Card.vue'
 import Counter from '~/components/Counter.vue'
+import pkg from '~/package.json'
 
 @Component({
   i18n: {
@@ -72,5 +74,10 @@ import Counter from '~/components/Counter.vue'
   },
   components: { Card, Counter }
 })
-export default class IndexPage extends Vue {}
+export default class IndexPage extends Vue {
+  head: MetaInfo = {
+    title: pkg.name,
+    titleTemplate: ''
+  }
+}
 </script>
