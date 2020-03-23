@@ -1,3 +1,16 @@
+<i18n>
+{
+  "en": {
+    "title": "\"Just start {0}\"",
+    "subtitle": "Author: {0}"
+  },
+  "ja": {
+    "title": "\"さあ、始めよう {0}\"",
+    "subtitle": "著者: {0}"
+  }
+}
+</i18n>
+
 <template>
   <section class="section">
     <i18n path="title" tag="h2" class="title is-3 has-text-grey">
@@ -14,19 +27,6 @@
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator'
 
-@Component({
-  i18n: {
-    messages: {
-      en: {
-        title: '"Just start {0}"',
-        subtitle: 'Author: {0}'
-      },
-      ja: {
-        title: '"さあ、始めよう {0}"',
-        subtitle: '著者: {0}'
-      }
-    }
-  }
-})
+@Component
 export default class InspirePage extends Vue {}
 </script>
