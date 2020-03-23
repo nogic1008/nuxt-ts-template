@@ -2,7 +2,9 @@ import { createLocalVue, mount, shallowMount, Wrapper } from '@vue/test-utils'
 import VueI18n from 'vue-i18n'
 
 import Environment from '~/pages/environment.vue'
-import { EnvironmentVariables } from '~/plugins/environments'
+import type { getClientEnvironments } from '~/plugins/environments'
+
+type EnvironmentVariables = ReturnType<typeof getClientEnvironments>
 
 const localVue = createLocalVue()
 localVue.use(VueI18n)

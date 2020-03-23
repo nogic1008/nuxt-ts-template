@@ -1,15 +1,15 @@
 import { Context } from '@nuxt/types'
 
-import {
-  EnvironmentVariables,
-  ServerEnvironmentVariables
+import type {
+  environments,
+  getClientEnvironments
 } from '~/plugins/environments'
 
 import ProcessEnvProvider from '../env-provider'
 import { randomString as random } from '../utils'
 
-type AllEnvironmentVariables = EnvironmentVariables &
-  Omit<ServerEnvironmentVariables, 'validate'>
+type EnvironmentVariables = ReturnType<typeof getClientEnvironments>
+type AllEnvironmentVariables = Omit<typeof environments, 'validate'>
 // mock 'dotenv' to avoid change process.env
 jest.mock('dotenv')
 
