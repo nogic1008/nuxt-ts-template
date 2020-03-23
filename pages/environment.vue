@@ -13,7 +13,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
+import { MetaInfo } from 'vue-meta'
 
 @Component({
   i18n: {
@@ -28,6 +29,12 @@ import { Component, Vue } from 'vue-property-decorator'
   }
 })
 export default class EnvironmentPage extends Vue {
+  head(): MetaInfo {
+    return {
+      title: this.$t('title').toString()
+    }
+  }
+
   get environmentList() {
     return Object.entries(this.$environments)
       .filter(([key, _]) => !!key)

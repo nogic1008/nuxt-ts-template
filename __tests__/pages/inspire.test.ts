@@ -41,4 +41,19 @@ describe('pages/inspire.vue', () => {
       }
     )
   })
+
+  describe('head()', () => {
+    test.each([
+      ['"Just start"', 'en'],
+      ['"さあ、始めよう"', 'ja']
+    ])('returns "%s" if locale is "%s"', async (expected, locale) => {
+      // Arrange
+      wrapper.vm.$i18n.locale = locale
+      await localVue.nextTick()
+      const head = wrapper.vm.$options.head as Function
+
+      // Act & Assert
+      expect(head.call(wrapper.vm)).toStrictEqual({ title: expected })
+    })
+  })
 })
