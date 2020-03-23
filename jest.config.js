@@ -11,5 +11,12 @@ module.exports = {
   },
   snapshotSerializers: ['jest-serializer-vue'],
   collectCoverage: true,
-  collectCoverageFrom: ['<rootDir>/**/*.vue', '<rootDir>/*/*.ts']
+  collectCoverageFrom: [
+    '**/*.ts',
+    '**/*.vue',
+    '!<rootDir>/*.config.ts',
+    '!**/*.d.ts',
+    '!**/node_modules/**',
+    '!**/__tests__/**'
+  ]
 }
