@@ -4,8 +4,9 @@ import {
   EnvironmentVariables,
   ServerEnvironmentVariables
 } from '~/plugins/environments'
-import TestEnvProvider from '~/utils/test-env-provider'
-import { generateRandomString as random } from '~/utils/test-utils'
+
+import ProcessEnvProvider from '../env-provider'
+import { randomString as random } from '../utils'
 
 type AllEnvironmentVariables = EnvironmentVariables &
   Omit<ServerEnvironmentVariables, 'validate'>
@@ -13,7 +14,7 @@ type AllEnvironmentVariables = EnvironmentVariables &
 jest.mock('dotenv')
 
 describe('plugins/environments.ts', () => {
-  const provider = new TestEnvProvider<AllEnvironmentVariables>(
+  const provider = new ProcessEnvProvider<AllEnvironmentVariables>(
     'BASE_PATH',
     'NODE_ENV'
   )

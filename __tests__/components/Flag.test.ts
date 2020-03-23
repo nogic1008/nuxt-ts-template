@@ -1,7 +1,8 @@
 import { createLocalVue, mount, shallowMount, Wrapper } from '@vue/test-utils'
 
 import FlagComponent from '~/components/Flag.vue'
-import { generateRandomString as random } from '~/utils/test-utils'
+
+import { randomString as random } from '../utils'
 
 const localVue = createLocalVue()
 
