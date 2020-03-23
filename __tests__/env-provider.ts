@@ -1,6 +1,6 @@
 /* eslint-disable no-process-env */
 /** Provides process.env for Testing. */
-export default class TestEnvProvider<T> {
+export default class ProcessEnvProvider<T> {
   /** Stored process.env */
   private readonly storedEnv: NodeJS.ProcessEnv
   private readonly keys: Set<Extract<keyof T, string>>

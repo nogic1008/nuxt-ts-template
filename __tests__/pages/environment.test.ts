@@ -1,8 +1,10 @@
-import { createLocalVue, mount, shallowMount, Wrapper } from '@vue/test-utils'
+import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
 import VueI18n from 'vue-i18n'
 
 import Environment from '~/pages/environment.vue'
-import { EnvironmentVariables } from '~/plugins/environments'
+import type { getClientEnvironments } from '~/plugins/environments'
+
+type EnvironmentVariables = ReturnType<typeof getClientEnvironments>
 
 const localVue = createLocalVue()
 localVue.use(VueI18n)
@@ -19,7 +21,7 @@ spyWarn.mockImplementation((message, params) => {
 /* eslint-enable no-console */
 
 describe('pages/environment.vue', () => {
-  let wrapper: Wrapper<Vue>
+  let wrapper: ReturnType<typeof mount>
   const $environments: EnvironmentVariables = {
     BASE_PATH: 'foo'
   }

@@ -1,9 +1,9 @@
-import { createLocalVue, mount, shallowMount, Wrapper } from '@vue/test-utils'
+import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
 import Buefy from 'buefy'
 import VueI18n from 'vue-i18n'
 
 import CounterComponent from '~/components/Counter.vue'
-import { vxm } from '~/store'
+import type { vxm } from '~/store'
 import CounterStore from '~/store/counter'
 
 const localVue = createLocalVue()
@@ -22,7 +22,7 @@ spyWarn.mockImplementation((message, params) => {
 /* eslint-enable no-console */
 
 describe('components/Counter.vue', () => {
-  let wrapper: Wrapper<CounterComponent>
+  let wrapper: ReturnType<typeof mount>
   let $vxm: Record<keyof typeof vxm, object>
 
   beforeEach(async () => {

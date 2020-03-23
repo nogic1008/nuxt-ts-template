@@ -2,8 +2,7 @@ import {
   createLocalVue,
   mount,
   RouterLinkStub,
-  shallowMount,
-  Wrapper
+  shallowMount
 } from '@vue/test-utils'
 import Buefy from 'buefy'
 import { IVueI18n } from 'vue-i18n'
@@ -14,7 +13,7 @@ const localVue = createLocalVue()
 localVue.use(Buefy)
 
 describe('layouts/default.vue', () => {
-  let wrapper: Wrapper<Vue>
+  let wrapper: ReturnType<typeof mount>
   const methods = {
     localePath: (obj: object) => obj,
     switchLocalePath: (code: string) => code
