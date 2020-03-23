@@ -1,4 +1,4 @@
-import { createLocalVue, mount, shallowMount, Wrapper } from '@vue/test-utils'
+import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
 import Buefy from 'buefy'
 import VueI18n from 'vue-i18n'
 
@@ -20,7 +20,7 @@ spyWarn.mockImplementation((message, params) => {
 /* eslint-enable no-console */
 
 describe('pages/index.vue', () => {
-  let wrapper: Wrapper<Vue>
+  let wrapper: ReturnType<typeof mount>
 
   beforeEach(async () => {
     wrapper = shallowMount(Index, { localVue })

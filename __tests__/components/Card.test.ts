@@ -1,4 +1,4 @@
-import { createLocalVue, mount, shallowMount, Wrapper } from '@vue/test-utils'
+import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
 import Buefy from 'buefy'
 
 import Card from '~/components/Card.vue'
@@ -7,7 +7,7 @@ const localVue = createLocalVue()
 localVue.use(Buefy)
 
 describe('components/Card.vue', () => {
-  let wrapper: Wrapper<Vue>
+  let wrapper: ReturnType<typeof mount>
   const props = {
     title: 'title',
     icon: 'github-circle'

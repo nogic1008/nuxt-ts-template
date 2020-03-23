@@ -1,4 +1,4 @@
-import { createLocalVue, mount, shallowMount, Wrapper } from '@vue/test-utils'
+import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
 
 import FlagComponent from '~/components/Flag.vue'
 
@@ -13,7 +13,7 @@ type FlagProps = {
 }
 
 describe('components/Flag.vue', () => {
-  let wrapper: Wrapper<FlagComponent>
+  let wrapper: ReturnType<typeof mount>
   const propsData: FlagProps = { iso: 'ja' }
   beforeEach(() => {
     wrapper = shallowMount(FlagComponent, { localVue, propsData })

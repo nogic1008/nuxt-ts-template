@@ -1,4 +1,4 @@
-import { Context } from '@nuxt/types'
+import type { Context } from '@nuxt/types'
 
 jest.mock('vuex')
 jest.mock('~/store')
