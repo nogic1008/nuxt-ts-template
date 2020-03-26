@@ -27,16 +27,20 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
+
+      - name: Get npm cache directory
+        id: npm-cache
+        run: echo "::set-output name=dir::$(npm config get cache)"
+      - name: Clean npm cache directory
+        run: npm cache clear --force
       - name: Cache Dependencies
         uses: actions/cache@v1
         with:
-          path: ~/.npm
+          path: ${{ steps.npm-cache.outputs.dir }}
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Clear Cache
-        if: contains(github.ref, 'tags/v')
-        run: npm cache clean --force
+
       - name: Install Dependencies
         run: npm ci
       - name: Lint
