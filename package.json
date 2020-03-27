@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
+    "bump": "npm version -m \"build: increment version to %s\"",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
     "fix": "run-p fix:*",
