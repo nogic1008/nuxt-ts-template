@@ -1,5 +1,6 @@
 /** @type {import('@jest/types/build/Config').InitialOptions} */
 module.exports = {
+  setupFiles: ['./jest.setup.js'],
   moduleNameMapper: {
     '^~/(.*)$': '<rootDir>/$1',
     '^vue$': 'vue/dist/vue.common.js'
