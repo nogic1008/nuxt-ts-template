@@ -8,13 +8,13 @@ localVue.use(Buefy)
 
 describe('components/Card.vue', () => {
   let wrapper: ReturnType<typeof mount>
-  const props = {
+  const propsData = {
     title: 'title',
     icon: 'github-circle'
   }
 
   beforeEach(() => {
-    wrapper = shallowMount(Card, { localVue, propsData: { ...props } })
+    wrapper = shallowMount(Card, { localVue, propsData })
   })
 
   test('is a Vue instance', () => {
@@ -22,12 +22,12 @@ describe('components/Card.vue', () => {
   })
 
   test('renders correctly', () => {
-    const wrapper = mount(Card, { localVue, propsData: { ...props } })
+    const wrapper = mount(Card, { localVue, propsData })
     expect(wrapper.element).toMatchSnapshot()
   })
 
   test('renders props value', () => {
-    expect(wrapper.find('.card-header-title').text()).toBe(props.title)
-    expect(wrapper.find('b-icon-stub').attributes('icon')).toBe(props.icon)
+    expect(wrapper.find('.card-header-title').text()).toBe(propsData.title)
+    expect(wrapper.find('b-icon-stub').attributes('icon')).toBe(propsData.icon)
   })
 })
