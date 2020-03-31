@@ -17,5 +17,5 @@
     },
     "types": ["jest", "node", "nuxt-i18n", "@nuxt/types"]
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }
