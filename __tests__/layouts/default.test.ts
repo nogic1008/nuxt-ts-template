@@ -4,7 +4,7 @@ import {
   RouterLinkStub,
   shallowMount
 } from '@vue/test-utils'
-import Buefy from 'buefy'
+import Buefy from 'nuxt-buefy/node_modules/buefy'
 import { IVueI18n } from 'vue-i18n'
 
 import DefaultLayout from '~/layouts/default.vue'

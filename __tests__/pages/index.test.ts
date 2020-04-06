@@ -1,5 +1,5 @@
 import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
-import Buefy from 'buefy'
+import Buefy from 'nuxt-buefy/node_modules/buefy'
 import VueI18n from 'vue-i18n'
 
 import Index from '~/pages/index.vue'

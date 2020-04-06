@@ -1,5 +1,5 @@
 import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
-import Buefy from 'buefy'
+import Buefy from 'nuxt-buefy/node_modules/buefy'
 
 import Card from '~/components/Card.vue'
 
