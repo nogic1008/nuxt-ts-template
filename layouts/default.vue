@@ -48,6 +48,7 @@
 </template>
 
 <script lang="ts">
+import { NuxtVueI18n } from 'nuxt-i18n'
 import { Component, Vue } from 'vue-property-decorator'
 import { RawLocation } from 'vue-router'
 
@@ -66,16 +67,16 @@ export default class DefaultLayout extends Vue {
   get selectedLocale() {
     return this.$i18n.locales?.find(
       (i) => typeof i === 'object' && i.code === this.$i18n.locale
-    )
+    ) as NuxtVueI18n.Options.LocaleObject
   }
 
   get availableLocales() {
     return this.$i18n.locales?.filter(
       (i) => typeof i === 'object' && i.code !== this.$i18n.locale
-    )
+    ) as NuxtVueI18n.Options.LocaleObject[]
   }
 
-  items: MenuItem[] = [
+  readonly items: MenuItem[] = [
     {
       title: 'Home',
       icon: 'home',
