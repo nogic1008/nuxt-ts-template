@@ -17,10 +17,6 @@ describe('pages/index.vue', () => {
     await localVue.nextTick()
   })
 
-  test('is a Vue instance', () => {
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
   describe('snapshot', () => {
     test.each(['en', 'ja'])(
       'renders correctly if locale is "%s"',

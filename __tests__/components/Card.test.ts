@@ -17,10 +17,6 @@ describe('components/Card.vue', () => {
     wrapper = shallowMount(Card, { localVue, propsData })
   })
 
-  test('is a Vue instance', () => {
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
   test('renders correctly', () => {
     const wrapper = mount(Card, { localVue, propsData })
     expect(wrapper.element).toMatchSnapshot()

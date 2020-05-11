@@ -19,10 +19,6 @@ describe('components/Flag.vue', () => {
     wrapper = shallowMount(FlagComponent, { localVue, propsData })
   })
 
-  test('is a Vue instance', () => {
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
   test('renders correctly', () => {
     const wrapper = mount(FlagComponent, {
       localVue,

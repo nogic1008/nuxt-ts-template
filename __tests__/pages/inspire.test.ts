@@ -15,10 +15,6 @@ describe('pages/inspire.vue', () => {
     wrapper = shallowMount(Inspire, { localVue })
   })
 
-  test('is a Vue instance', () => {
-    expect(wrapper.isVueInstance()).toBeTruthy()
-  })
-
   describe('snapshot', () => {
     test.each(['en', 'ja'])(
       'renders correctly if locale is "%s"',
