@@ -6,12 +6,14 @@ import NavbarComponent from '~/components/Navbar.vue'
 
 const localVue = createLocalVue()
 localVue.use(Buefy)
-
-describe('components/Navbar.vue', () => {
-  const methods = {
+localVue.mixin({
+  methods: {
     localePath: (obj: object) => obj,
     switchLocalePath: (code: string) => code
   }
+})
+
+describe('components/Navbar.vue', () => {
   const $i18n: Partial<IVueI18n> = {
     locale: 'en',
     locales: [
@@ -24,7 +26,6 @@ describe('components/Navbar.vue', () => {
     const wrapper = mount(NavbarComponent, {
       localVue,
       mocks: { $i18n },
-      methods,
       stubs: {
         NuxtLink: RouterLinkStub,
         Nuxt: true
