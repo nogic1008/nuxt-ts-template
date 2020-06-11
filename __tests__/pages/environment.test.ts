@@ -8,6 +8,7 @@ type EnvironmentVariables = ReturnType<typeof getClientEnvironments>
 
 const localVue = createLocalVue()
 localVue.use(VueI18n)
+const i18n = new VueI18n({ locale: 'en', silentFallbackWarn: true })
 
 describe('pages/environment.vue', () => {
   let wrapper: ReturnType<typeof mount>
@@ -15,22 +16,23 @@ describe('pages/environment.vue', () => {
     BASE_PATH: 'foo'
   }
 
-  beforeEach(async () => {
+  beforeEach(() => {
     wrapper = shallowMount(Environment, {
       localVue,
-      mocks: { $environments }
+      mocks: { $environments },
+      i18n
     })
-    wrapper.vm.$i18n.locale = 'en'
-    await localVue.nextTick()
   })
 
   describe('snapshot', () => {
     test.each(['en', 'ja'])(
       'renders correctly if locale is "%s"',
       async (locale) => {
+        const i18n = new VueI18n({ locale, silentFallbackWarn: true })
         const wrapper = mount(Environment, {
           localVue,
-          mocks: { $environments }
+          mocks: { $environments },
+          i18n
         })
         wrapper.vm.$i18n.locale = locale
         await localVue.nextTick()

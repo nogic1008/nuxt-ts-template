@@ -1,3 +1,38 @@
+<i18n>
+{
+  "en": {
+    "title": {
+      "free": "Free",
+      "responsive": "Responsive",
+      "modern": "Modern",
+      "lightweight": "Lightweight"
+    },
+    "description": {
+      "free": "Open source on {0}",
+      "responsive": "{0} component is responsive",
+      "responsive_0": "Every",
+      "modern": "Built with {0} and {1}",
+      "lightweight": "No other internal dependency"
+    }
+  },
+  "ja": {
+    "title": {
+      "free": "無料",
+      "responsive": "レスポンシブ デザイン",
+      "modern": "モダンUI",
+      "lightweight": "軽量"
+    },
+    "description": {
+      "free": "{0} 上でオープンソース開発",
+      "responsive": "{0}コンポーネントがレスポンシブ",
+      "responsive_0": "すべての",
+      "modern": "{0} と {1} で作成",
+      "lightweight": "他のライブラリに依存しない"
+    }
+  }
+}
+</i18n>
+
 <template>
   <section class="section">
     <div class="columns is-mobile">
@@ -38,40 +73,6 @@ import Counter from '~/components/Counter.vue'
 import pkg from '~/package.json'
 
 @Component({
-  i18n: {
-    messages: {
-      en: {
-        title: {
-          free: 'Free',
-          responsive: 'Responsive',
-          modern: 'Modern',
-          lightweight: 'Lightweight'
-        },
-        description: {
-          free: 'Open source on {0}',
-          responsive: '{0} component is responsive',
-          responsive_0: 'Every',
-          modern: 'Built with {0} and {1}',
-          lightweight: 'No other internal dependency'
-        }
-      },
-      ja: {
-        title: {
-          free: '無料',
-          responsive: 'レスポンシブ デザイン',
-          modern: 'モダンUI',
-          lightweight: '軽量'
-        },
-        description: {
-          free: '{0} 上でオープンソース開発',
-          responsive: '{0}コンポーネントがレスポンシブ',
-          responsive_0: 'すべての',
-          modern: '{0} と {1} で作成',
-          lightweight: '他のライブラリに依存しない'
-        }
-      }
-    }
-  },
   components: { Card, Counter }
 })
 export default class IndexPage extends Vue {

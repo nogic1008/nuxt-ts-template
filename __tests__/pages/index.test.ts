@@ -1,4 +1,4 @@
-import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
+import { createLocalVue, mount } from '@vue/test-utils'
 import Buefy from 'buefy'
 import VueI18n from 'vue-i18n'
 
@@ -9,26 +9,15 @@ localVue.use(Buefy)
 localVue.use(VueI18n)
 
 describe('pages/index.vue', () => {
-  let wrapper: ReturnType<typeof mount>
-
-  beforeEach(async () => {
-    wrapper = shallowMount(Index, { localVue })
-    wrapper.vm.$i18n.locale = 'en'
-    await localVue.nextTick()
-  })
-
   describe('snapshot', () => {
-    test.each(['en', 'ja'])(
-      'renders correctly if locale is "%s"',
-      async (locale) => {
-        const wrapper = mount(Index, {
-          localVue,
-          stubs: ['card', 'counter']
-        })
-        wrapper.vm.$i18n.locale = locale
-        await localVue.nextTick()
-        expect(wrapper.element).toMatchSnapshot()
-      }
-    )
+    test.each(['en', 'ja'])('renders correctly if locale is "%s"', (locale) => {
+      const i18n = new VueI18n({ locale, silentFallbackWarn: true })
+      const wrapper = mount(Index, {
+        localVue,
+        stubs: ['card', 'counter'],
+        i18n
+      })
+      expect(wrapper.element).toMatchSnapshot()
+    })
   })
 })

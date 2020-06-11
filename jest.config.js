@@ -1,6 +1,5 @@
 /** @type {import('@jest/types/build/Config').InitialOptions} */
 module.exports = {
-  setupFiles: ['./jest.setup.js'],
   moduleNameMapper: {
     '^~/(.*)$': '<rootDir>/$1',
     '^vue$': 'vue/dist/vue.common.js'
@@ -9,6 +8,13 @@ module.exports = {
   transform: {
     '^.+\\.ts$': 'ts-jest',
     '.*\\.(vue)$': 'vue-jest'
+  },
+  globals: {
+    'vue-jest': {
+      transform: {
+        i18n: './__tests__/vue-i18n-transformer.js'
+      }
+    }
   },
   snapshotSerializers: ['jest-serializer-vue'],
   testRegex: '/__tests__/.+\\.(test|spec)\\.[jt]sx?$',

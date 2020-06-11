@@ -1,3 +1,14 @@
+<i18n>
+{
+  "en": {
+    "title": "Client-side Environments"
+  },
+  "ja": {
+    "title": "クライアントサイド 環境変数"
+  }
+}
+</i18n>
+
 <template>
   <section class="section">
     <h2 class="title is-3 has-text-grey">
@@ -16,18 +27,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 import { MetaInfo } from 'vue-meta'
 
-@Component({
-  i18n: {
-    messages: {
-      en: {
-        title: 'Client-side Environments'
-      },
-      ja: {
-        title: 'クライアントサイド 環境変数'
-      }
-    }
-  }
-})
+@Component
 export default class EnvironmentPage extends Vue {
   head(): MetaInfo {
     return {

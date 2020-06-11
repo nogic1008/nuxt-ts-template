@@ -1,3 +1,14 @@
+<i18n>
+{
+  "en": {
+    "title": "Store Sample"
+  },
+  "ja": {
+    "title": "Store サンプル"
+  }
+}
+</i18n>
+
 <template>
   <card :title="$t('title')" icon="counter">
     <b-button class="plus" icon-left="plus" @click="increment()" />
@@ -12,17 +23,7 @@ import { Component, Vue } from 'vue-property-decorator'
 import Card from '~/components/Card.vue'
 
 @Component({
-  components: { Card },
-  i18n: {
-    messages: {
-      en: {
-        title: 'Store Sample'
-      },
-      ja: {
-        title: 'Store サンプル'
-      }
-    }
-  }
+  components: { Card }
 })
 export default class CounterComponent extends Vue {
   get count() {

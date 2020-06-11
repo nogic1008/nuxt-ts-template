@@ -7,24 +7,21 @@ import Inspire from '~/pages/inspire.vue'
 const localVue = createLocalVue()
 localVue.use(Buefy)
 localVue.use(VueI18n)
+const i18n = new VueI18n({ locale: 'en', silentFallbackWarn: true })
 
 describe('pages/inspire.vue', () => {
   let wrapper: ReturnType<typeof mount>
 
   beforeEach(() => {
-    wrapper = shallowMount(Inspire, { localVue })
+    wrapper = shallowMount(Inspire, { localVue, i18n })
   })
 
   describe('snapshot', () => {
-    test.each(['en', 'ja'])(
-      'renders correctly if locale is "%s"',
-      async (locale) => {
-        const wrapper = mount(Inspire, { localVue })
-        wrapper.vm.$i18n.locale = locale
-        await localVue.nextTick()
-        expect(wrapper.element).toMatchSnapshot()
-      }
-    )
+    test.each(['en', 'ja'])('renders correctly if locale is "%s"', (locale) => {
+      const i18n = new VueI18n({ locale, silentFallbackWarn: true })
+      const wrapper = mount(Inspire, { localVue, i18n })
+      expect(wrapper.element).toMatchSnapshot()
+    })
   })
 
   describe('head()', () => {
