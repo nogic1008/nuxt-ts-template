@@ -10,6 +10,13 @@ module.exports = {
     '^.+\\.ts$': 'ts-jest',
     '.*\\.(vue)$': 'vue-jest'
   },
+  globals: {
+    'vue-jest': {
+      transform: {
+        i18n: './__tests__/vue-i18n-transformer.js'
+      }
+    }
+  },
   snapshotSerializers: ['jest-serializer-vue'],
   testRegex: '/__tests__/.+\\.(test|spec)\\.[jt]sx?$',
   collectCoverage: true,
