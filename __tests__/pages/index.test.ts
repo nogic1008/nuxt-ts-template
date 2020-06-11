@@ -1,4 +1,4 @@
-import { createLocalVue, mount, shallowMount, Wrapper } from '@vue/test-utils'
+import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
 import Buefy from 'buefy'
 import VueI18n from 'vue-i18n'
 
@@ -7,29 +7,14 @@ import Index from '~/pages/index.vue'
 const localVue = createLocalVue()
 localVue.use(Buefy)
 localVue.use(VueI18n)
-/* eslint-disable no-console */
-const spyWarn = jest.spyOn(console, 'warn')
-spyWarn.mockImplementation((message, params) => {
-  if (
-    typeof message === 'string' &&
-    /^\[vue-i18n\] Cannot translate the value of keypath.+$/.test(message)
-  )
-    return
-  console.log(message, params)
-})
-/* eslint-enable no-console */
 
 describe('pages/index.vue', () => {
-  let wrapper: Wrapper<Vue>
+  let wrapper: ReturnType<typeof mount>
 
   beforeEach(async () => {
     wrapper = shallowMount(Index, { localVue })
     wrapper.vm.$i18n.locale = 'en'
     await localVue.nextTick()
-  })
-
-  test('is a Vue instance', () => {
-    expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
   describe('snapshot', () => {

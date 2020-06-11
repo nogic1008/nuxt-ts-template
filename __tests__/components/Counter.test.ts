@@ -1,28 +1,17 @@
-import { createLocalVue, mount, shallowMount, Wrapper } from '@vue/test-utils'
+import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
 import Buefy from 'buefy'
 import VueI18n from 'vue-i18n'
 
 import CounterComponent from '~/components/Counter.vue'
-import { vxm } from '~/store'
+import type { vxm } from '~/store'
 import CounterStore from '~/store/counter'
 
 const localVue = createLocalVue()
 localVue.use(Buefy)
 localVue.use(VueI18n)
-/* eslint-disable no-console */
-const spyWarn = jest.spyOn(console, 'warn')
-spyWarn.mockImplementation((message, params) => {
-  if (
-    typeof message === 'string' &&
-    /^\[vue-i18n\] Cannot translate the value of keypath.+$/.test(message)
-  )
-    return
-  console.log(message, params)
-})
-/* eslint-enable no-console */
 
 describe('components/Counter.vue', () => {
-  let wrapper: Wrapper<CounterComponent>
+  let wrapper: ReturnType<typeof mount>
   let $vxm: Record<keyof typeof vxm, object>
 
   beforeEach(async () => {
@@ -32,10 +21,6 @@ describe('components/Counter.vue', () => {
     wrapper = shallowMount(CounterComponent, { localVue, mocks: { $vxm } })
     wrapper.vm.$i18n.locale = 'en'
     await localVue.nextTick()
-  })
-
-  test('is a Vue instance', () => {
-    expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
   describe('snapshot', () => {

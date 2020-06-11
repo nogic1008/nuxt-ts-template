@@ -1,7 +1,8 @@
-import { createLocalVue, mount, shallowMount, Wrapper } from '@vue/test-utils'
+import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
 
 import FlagComponent from '~/components/Flag.vue'
-import { generateRandomString as random } from '~/utils/test-utils'
+
+import { randomString as random } from '../utils'
 
 const localVue = createLocalVue()
 
@@ -12,14 +13,10 @@ type FlagProps = {
 }
 
 describe('components/Flag.vue', () => {
-  let wrapper: Wrapper<FlagComponent>
+  let wrapper: ReturnType<typeof mount>
   const propsData: FlagProps = { iso: 'ja' }
   beforeEach(() => {
     wrapper = shallowMount(FlagComponent, { localVue, propsData })
-  })
-
-  test('is a Vue instance', () => {
-    expect(wrapper.isVueInstance()).toBeTruthy()
   })
 
   test('renders correctly', () => {

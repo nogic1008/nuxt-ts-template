@@ -25,8 +25,15 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
+import { MetaInfo } from 'vue-meta'
 
 @Component
-export default class InspirePage extends Vue {}
+export default class InspirePage extends Vue {
+  head(): MetaInfo {
+    return {
+      title: this.$t('title').toString().replace(' {0}', '')
+    }
+  }
+}
 </script>

@@ -1,10 +1,10 @@
-import { Plugin } from '@nuxt/types'
+import type { Plugin } from '@nuxt/types'
 import { config } from 'dotenv'
 
 config()
 
 /** Environment values used on client-side and server-side. */
-export type EnvironmentVariables = {
+type EnvironmentVariables = {
   /** The base URL of the app.
    * @description if the entire single page application is served under /app/,
    * then base should use the value '/app/'
@@ -15,7 +15,7 @@ export type EnvironmentVariables = {
 }
 
 /** Environment values used on only server-side. */
-export type ServerEnvironmentVariables = {
+type ServerEnvironmentVariables = {
   NODE_ENV: string
   /** Validate environments values. */
   validate: () =>
@@ -47,7 +47,7 @@ export const environments: AllEnvironmentVariables = {
 /* eslint-enable no-process-env */
 
 /** Create environment values used on only client-side. */
-export const createClientEnvironments = (): EnvironmentVariables => {
+export const getClientEnvironments = (): EnvironmentVariables => {
   const clientEnvironments = { ...environments }
   const keys = new Set<keyof ServerEnvironmentVariables>([
     'NODE_ENV',
@@ -64,7 +64,7 @@ declare module 'vue/types/vue' {
 }
 
 const environmentsPlugin: Plugin = (_, inject) => {
-  const env = createClientEnvironments()
+  const env = getClientEnvironments()
   inject('environments', env)
 }
 
