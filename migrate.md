@@ -2,8 +2,8 @@
 
 ## Short Hands
 
-1. Remove `/.dependabot` folder.
-1. Remove [README badges](./README.md#L3-8).
+1. Remove [`dependabot.yml`](./.github/dependabot.yml) file.
+1. Remove [README badges](./README.md#L3-7).
 1. Remove [Report Code Coverage to codecov step](./.github/workflows/nodejs.yml#L47-50) in Node CI Workflow.
 1. Replace `nuxt-ts-template` with `app-name`.
 1. Replace `(N|n)ogic` with `Owner Name`.
@@ -23,7 +23,7 @@
 
 ## README badges
 
-[Badges in README](./README.md#L3-8) include absolute path depends on this repository.
+[Badges in README](./README.md#L3-7) include absolute path depends on this repository.
 So you should remove or replace them.
 
 ```diff
@@ -31,8 +31,7 @@ So you should remove or replace them.
  4: [![Node CI Status](https://github.com/nogic1008/nuxt-ts-template/workflows/Node%20CI/badge.svg "Node CI Status")](/nogic1008/nuxt-ts-template/actions?query=workflow%3A%22Node+CI%22)
  5: [![codecov](https://codecov.io/gh/nogic1008/nuxt-ts-template/branch/master/graph/badge.svg)](https://codecov.io/gh/nogic1008/nuxt-ts-template)
  6: [![CodeFactor](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template/badge)](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template)
- 7: [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=nogic1008/nuxt-ts-template)](https://dependabot.com)
- 8: [![License](https://img.shields.io/github/license/nogic1008/nuxt-ts-template)](LICENSE)
+ 7: [![License](https://img.shields.io/github/license/nogic1008/nuxt-ts-template)](LICENSE)
 ```
 
 Some badges are provided by third party services. See also [Services](#services) section.
@@ -83,28 +82,16 @@ Or replace LICENSE file and [package.json#L7](./package.json#L7) if you want to 
 
 ### Dependabot
 
-[Depandabot](https://dependabot.com/) is integrated tool to keep repo's dependencies secure and up-to-date.
+[Depandabot](https://help.github.com/github/administering-a-repository/about-github-dependabot) is integrated tool to keep repo's dependencies secure and up-to-date.
 
 #### Disable Dependabot
 
-1. Delete `/.dependabot` folder and files.
-1. Remove Dependabot badge in [README](./README.md#L7).
-    ```diff
-    - 7: [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=nogic1008/nuxt-ts-template)](https://dependabot.com)
-    ```
+1. Delete [`./.github/dependabot.yml`](./.github/dependabot.yml) file.
 
 #### Enable Dependabot
 
-1. Edit [.dependabot/config.yml](./.dependabot/config.yml) according to your strategy.
-    - **Be sure to change the `default_reviewers` section.** If you leave it as is, review requests will come to me.
-    - [Click here](https://dependabot.com/docs/config-file/) for configuration file documentation.
-1. Sign up from [Dependabot web page](https://dependabot.com/).
-1. Install [Dependabot Preview](https://github.com/marketplace/dependabot-preview) GitHub App.
-1. Change Dependabot badge URL in [README](./README.md#L7).
-    ```diff
-    - 7: [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=nogic1008/nuxt-ts-template)](https://dependabot.com)
-    + 7: [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=owner/repo)](https://dependabot.com)
-    ```
+1. Edit [`./.github/dependabot.yml`](./.github/dependabot.yml) according to your strategy.
+    - [Click here](https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates) for configuration file documentation.
 
 ### Codecov
 
@@ -112,12 +99,10 @@ Or replace LICENSE file and [package.json#L7](./package.json#L7) if you want to 
 
 #### Disable Codecov
 
-1. Remove "Report Code Coverage to codecov" action in [Node CI workflow](./.github/workflows/nodejs.yml#L47-50).
+1. Remove "Report Code Coverage to codecov" action in [Node CI workflow](./.github/workflows/nodejs.yml#L56-57).
     ```diff
-    -47:      - name: Report Code Coverage to codecov
-    -48:        uses: codecov/codecov-action@v1.0.5
-    -49:        with:
-    -50:          token: ${{ secrets.CODECOV_TOKEN }}
+    -56:      - name: Report Code Coverage to codecov
+    -57:        uses: codecov/codecov-action@v1
     ```
 1. Remove Codecov badge in [README](./README.md#L5).
     ```diff
@@ -128,8 +113,6 @@ Or replace LICENSE file and [package.json#L7](./package.json#L7) if you want to 
 
 1. Sign up from [Codecov web page](https://codecov.io/).
 1. Add your repository in Codecov web console.
-1. Get `CODECOV_TOKEN` from web console.
-1. Create `CODECOV_TOKEN` [Secret](https://help.github.com/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) to your GitHub Repository.
 1. Install [Codecov](https://github.com/marketplace/codecov) GitHub App.
 1. Change Codecov badge URL in [README](./README.md#L5).
     ```diff
