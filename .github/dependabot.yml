@@ -1,21 +1,14 @@
 version: 2
 updates:
-- package-ecosystem: npm
-  directory: "/"
-  schedule:
-    interval: daily
-    time: '12:00'
-    timezone: Japan
-  open-pull-requests-limit: 10
-  reviewers:
-  - nogic1008
-  labels:
-  - 'dependabot:robot:'
-  ignore:
-  - dependency-name: "@types/jest"
-    versions:
-    - ">= 26.a, < 27"
-  commit-message:
-    prefix: fix
-    prefix-development: chore
-    include: scope
+  - package-ecosystem: npm
+    directory: '/'
+    schedule:
+      interval: daily
+      time: '08:00'
+      timezone: Japan
+    labels:
+      - 'dependabot:robot:'
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope
