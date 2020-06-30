@@ -20,15 +20,6 @@
     "lint:tsc": "tsc --noEmit",
     "test": "jest"
   },
-  "lint-staged": {
-    "*.{js,ts,vue}": "eslint --fix",
-    "*.{json,yaml,yml}": "prettier --write"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.10",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
