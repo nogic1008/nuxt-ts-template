@@ -29,7 +29,7 @@
     "nuxt-buefy": "^0.3.31",
     "nuxt-i18n": "^6.13.1",
     "nuxt-property-decorator": "^2.7.2",
-    "vuex-class-component": "^2.3.3"
+    "vuex-class-component": "^2.3.4"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^1.0.3",
