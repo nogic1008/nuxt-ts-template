@@ -20,39 +20,36 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2.3.1
       - name: Setup Node.js 12
         uses: actions/setup-node@v1
         with:
           node-version: 12
 
-      - name: Get npm cache directory
-        id: npm-cache
-        run: echo "::set-output name=dir::$(npm config get cache)"
-      - name: Clean npm cache directory
-        run: npm cache clear --force
+      - name: Get yarn cache directory path
+        id: yarn-config
+        run: echo "::set-output name=dir::$(yarn cache dir)"
       - name: Cache Dependencies
-        id: npm_cache
-        uses: actions/cache@v1
+        uses: actions/cache@v2.1.0
         with:
-          path: ${{ steps.npm-cache.outputs.dir }}
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: ${{ steps.yarn-config.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Clean npm cache directory before Deploy
+            ${{ runner.os }}-yarn-
+      - name: Clean yarn cache directory before Deploy
         if: github.event_name == 'push' && contains(github.event.commits[0].message, 'increment version')
-        run: npm cache clear --force
+        run: yarn cache clean
 
       - name: Install Dependencies
-        run: npm ci
+        run: yarn --frozen-lockfile
       - name: Lint
-        run: npm run lint
+        run: yarn lint
       - name: Build
         run: |
-          BASE_PATH=/${GITHUB_REPOSITORY##*/} npm run generate
+          BASE_PATH=/${GITHUB_REPOSITORY##*/} yarn generate
           rm dist/README.md
       - name: Test
-        run: npm test
+        run: yarn test
       - name: Report Code Coverage to codecov
         uses: codecov/codecov-action@v1
       - name: Archive Production Artifact
