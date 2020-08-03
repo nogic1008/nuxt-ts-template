@@ -1,4 +1,4 @@
-import { Configuration } from '@nuxt/types'
+import type { NuxtConfig } from '@nuxt/types'
 import consola from 'consola'
 
 import pkg from './package.json'
@@ -15,7 +15,7 @@ if (!process.env.CI) {
   }
 }
 
-const config: Configuration = {
+const config: NuxtConfig = {
   mode: 'spa',
   /** Headers of the page */
   head: {
