@@ -36,7 +36,7 @@ export default class EnvironmentPage extends Vue {
   }
 
   get environmentList() {
-    return Object.entries(this.$environments)
+    return Object.entries(this.$config)
       .filter(([key, _]) => !!key)
       .map(([key, value]) => ({
         key,

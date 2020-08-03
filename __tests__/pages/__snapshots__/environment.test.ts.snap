@@ -15,7 +15,7 @@ exports[`pages/environment.vue snapshot renders correctly if locale is "en" 1`] 
   <ul>
     <li>
       <b>
-        BASE_PATH
+        basePath
       </b>
       
       : foo
@@ -40,7 +40,7 @@ exports[`pages/environment.vue snapshot renders correctly if locale is "ja" 1`] 
   <ul>
     <li>
       <b>
-        BASE_PATH
+        basePath
       </b>
       
       : foo
