@@ -1,21 +1,15 @@
 import type { NuxtConfig } from '@nuxt/types'
-import consola from 'consola'
+import { config } from 'dotenv'
 
 import pkg from './package.json'
-import { environments, getClientEnvironments } from './plugins/environments'
+
+// Setup dotenv
+config()
 
 // eslint-disable-next-line no-process-env
-if (!process.env.CI) {
-  const validateResult = environments.validate()
-  if (!validateResult.valid) {
-    consola.error(
-      `Missing environment variable(s): ${validateResult.keys.join(', ')}`
-    )
-    process.exit(1)
-  }
-}
+const basePath = process.env.BASE_PATH || '/'
 
-const config: NuxtConfig = {
+const nuxtConfig: NuxtConfig = {
   mode: 'spa',
   /** Headers of the page */
   head: {
@@ -33,19 +27,17 @@ const config: NuxtConfig = {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: `${environments.BASE_PATH}favicon.ico`
+        href: `${basePath}favicon.ico`
       }
     ]
   },
-  router: {
-    base: environments.BASE_PATH
-  },
+  router: { base: basePath },
   /** Customize the progress-bar color */
   loading: { color: '#fff' },
   /** Global CSS */
   css: [],
   /** Plugins to load before mounting the App */
-  plugins: ['~/plugins/environments.ts', '~/plugins/vuex-module.ts'],
+  plugins: ['~/plugins/vuex-module.ts'],
   /** Nuxt.js dev-modules */
   buildModules: [
     // Doc: https://typescript.nuxtjs.org/
@@ -72,8 +64,14 @@ const config: NuxtConfig = {
       }
     ]
   ],
-  /** Set environments object for use by client-side code. */
-  env: { ...getClientEnvironments() },
+  /* eslint-disable no-process-env */
+  publicRuntimeConfig: {
+    basePath
+  },
+  privateRuntimeConfig: {
+    nodeEnv: process.env.NODE_ENV
+  },
+  /* eslint-enable no-process-env */
   /** Build configuration */
   build: {
     extend: (config, _) => {
@@ -82,4 +80,4 @@ const config: NuxtConfig = {
   }
 }
 
-export default config
+export default nuxtConfig

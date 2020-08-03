@@ -2,9 +2,6 @@ import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
 import VueI18n from 'vue-i18n'
 
 import Environment from '~/pages/environment.vue'
-import type { getClientEnvironments } from '~/plugins/environments'
-
-type EnvironmentVariables = ReturnType<typeof getClientEnvironments>
 
 const localVue = createLocalVue()
 localVue.use(VueI18n)
@@ -12,14 +9,12 @@ const i18n = new VueI18n({ locale: 'en', silentFallbackWarn: true })
 
 describe('pages/environment.vue', () => {
   let wrapper: ReturnType<typeof mount>
-  const $environments: EnvironmentVariables = {
-    BASE_PATH: 'foo'
-  }
+  const $config = { basePath: 'foo' }
 
   beforeEach(() => {
     wrapper = shallowMount(Environment, {
       localVue,
-      mocks: { $environments },
+      mocks: { $config },
       i18n
     })
   })
@@ -31,7 +26,7 @@ describe('pages/environment.vue', () => {
         const i18n = new VueI18n({ locale, silentFallbackWarn: true })
         const wrapper = mount(Environment, {
           localVue,
-          mocks: { $environments },
+          mocks: { $config },
           i18n
         })
         wrapper.vm.$i18n.locale = locale
