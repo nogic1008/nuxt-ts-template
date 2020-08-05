@@ -27,25 +27,23 @@
 </template>
 
 <script lang="ts">
-import { NuxtVueI18n } from 'nuxt-i18n'
 import { Component, Vue } from 'vue-property-decorator'
 
 import Flag from '~/components/Flag.vue'
+import { Locale } from '~/types/locale'
 
-@Component({
-  components: { Flag }
-})
+@Component({ components: { Flag } })
 export default class NavbarComponent extends Vue {
   get selectedLocale() {
     return this.$i18n.locales?.find(
       (i) => typeof i === 'object' && i.code === this.$i18n.locale
-    ) as NuxtVueI18n.Options.LocaleObject
+    ) as Locale
   }
 
   get availableLocales() {
     return this.$i18n.locales?.filter(
       (i) => typeof i === 'object' && i.code !== this.$i18n.locale
-    ) as NuxtVueI18n.Options.LocaleObject[]
+    ) as Locale[]
   }
 }
 </script>
