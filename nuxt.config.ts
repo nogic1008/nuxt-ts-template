@@ -2,6 +2,7 @@ import type { NuxtConfig } from '@nuxt/types'
 import { config } from 'dotenv'
 
 import pkg from './package.json'
+import { Locale } from './types/locale'
 
 // Setup dotenv
 config()
@@ -48,22 +49,20 @@ const nuxtConfig: NuxtConfig = {
     // Doc: https://buefy.org/documentation/
     'nuxt-buefy',
     '@nuxtjs/pwa',
-    // Doc: https://nuxt-community.github.io/nuxt-i18n/
-    [
-      'nuxt-i18n',
-      {
-        locales: [
-          { code: 'en', iso: 'en-US', flag: 'us', name: 'English' },
-          { code: 'ja', iso: 'ja-JP', flag: 'jp', name: '日本語' }
-        ],
-        defaultLocale: 'en',
-        vueI18n: {
-          fallbackLocale: 'en'
-        },
-        vueI18nLoader: true
-      }
-    ]
+    // Doc: https://i18n.nuxtjs.org/
+    'nuxt-i18n'
   ],
+  i18n: {
+    locales: [
+      { code: 'en', iso: 'en-US', flag: 'us', name: 'English' },
+      { code: 'ja', iso: 'ja-JP', flag: 'jp', name: '日本語' }
+    ] as Locale[],
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en'
+    },
+    vueI18nLoader: true
+  },
   /* eslint-disable no-process-env */
   publicRuntimeConfig: {
     basePath
