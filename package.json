@@ -29,7 +29,7 @@
     "flag-icon-css": "^3.5.0",
     "nuxt": "^2.14.1",
     "nuxt-buefy": "^0.3.31",
-    "nuxt-i18n": "^6.13.7",
+    "nuxt-i18n": "^6.13.8",
     "nuxt-property-decorator": "^2.7.2",
     "vuex-class-component": "^2.3.5"
   },
