@@ -53,9 +53,7 @@ exports[`components/Counter.vue snapshot renders correctly if locale is "en" 1`]
                 class="mdi mdi-plus"
               />
             </span>
-             
             <!---->
-             
             <!---->
           </button>
            
@@ -76,9 +74,7 @@ exports[`components/Counter.vue snapshot renders correctly if locale is "en" 1`]
                 class="mdi mdi-minus"
               />
             </span>
-             
             <!---->
-             
             <!---->
           </button>
         </span>
@@ -141,9 +137,7 @@ exports[`components/Counter.vue snapshot renders correctly if locale is "ja" 1`]
                 class="mdi mdi-plus"
               />
             </span>
-             
             <!---->
-             
             <!---->
           </button>
            
@@ -164,9 +158,7 @@ exports[`components/Counter.vue snapshot renders correctly if locale is "ja" 1`]
                 class="mdi mdi-minus"
               />
             </span>
-             
             <!---->
-             
             <!---->
           </button>
         </span>
