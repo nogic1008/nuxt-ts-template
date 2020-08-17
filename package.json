@@ -28,7 +28,7 @@
     "@nuxtjs/pwa": "^3.0.1",
     "flag-icon-css": "^3.5.0",
     "nuxt": "^2.14.3",
-    "nuxt-buefy": "^0.3.31",
+    "nuxt-buefy": "^0.4.0",
     "nuxt-i18n": "^6.13.9",
     "nuxt-property-decorator": "^2.7.2",
     "vuex-class-component": "^2.3.5"
