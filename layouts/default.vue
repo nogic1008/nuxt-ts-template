@@ -4,9 +4,7 @@
 
     <section class="main-content columns">
       <aside class="column is-2 section">
-        <p class="menu-label is-hidden-touch">
-          General
-        </p>
+        <p class="menu-label is-hidden-touch">General</p>
         <ul class="menu-list">
           <li v-for="(item, key) of items" :key="key">
             <nuxt-link :to="localePath(item.to)" exact-active-class="is-active">

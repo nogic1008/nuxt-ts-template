@@ -13,9 +13,7 @@ exports[`layouts/default.vue renders correctly 1`] = `
       <p
         class="menu-label is-hidden-touch"
       >
-        
         General
-      
       </p>
        
       <ul

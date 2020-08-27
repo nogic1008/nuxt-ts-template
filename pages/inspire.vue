@@ -17,9 +17,7 @@
       <b-icon icon="rocket" size="is-large" />
     </i18n>
     <i18n path="subtitle" tag="h3" class="subtitle is-6 has-text-grey">
-      <a href="https://github.com/anteriovieira">
-        Antério Vieira
-      </a>
+      <a href="https://github.com/anteriovieira">Antério Vieira</a>
     </i18n>
   </section>
 </template>

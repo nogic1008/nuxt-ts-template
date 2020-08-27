@@ -25,9 +25,7 @@ exports[`pages/inspire.vue snapshot renders correctly if locale is "en" 1`] = `
     <a
       href="https://github.com/anteriovieira"
     >
-      
       Antério Vieira
-    
     </a>
   </h3>
 </section>
@@ -58,9 +56,7 @@ exports[`pages/inspire.vue snapshot renders correctly if locale is "ja" 1`] = `
     <a
       href="https://github.com/anteriovieira"
     >
-      
       Antério Vieira
-    
     </a>
   </h3>
 </section>
