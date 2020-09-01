@@ -36,7 +36,7 @@
 <template>
   <section class="section">
     <div class="columns is-mobile">
-      <card :title="$t('title.free')" icon="github-circle">
+      <card :title="$t('title.free')" icon="github">
         <i18n path="description.free">
           <a href="https://github.com/buefy/buefy">GitHub</a>
         </i18n>
