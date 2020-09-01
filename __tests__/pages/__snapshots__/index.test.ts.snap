@@ -8,7 +8,7 @@ exports[`pages/index.vue snapshot renders correctly if locale is "en" 1`] = `
     class="columns is-mobile"
   >
     <card-stub
-      icon="github-circle"
+      icon="github"
       title="Free"
     >
       <span>
@@ -77,7 +77,7 @@ exports[`pages/index.vue snapshot renders correctly if locale is "ja" 1`] = `
     class="columns is-mobile"
   >
     <card-stub
-      icon="github-circle"
+      icon="github"
       title="無料"
     >
       <span>
