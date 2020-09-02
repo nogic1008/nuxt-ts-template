@@ -24,7 +24,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^1.0.0",
+    "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/pwa": "^3.0.2",
     "flag-icon-css": "^3.5.0",
     "nuxt": "^2.14.4",
