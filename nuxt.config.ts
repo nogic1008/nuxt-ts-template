@@ -11,7 +11,7 @@ config()
 const basePath = process.env.BASE_PATH || '/'
 
 const nuxtConfig: NuxtConfig = {
-  mode: 'spa',
+  ssr: false,
   /** Headers of the page */
   head: {
     titleTemplate: `%s - ${pkg.name}`,
