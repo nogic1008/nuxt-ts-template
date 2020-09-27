@@ -1,5 +1,22 @@
+# Please see the documentation for all configuration options:
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
 version: 2
 updates:
+  # GitHub Actions (/.github/workflows/*.yml)
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: daily
+      time: '08:00'
+      timezone: Japan
+    labels:
+      - 'dependabot:robot:'
+    commit-message:
+      prefix: ci
+      include: scope
+
+  # npm/yarn (/package.json)
   - package-ecosystem: npm
     directory: '/'
     schedule:
