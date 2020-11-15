@@ -54,7 +54,7 @@ jobs:
         uses: codecov/codecov-action@v1
       - name: Archive Production Artifact
         if: contains(github.ref, 'tags/v')
-        uses: actions/upload-artifact@v2.2.0
+        uses: actions/upload-artifact@v2.2.1
         with:
           name: dist
           path: dist
