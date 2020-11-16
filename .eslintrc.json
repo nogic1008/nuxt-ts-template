@@ -18,6 +18,6 @@
     "no-process-env": "error",
     "sort-imports": "off",
     "import/order": "off",
-    "simple-import-sort/sort": "error"
+    "simple-import-sort/imports": "error"
   }
 }
