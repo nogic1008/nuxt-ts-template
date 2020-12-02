@@ -34,7 +34,7 @@
     "vuex-class-component": "^2.3.5"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.14.7",
+    "@nuxt/types": "^2.14.8",
     "@nuxt/typescript-build": "^2.0.3",
     "@nuxtjs/eslint-config-typescript": "^5.0.0",
     "@types/jest": "^26.0.15",
