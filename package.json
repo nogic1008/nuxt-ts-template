@@ -27,7 +27,7 @@
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/pwa": "^3.3.2",
     "flag-icon-css": "^3.5.0",
-    "nuxt": "^2.14.9",
+    "nuxt": "^2.14.10",
     "nuxt-buefy": "^0.4.4",
     "nuxt-i18n": "^6.15.4",
     "nuxt-property-decorator": "^2.8.8",
