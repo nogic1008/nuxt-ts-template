@@ -9,11 +9,10 @@
     "@nuxtjs/eslint-config-typescript",
     "prettier",
     "prettier/vue",
-    "plugin:prettier/recommended",
     "plugin:jest/recommended",
     "plugin:nuxt/recommended"
   ],
-  "plugins": ["jest", "prettier", "simple-import-sort"],
+  "plugins": ["jest", "simple-import-sort"],
   "rules": {
     "no-process-env": "error",
     "sort-imports": "off",
