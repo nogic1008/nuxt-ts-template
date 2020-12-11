@@ -75,7 +75,6 @@ exports[`components/Navbar.vue renders correctly 1`] = `
                日本語
             </span>
           </a>
-           
         </div>
       </div>
     </div>

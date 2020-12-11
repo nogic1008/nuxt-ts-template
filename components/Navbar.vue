@@ -7,18 +7,16 @@
     </template>
     <template slot="end">
       <b-navbar-dropdown right collapsible>
-        <template>
-          <b-navbar-item
-            v-for="locale in availableLocales"
-            :key="locale.code"
-            tag="nuxt-link"
-            :to="switchLocalePath(locale.code)"
-          >
-            <flag :iso="locale.flag" />
-            <span>&nbsp;{{ locale.name }}</span>
-          </b-navbar-item>
-        </template>
-        <template slot="label">
+        <b-navbar-item
+          v-for="locale in availableLocales"
+          :key="locale.code"
+          tag="nuxt-link"
+          :to="switchLocalePath(locale.code)"
+        >
+          <flag :iso="locale.flag" />
+          <span>&nbsp;{{ locale.name }}</span>
+        </b-navbar-item>
+        <template #label>
           <flag :iso="selectedLocale.flag" />&nbsp;{{ selectedLocale.name }}
         </template>
       </b-navbar-dropdown>
