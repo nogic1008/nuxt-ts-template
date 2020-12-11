@@ -17,7 +17,7 @@ const config: Config.InitialOptions = {
       }
     }
   },
-  testRegex: '/__tests__/.+\\.(test|spec)\\.[jt]sx?$',
+  testRegex: '/__tests__/.+\\.test.ts$',
   collectCoverage: true,
   collectCoverageFrom: [
     '**/*.ts',
