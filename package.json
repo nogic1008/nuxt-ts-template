@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.0",
-    "@nuxtjs/pwa": "^3.3.2",
+    "@nuxtjs/pwa": "^3.3.3",
     "flag-icon-css": "^3.5.0",
     "nuxt": "^2.14.12",
     "nuxt-buefy": "^0.4.4",
