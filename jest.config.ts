@@ -10,6 +10,7 @@ const config: Config.InitialOptions = {
     '^.+\\.ts$': 'ts-jest',
     '.*\\.(vue)$': 'vue-jest'
   },
+  transformIgnorePatterns: ['<rootDir>/node_modules/(?!typed-vuex/lib)'],
   globals: {
     'vue-jest': {
       transform: {
@@ -24,6 +25,7 @@ const config: Config.InitialOptions = {
     '**/*.vue',
     '!<rootDir>/*.config.ts',
     '!**/*.d.ts',
+    '!**/.nuxt/**',
     '!**/node_modules/**',
     '!**/__tests__/**'
   ]

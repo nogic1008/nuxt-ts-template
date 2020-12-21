@@ -38,11 +38,13 @@ const nuxtConfig: NuxtConfig = {
   /** Global CSS */
   css: [],
   /** Plugins to load before mounting the App */
-  plugins: ['~/plugins/vuex-module.ts'],
+  plugins: [],
   /** Nuxt.js dev-modules */
   buildModules: [
     // Doc: https://typescript.nuxtjs.org/
-    '@nuxt/typescript-build'
+    '@nuxt/typescript-build',
+    // Doc: https://typed-vuex.roe.dev/
+    'nuxt-typed-vuex'
   ],
   /** Nuxt.js modules */
   modules: [

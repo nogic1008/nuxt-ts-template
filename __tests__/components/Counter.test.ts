@@ -3,79 +3,68 @@ import Buefy from 'buefy'
 import VueI18n from 'vue-i18n'
 
 import CounterComponent from '~/components/Counter.vue'
-import type { vxm } from '~/store'
-import CounterStore from '~/store/counter'
 
 const localVue = createLocalVue()
 localVue.use(Buefy)
 localVue.use(VueI18n)
 
 describe('components/Counter.vue', () => {
-  let $vxm: Record<keyof typeof vxm, object>
-
+  const counter = { count: 0, increment: jest.fn(), decrement: jest.fn() }
+  const i18n = new VueI18n({ locale: 'en', silentFallbackWarn: true })
   beforeEach(() => {
-    $vxm = {
-      counter: new CounterStore()
-    }
+    counter.increment.mockClear()
+    counter.decrement.mockClear()
   })
 
-  describe('snapshot', () => {
-    test.each(['en', 'ja'])('renders correctly if locale is "%s"', (locale) => {
+  describe.each(['en', 'ja'])('snapshot test (%s)', (locale) => {
+    test('renders correctly', () => {
+      // Arrange
       const i18n = new VueI18n({ locale, silentFallbackWarn: true })
-      const wrapper = mount(CounterComponent, {
-        localVue,
-        mocks: { $vxm },
-        i18n
-      })
+      const mocks = { $accessor: { counter } }
+
+      // Act
+      const wrapper = mount(CounterComponent, { localVue, mocks, i18n })
+
+      // Assert
       expect(wrapper.element).toMatchSnapshot()
     })
   })
 
-  test.each([0, 1, 2, 10])(
-    'click plus button increases count',
-    async (pressCount) => {
+  test.each([1, 2, 10])(
+    'click plus button calls counter.increment()',
+    (pressCount) => {
       // Arrange
-      const i18n = new VueI18n({ locale: 'en', silentFallbackWarn: true })
-      const wrapper = mount(CounterComponent, {
-        localVue,
-        mocks: { $vxm },
-        i18n
-      })
-      const button = wrapper.find('button.plus')
+      const mocks = { $accessor: { counter } }
+      const wrapper = mount(CounterComponent, { localVue, mocks, i18n })
 
       // Act
+      const button = wrapper.find('button.plus')
       for (let i = 0; i < pressCount; i++) {
         button.trigger('click')
       }
 
       // Assert
-      await wrapper.vm.$nextTick()
-      expect(wrapper.find('span.subtitle').text()).toBe(pressCount.toString())
+      expect(counter.increment).toBeCalledTimes(pressCount)
+      expect(counter.decrement).not.toBeCalled()
     }
   )
 
-  test.each([0, 1, 2, 10])(
-    'click minus button decreases count',
-    async (pressCount) => {
+  test.each([1, 2, 10])(
+    'click minus button calls counter.decrement()',
+    (pressCount) => {
       // Arrange
-      const i18n = new VueI18n({ locale: 'en', silentFallbackWarn: true })
-      const wrapper = mount(CounterComponent, {
-        localVue,
-        mocks: { $vxm },
-        i18n
-      })
-      const button = wrapper.find('button.minus')
+      const mocks = { $accessor: { counter } }
+      const wrapper = mount(CounterComponent, { localVue, mocks, i18n })
 
       // Act
+      const button = wrapper.find('button.minus')
       for (let i = 0; i < pressCount; i++) {
         button.trigger('click')
       }
 
       // Assert
-      await wrapper.vm.$nextTick()
-      expect(wrapper.find('span.subtitle').text()).toBe(
-        (-pressCount).toString()
-      )
+      expect(counter.decrement).toBeCalledTimes(pressCount)
+      expect(counter.increment).not.toBeCalled()
     }
   )
 })

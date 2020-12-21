@@ -27,15 +27,15 @@ import Card from '~/components/Card.vue'
 })
 export default class CounterComponent extends Vue {
   get count() {
-    return this.$vxm.counter.count
+    return this.$accessor.counter.count
   }
 
   increment() {
-    this.$vxm.counter.increment()
+    this.$accessor.counter.increment()
   }
 
   decrement() {
-    this.$vxm.counter.decrement()
+    this.$accessor.counter.decrement()
   }
 }
 </script>
