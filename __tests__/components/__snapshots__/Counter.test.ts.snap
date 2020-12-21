@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components/Counter.vue snapshot renders correctly if locale is "en" 1`] = `
+exports[`components/Counter.vue snapshot test (en) renders correctly 1`] = `
 <div
   class="column"
 >
@@ -84,7 +84,7 @@ exports[`components/Counter.vue snapshot renders correctly if locale is "en" 1`]
 </div>
 `;
 
-exports[`components/Counter.vue snapshot renders correctly if locale is "ja" 1`] = `
+exports[`components/Counter.vue snapshot test (ja) renders correctly 1`] = `
 <div
   class="column"
 >

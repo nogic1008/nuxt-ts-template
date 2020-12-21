@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { getAccessorType } from 'nuxt-typed-vuex'
 
 import * as counter from '~/store/counter'

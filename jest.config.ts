@@ -25,6 +25,7 @@ const config: Config.InitialOptions = {
     '**/*.vue',
     '!<rootDir>/*.config.ts',
     '!**/*.d.ts',
+    '!**/.nuxt/**',
     '!**/node_modules/**',
     '!**/__tests__/**'
   ]
