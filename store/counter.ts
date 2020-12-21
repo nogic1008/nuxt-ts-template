@@ -1,19 +1,16 @@
-import { createModule, mutation } from 'vuex-class-component'
+import { getterTree, mutationTree } from 'nuxt-typed-vuex'
 
-const VuexModule = createModule({
-  namespaced: 'counter',
-  strict: false,
-  target: 'nuxt'
+export const state = () => ({ count: 0 })
+
+export const getters = getterTree(state, {
+  count: (state) => state.count
 })
 
-export default class CounterStore extends VuexModule {
-  count = 0
-
-  @mutation increment() {
-    this.count++
+export const mutations = mutationTree(state, {
+  increment(state) {
+    state.count++
+  },
+  decrement(state) {
+    state.count--
   }
-
-  @mutation decrement() {
-    this.count--
-  }
-}
+})
