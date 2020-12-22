@@ -14,7 +14,7 @@ const config: Config.InitialOptions = {
   globals: {
     'vue-jest': {
       transform: {
-        i18n: './__tests__/vue-i18n-transformer.js'
+        i18n: 'vue-i18n-jest'
       }
     }
   },
