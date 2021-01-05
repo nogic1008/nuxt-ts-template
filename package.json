@@ -39,7 +39,7 @@
     "@nuxtjs/eslint-config-typescript": "^5.0.0",
     "@types/jest": "^26.0.19",
     "@vue/test-utils": "^1.1.2",
-    "eslint": "^7.16.0",
+    "eslint": "^7.17.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
