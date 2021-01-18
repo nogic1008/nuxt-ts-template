@@ -37,7 +37,6 @@
     "@nuxt/types": "^2.14.12",
     "@nuxt/typescript-build": "^2.0.4",
     "@nuxtjs/eslint-config-typescript": "^5.0.0",
-    "@types/jest": "^26.0.19",
     "@vue/test-utils": "^1.1.2",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.1.0",
