@@ -10,7 +10,7 @@ config()
 const basePath = process.env.BASE_PATH || '/'
 
 const nuxtConfig: NuxtConfig = {
-  ssr: false,
+  target: 'static',
   /** Headers of the page */
   head: {
     titleTemplate: `%s - ${pkg.name}`,
