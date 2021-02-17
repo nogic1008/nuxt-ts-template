@@ -66,15 +66,13 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import { MetaInfo } from 'vue-meta'
+import type { MetaInfo } from 'vue-meta'
 
 import Card from '~/components/Card.vue'
 import Counter from '~/components/Counter.vue'
 import pkg from '~/package.json'
 
-@Component({
-  components: { Card, Counter }
-})
+@Component({ components: { Card, Counter } })
 export default class IndexPage extends Vue {
   head: MetaInfo = {
     title: pkg.name,

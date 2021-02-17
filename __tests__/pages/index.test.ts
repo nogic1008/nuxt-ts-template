@@ -9,14 +9,11 @@ localVue.use(Buefy)
 localVue.use(VueI18n)
 
 describe('pages/index.vue', () => {
-  describe('snapshot', () => {
-    test.each(['en', 'ja'])('renders correctly if locale is "%s"', (locale) => {
-      const i18n = new VueI18n({ locale, silentFallbackWarn: true })
-      const wrapper = mount(Index, {
-        localVue,
-        stubs: ['card', 'counter'],
-        i18n
-      })
+  describe.each(['en', 'ja'])('{ locale: %s } snapshot test', (locale) => {
+    const i18n = new VueI18n({ locale, silentFallbackWarn: true })
+    test('renders correctly', () => {
+      const stubs = ['card', 'counter']
+      const wrapper = mount(Index, { localVue, stubs, i18n })
       expect(wrapper.element).toMatchSnapshot()
     })
   })

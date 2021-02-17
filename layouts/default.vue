@@ -22,8 +22,8 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
-import { RawLocation } from 'vue-router'
+import { Component, Vue } from 'nuxt-property-decorator'
+import type { RawLocation } from 'vue-router'
 
 import Navbar from '~/components/Navbar.vue'
 
@@ -33,9 +33,7 @@ type MenuItem = {
   to: RawLocation
 }
 
-@Component({
-  components: { Navbar }
-})
+@Component({ components: { Navbar } })
 export default class DefaultLayout extends Vue {
   readonly items: MenuItem[] = [
     {

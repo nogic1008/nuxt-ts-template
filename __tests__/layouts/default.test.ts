@@ -3,22 +3,16 @@ import Buefy from 'buefy'
 
 import DefaultLayout from '~/layouts/default.vue'
 
+import { i18nMethods } from '../utils'
+
 const localVue = createLocalVue()
 localVue.use(Buefy)
-localVue.mixin({
-  methods: { localePath: (obj: object) => obj }
-})
+localVue.mixin(i18nMethods)
 
 describe('layouts/default.vue', () => {
   test('renders correctly', () => {
-    const wrapper = mount(DefaultLayout, {
-      localVue,
-      stubs: {
-        NuxtLink: RouterLinkStub,
-        Nuxt: true,
-        Navbar: true
-      }
-    })
+    const stubs = { NuxtLink: RouterLinkStub, Nuxt: true, Navbar: true }
+    const wrapper = mount(DefaultLayout, { localVue, stubs })
     expect(wrapper.element).toMatchSnapshot()
   })
 })

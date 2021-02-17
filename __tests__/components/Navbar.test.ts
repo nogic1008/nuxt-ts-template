@@ -4,14 +4,11 @@ import { IVueI18n } from 'vue-i18n'
 
 import NavbarComponent from '~/components/Navbar.vue'
 
+import { i18nMethods } from '../utils'
+
 const localVue = createLocalVue()
 localVue.use(Buefy)
-localVue.mixin({
-  methods: {
-    localePath: (obj: object) => obj,
-    switchLocalePath: (code: string) => code
-  }
-})
+localVue.mixin(i18nMethods)
 
 describe('components/Navbar.vue', () => {
   const $i18n: Partial<IVueI18n> = {
@@ -23,14 +20,9 @@ describe('components/Navbar.vue', () => {
   }
 
   test('renders correctly', () => {
-    const wrapper = mount(NavbarComponent, {
-      localVue,
-      mocks: { $i18n },
-      stubs: {
-        NuxtLink: RouterLinkStub,
-        Nuxt: true
-      }
-    })
+    const mocks = { $i18n }
+    const stubs = { NuxtLink: RouterLinkStub, Nuxt: true }
+    const wrapper = mount(NavbarComponent, { localVue, mocks, stubs })
     expect(wrapper.element).toMatchSnapshot()
   })
 })

@@ -25,23 +25,18 @@
 
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
-import { MetaInfo } from 'vue-meta'
+import type { MetaInfo } from 'vue-meta'
 
 @Component
 export default class EnvironmentPage extends Vue {
   head(): MetaInfo {
-    return {
-      title: this.$t('title').toString()
-    }
+    return { title: this.$t('title').toString() }
   }
 
   get environmentList() {
     return Object.entries(this.$config)
       .filter(([key, _]) => !!key)
-      .map(([key, value]) => ({
-        key,
-        value
-      }))
+      .map(([key, value]) => ({ key, value }))
   }
 }
 </script>
