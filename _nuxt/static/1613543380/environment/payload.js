@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/environment", {data:[{}],fetch:{},mutations:[]});
