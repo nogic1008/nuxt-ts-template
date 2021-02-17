@@ -6,7 +6,7 @@ import { randomString as random } from '../utils'
 
 const localVue = createLocalVue()
 
-type FlagProps = {
+interface FlagProps {
   iso: string
   title?: string
   squared?: boolean
@@ -19,56 +19,48 @@ describe('components/Flag.vue', () => {
     wrapper = shallowMount(FlagComponent, { localVue, propsData })
   })
 
-  test('renders correctly', () => {
-    const wrapper = mount(FlagComponent, {
-      localVue,
-      propsData: { ...propsData, title: 'Japan', squared: true }
-    })
-    expect(wrapper.element).toMatchSnapshot()
-  })
-
-  test('sets { squared: false, title: undefined } default', () => {
-    expect(wrapper.props()).toStrictEqual({
-      ...propsData,
-      squared: false,
-      title: undefined
+  describe('props', () => {
+    test('sets { squared: false, title: undefined } default', () => {
+      const expected = { ...propsData, squared: false, title: undefined }
+      expect(wrapper.props()).toStrictEqual(expected)
     })
   })
 
-  test.each([
-    ['flag-icon-ja', 'ja'],
-    ['flag-icon-us', 'US'],
-    ['flag-icon-foo', 'Foo']
-  ])('has %s class if iso is %s', async (expectedClass, iso) => {
-    wrapper.setProps({ iso })
-    await wrapper.vm.$nextTick()
-    expect(wrapper.find('span').classes()).toContain(expectedClass)
-  })
-
-  test('has flag-icon-squared class if squared is true', async () => {
-    wrapper.setProps({ squared: true })
-    await wrapper.vm.$nextTick()
-    expect(wrapper.find('span').classes()).toContain('flag-icon-squared')
-  })
-
-  test('has not flag-icon-squared class if squared is false', async () => {
-    wrapper.setProps({ squared: false })
-    await wrapper.vm.$nextTick()
-    expect(wrapper.find('span').classes()).not.toContain('flag-icon-squared')
+  describe('class', () => {
+    test.each([
+      ['ja', 'flag-icon-ja'],
+      ['US', 'flag-icon-us'],
+      ['foo', 'flag-icon-foo']
+    ])('{ iso: "%s" } has "%s" class', async (iso, expectedClass) => {
+      wrapper.setProps({ iso })
+      await wrapper.vm.$nextTick()
+      expect(wrapper.find('span').classes()).toContain(expectedClass)
+    })
+    test('{ squared: true } has "flag-icon-squared" class', async () => {
+      wrapper.setProps({ squared: true })
+      await wrapper.vm.$nextTick()
+      expect(wrapper.find('span').classes()).toContain('flag-icon-squared')
+    })
+    test('{ squared: false } does not have "flag-icon-squared" class', async () => {
+      wrapper.setProps({ squared: false })
+      await wrapper.vm.$nextTick()
+      expect(wrapper.find('span').classes()).not.toContain('flag-icon-squared')
+    })
   })
 
   describe('title attribute', () => {
-    test('equals iso prop if title is undefined', async () => {
-      const randomString = random(10)
-      wrapper.setProps({ iso: randomString })
+    test('renders props.iso value if props.title is undefined', async () => {
+      const iso = random(10)
+      wrapper.setProps({ iso })
       await wrapper.vm.$nextTick()
-      expect(wrapper.find('span').attributes().title).toBe(randomString)
+      expect(wrapper.find('span').attributes().title).toBe(iso)
     })
-    test('equals title prop', async () => {
-      const randomString = random(10)
-      wrapper.setProps({ title: randomString })
+    test('renders props.title value', async () => {
+      const title = random(10)
+      const iso = random(10)
+      wrapper.setProps({ title, iso })
       await wrapper.vm.$nextTick()
-      expect(wrapper.find('span').attributes().title).toBe(randomString)
+      expect(wrapper.find('span').attributes().title).toBe(title)
     })
   })
 })

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`pages/environment.vue snapshot renders correctly if locale is "en" 1`] = `
+exports[`pages/environment.vue { locale: en } snapshot test renders correctly 1`] = `
 <section
   class="section"
 >
@@ -25,7 +25,7 @@ exports[`pages/environment.vue snapshot renders correctly if locale is "en" 1`] 
 </section>
 `;
 
-exports[`pages/environment.vue snapshot renders correctly if locale is "ja" 1`] = `
+exports[`pages/environment.vue { locale: ja } snapshot test renders correctly 1`] = `
 <section
   class="section"
 >
