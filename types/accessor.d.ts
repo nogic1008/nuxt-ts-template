@@ -1,4 +1,4 @@
-import { accessorType } from '~/store'
+import type { accessorType } from '~/store'
 
 declare module 'vue/types/vue' {
   interface Vue {

@@ -18,13 +18,11 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 
 import Card from '~/components/Card.vue'
 
-@Component({
-  components: { Card }
-})
+@Component({ components: { Card } })
 export default class CounterComponent extends Vue {
   get count() {
     return this.$accessor.counter.count

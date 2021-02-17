@@ -26,7 +26,7 @@
 
 <script lang="ts">
 import type { NuxtVueI18n } from 'nuxt-i18n'
-import { Component, Vue } from 'vue-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 
 import Flag from '~/components/Flag.vue'
 

@@ -1,27 +1,30 @@
 <template>
-  <span
-    v-if="iso"
-    class="flag-icon"
-    :class="flagIconClass"
-    :title="title || iso"
-  />
+  <span class="flag-icon" :class="flagIconClass" :title="title || iso" />
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator'
+import { Component, Prop, Vue } from 'nuxt-property-decorator'
 
 @Component
 export default class FlagComponent extends Vue {
-  @Prop({ type: String, required: true }) iso!: string
-  @Prop(String) title: string | undefined
-  @Prop({ type: Boolean, default: false }) squared!: boolean
+  @Prop({ type: String, required: true })
+  readonly iso!: string
+
+  @Prop(String)
+  readonly title: string | undefined
+
+  @Prop({ type: Boolean, default: false })
+  readonly squared!: boolean
 
   get flagIconClass() {
-    return `${
-      this.squared ? 'flag-icon-squared ' : ''
-    }flag-icon-${this.iso.toLowerCase()}`
+    return [
+      {
+        'flag-icon-squared': this.squared
+      },
+      `flag-icon-${this.iso.toLowerCase()}`
+    ]
   }
 }
 </script>
 
-<style scoped src="flag-icon-css/css/flag-icon.min.css"></style>
+<style scoped src="flag-icon-css/css/flag-icon.min.css" />
