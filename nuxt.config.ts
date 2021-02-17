@@ -6,8 +6,12 @@ import pkg from './package.json'
 // Setup dotenv
 config()
 
-// eslint-disable-next-line no-process-env
+/* eslint-disable no-process-env */
 const basePath = process.env.BASE_PATH || '/'
+const cliendId = process.env.OAUTH_CLIENT_ID
+const clientSecret = process.env.OAUTH_CLIENT_SECRET
+const nodeEnv = process.env.NODE_ENV
+/* eslint-enable no-process-env */
 
 const nuxtConfig: NuxtConfig = {
   target: 'static',
@@ -51,7 +55,9 @@ const nuxtConfig: NuxtConfig = {
     'nuxt-buefy',
     '@nuxtjs/pwa',
     // Doc: https://i18n.nuxtjs.org/
-    'nuxt-i18n'
+    'nuxt-i18n',
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next'
   ],
   i18n: {
     locales: [
@@ -64,14 +70,21 @@ const nuxtConfig: NuxtConfig = {
     },
     vueI18nLoader: true
   },
-  /* eslint-disable no-process-env */
+  auth: {
+    redirect: {
+      login: '/',
+      callback: '/callback'
+    },
+    strategies: {
+      github: { cliendId, clientSecret }
+    }
+  },
   publicRuntimeConfig: {
     basePath
   },
   privateRuntimeConfig: {
-    nodeEnv: process.env.NODE_ENV
+    nodeEnv
   },
-  /* eslint-enable no-process-env */
   /** Build configuration */
   build: {
     extend: (config, _) => {

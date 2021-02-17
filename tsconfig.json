@@ -14,7 +14,7 @@
     "paths": {
       "~/*": ["./*"]
     },
-    "types": ["jest", "node", "nuxt-i18n"]
+    "types": ["jest", "node", "nuxt-i18n", "@nuxtjs/auth-next"]
   },
   "exclude": ["node_modules"]
 }
