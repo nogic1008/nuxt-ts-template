@@ -1,22 +1,16 @@
-name: Node CI
+name: Release
 
 on:
   push:
-    branches:
-      - master
+    tags:
+      - v*
     paths:
       - '**'
       - '!**.md' # Exclude Markdown
-  pull_request:
-    paths:
-      - '**'
-      - '!**.md' # Exclude Markdown
-env:
-  CI: true
 
 jobs:
-  build:
-    name: Build & Test
+  deploy:
+    name: Deploy to GitHub Pages
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -39,11 +33,15 @@ jobs:
 
       - name: Install Dependencies
         run: yarn --frozen-lockfile
-      - name: Lint
-        run: yarn lint
-      - name: Build
-        run: yarn build
-      - name: Test
-        run: yarn test
-      - name: Report Code Coverage to codecov
-        uses: codecov/codecov-action@v1
+
+      - name: Production Build
+        run: |
+          BASE_PATH=/${GITHUB_REPOSITORY##*/} yarn generate
+          rm dist/README.md
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          commit_message: 'ci: auto deployment from'
