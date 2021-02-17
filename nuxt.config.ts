@@ -2,7 +2,6 @@ import type { NuxtConfig } from '@nuxt/types'
 import { config } from 'dotenv'
 
 import pkg from './package.json'
-import { Locale } from './types/locale'
 
 // Setup dotenv
 config()
@@ -58,7 +57,7 @@ const nuxtConfig: NuxtConfig = {
     locales: [
       { code: 'en', iso: 'en-US', flag: 'us', name: 'English' },
       { code: 'ja', iso: 'ja-JP', flag: 'jp', name: '日本語' }
-    ] as Locale[],
+    ],
     defaultLocale: 'en',
     vueI18n: {
       fallbackLocale: 'en'
