@@ -75,3 +75,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
           commit_message: 'ci: auto deployment from'
+          keep_files: true
