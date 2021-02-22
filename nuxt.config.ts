@@ -8,7 +8,7 @@ config()
 
 /* eslint-disable no-process-env */
 const basePath = process.env.BASE_PATH || '/'
-const cliendId = process.env.OAUTH_CLIENT_ID
+const clientId = process.env.OAUTH_CLIENT_ID
 const clientSecret = process.env.OAUTH_CLIENT_SECRET
 const nodeEnv = process.env.NODE_ENV
 /* eslint-enable no-process-env */
@@ -65,9 +65,8 @@ const nuxtConfig: NuxtConfig = {
       { code: 'ja', iso: 'ja-JP', flag: 'jp', name: '日本語' }
     ],
     defaultLocale: 'en',
-    vueI18n: {
-      fallbackLocale: 'en'
-    },
+    strategy: 'no_prefix',
+    vueI18n: { fallbackLocale: 'en' },
     vueI18nLoader: true
   },
   auth: {
@@ -76,7 +75,7 @@ const nuxtConfig: NuxtConfig = {
       callback: '/callback'
     },
     strategies: {
-      github: { cliendId, clientSecret }
+      github: { clientId, clientSecret }
     }
   },
   publicRuntimeConfig: {

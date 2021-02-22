@@ -20,6 +20,14 @@
           <flag :iso="selectedLocale.flag" />&nbsp;{{ selectedLocale.name }}
         </template>
       </b-navbar-dropdown>
+      <b-navbar-item tag="div">
+        <div class="buttons">
+          <b-button v-if="isLoggedIn" @click="logout">Log out</b-button>
+          <b-button v-else type="is-dark" icon-left="github" @click="login">
+            Log in
+          </b-button>
+        </div>
+      </b-navbar-item>
     </template>
   </b-navbar>
 </template>
@@ -47,6 +55,18 @@ export default class NavbarComponent extends Vue {
           typeof l === 'object' && l.code !== this.$i18n.locale
       ) ?? []
     )
+  }
+
+  get isLoggedIn() {
+    return this.$auth.loggedIn
+  }
+
+  async login() {
+    await this.$auth.loginWith('github')
+  }
+
+  async logout() {
+    await this.$auth.logout()
   }
 }
 </script>
