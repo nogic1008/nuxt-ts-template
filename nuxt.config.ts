@@ -50,6 +50,8 @@ const nuxtConfig: NuxtConfig = {
     // Doc: https://buefy.org/documentation/
     'nuxt-buefy',
     '@nuxtjs/pwa',
+    // Doc: https://http.nuxtjs.org/
+    '@nuxt/http',
     // Doc: https://i18n.nuxtjs.org/
     'nuxt-i18n'
   ],
