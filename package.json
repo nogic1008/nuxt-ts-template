@@ -24,7 +24,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^2.0.1",
     "@nuxtjs/pwa": "^3.3.5",
     "flag-icon-css": "^3.5.0",
     "nuxt": "^2.15.2",
@@ -48,6 +47,7 @@
     "sass": "^1.32.8",
     "sass-loader": "^10.1.1",
     "ts-jest": "^26.5.2",
+    "ts-node": "^9.1.1",
     "vue-i18n-jest": "^1.0.0",
     "vue-jest": "^4.0.0"
   }
