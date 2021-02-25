@@ -5,9 +5,9 @@
 1. Remove [`dependabot.yml`](./.github/dependabot.yml) file.
 1. Remove [README badges](./README.md#L3-7).
 1. Remove [Report Code Coverage to codecov step](./.github/workflows/nodejs.yml#L47-50) in Node CI Workflow.
-1. Replace `nuxt-ts-template` with `app-name`.
+1. Replace `nuxt-ts-template` with `your-app-name`.
 1. Replace `(N|n)ogic` with `Owner Name`.
-1. Set your app version to [package.json](./package.json#L3) and [package-lock.json](./package-lock.json#L3).
+1. Set your app version to [package.json](./package.json#L3).
 
 ## TOC
 
@@ -41,10 +41,11 @@ Some badges are provided by third party services. See also [Services](#services)
 Fix package info to that of your application.
 
 - [package.json#L2-5](./package.json#L2-5)
+
   ```diff
    1: {
   -2:   "name": "nuxt-ts-template",
-  -3:   "version": "1.1.1",
+  -3:   "version": "1.4.2",
   -4:   "description": "Template",
   -5:   "author": "nogic",
   +2:   "name": "your-app-name",
@@ -52,18 +53,11 @@ Fix package info to that of your application.
   +4:   "description": "Your app description",
   +5:   "author": "Your Name",
   ```
-- [package-lock.json#L2-3](./package-lock.json#L2-3)
-  ```diff
-   1: {
-  -2:   "name": "nuxt-ts-template",
-  -3:   "version": "1.1.1",
-  +2:   "name": "your-app-name",
-  +3:   "version": "0.0.1",
-  ```
 
 ## License
 
 If you keep to use MIT License, change [LICENSE](./LICENSE#L3) signiture and year.
+
 ```diff
  1: MIT License
  2: 
@@ -99,12 +93,15 @@ Or replace LICENSE file and [package.json#L7](./package.json#L7) if you want to 
 
 #### Disable Codecov
 
-1. Remove "Report Code Coverage to codecov" action in [Node CI workflow](./.github/workflows/nodejs.yml#L56-57).
+1. Remove "Report Code Coverage to codecov" action in [Node CI workflow](./.github/workflows/nodejs.yml#L45-46).
+
     ```diff
-    -56:      - name: Report Code Coverage to codecov
-    -57:        uses: codecov/codecov-action@v1
+    -45:      - name: Report Code Coverage to codecov
+    -46:        uses: codecov/codecov-action@v1
     ```
+
 1. Remove Codecov badge in [README](./README.md#L5).
+
     ```diff
     - 5: [![codecov](https://codecov.io/gh/nogic1008/nuxt-ts-template/branch/master/graph/badge.svg)](https://codecov.io/gh/nogic1008/nuxt-ts-template)
     ```
@@ -115,6 +112,7 @@ Or replace LICENSE file and [package.json#L7](./package.json#L7) if you want to 
 1. Add your repository in Codecov web console.
 1. Install [Codecov](https://github.com/marketplace/codecov) GitHub App.
 1. Change Codecov badge URL in [README](./README.md#L5).
+
     ```diff
     - 5: [![codecov](https://codecov.io/gh/nogic1008/nuxt-ts-template/branch/master/graph/badge.svg)](https://codecov.io/gh/nogic1008/nuxt-ts-template)
     + 5: [![codecov](https://codecov.io/gh/owner/repo/branch/master/graph/badge.svg)](https://codecov.io/gh/owner/repo)
@@ -122,11 +120,12 @@ Or replace LICENSE file and [package.json#L7](./package.json#L7) if you want to 
 
 ### CodeFactor
 
-[CodeFactor](https://www.codefactor.io/) is automated code review tool. 
+[CodeFactor](https://www.codefactor.io/) is automated code review tool.
 
 #### Disable CodeFactor
 
 1. Remove CodeFactor badge in [README](./README.md#L6).
+
     ```diff
     - 6: [![CodeFactor](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template/badge)](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template)
     ```
@@ -137,6 +136,7 @@ Or replace LICENSE file and [package.json#L7](./package.json#L7) if you want to 
 1. Add your repository in CodeFactor web console.
 1. Install [CodeFactor](https://github.com/marketplace/codefactor) GitHub App.
 1. Change Codecov badge URL in [README](./README.md#L6).
+
     ```diff
     - 6: [![CodeFactor](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template/badge)](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template)
     + 6: [![CodeFactor](https://www.codefactor.io/repository/github/owner/repo/badge)](https://www.codefactor.io/repository/github/owner/repo)
@@ -146,12 +146,14 @@ Or replace LICENSE file and [package.json#L7](./package.json#L7) if you want to 
 
 This repository uses GitHub Actions for unit test and deployment.
 The following job is executed when you commit to `master` or send pull request.
+
 - Lint (ESLint, Prettier)
-- Build (`nuxt generate`)
+- Build (`nuxt build`)
 - Unit Test (Jest)
 - Report coverage to Codecov
 
 In addition, deploy job is execuded when tag is pushed.
+
 - Deploy to GitHub Pages
 
-If it does not fit your strategy, change or remove [Node CI workflow](./.github/workflows/nodejs.yml).
+If it does not fit your strategy, change or remove [workflow files](./.github/workflows/).
