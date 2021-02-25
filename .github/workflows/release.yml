@@ -4,9 +4,8 @@ on:
   push:
     tags:
       - v*
-    paths:
-      - '**'
-      - '!**.md' # Exclude Markdown
+    paths-ignore:
+      - '**.md'
 
 jobs:
   deploy:

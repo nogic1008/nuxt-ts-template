@@ -10,13 +10,11 @@
     "yarn": "^1.22.4"
   },
   "scripts": {
-    "dev": "nuxt-ts",
-    "build": "nuxt-ts build",
-    "start": "nuxt-ts start",
-    "generate": "nuxt-ts generate",
-    "fix": "run-p fix:*",
-    "fix:eslint": "yarn lint:eslint --fix",
-    "fix:prettier": "yarn lint:prettier --write",
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "fix": "run-p \"lint:eslint --fix\" \"lint:prettier --write\"",
     "lint": "run-p lint:*",
     "lint:eslint": "eslint --ext .ts,.vue --ignore-path .gitignore .",
     "lint:prettier": "prettier --ignore-path .gitignore -l \"**/*.{json,yaml,yml,ts,vue}\"",
@@ -24,7 +22,6 @@
     "test": "jest"
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^2.0.1",
     "@nuxtjs/pwa": "^3.3.5",
     "flag-icon-css": "^3.5.0",
     "nuxt": "^2.15.2",
@@ -48,6 +45,7 @@
     "sass": "^1.32.8",
     "sass-loader": "^10.1.1",
     "ts-jest": "^26.5.2",
+    "ts-node": "^9.1.1",
     "vue-i18n-jest": "^1.0.0",
     "vue-jest": "^4.0.0"
   }
