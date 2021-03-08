@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.2",
-    "@nuxt/typescript-build": "^2.0.6",
+    "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-config-typescript": "^6.0.0",
     "@types/jest": "^26.0.20",
     "@vue/test-utils": "^1.1.3",
