@@ -1,7 +1,7 @@
 # nuxt-ts-template
 
 [![release version](https://img.shields.io/github/v/release/nogic1008/nuxt-ts-template "release version")](https://github.com/nogic1008/nuxt-ts-template/releases)
-[![Node CI Status](https://github.com/nogic1008/nuxt-ts-template/workflows/Node%20CI/badge.svg "Node CI Status")](/nogic1008/nuxt-ts-template/actions?query=workflow%3A%22Node+CI%22)
+[![Node CI Status](https://github.com/nogic1008/nuxt-ts-template/actions/workflows/nodejs.yml/badge.svg "Node CI Status")](https://github.com/nogic1008/nuxt-ts-template/actions/workflows/nodejs.yml)
 [![codecov](https://codecov.io/gh/nogic1008/nuxt-ts-template/branch/master/graph/badge.svg)](https://codecov.io/gh/nogic1008/nuxt-ts-template)
 [![CodeFactor](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template/badge)](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template)
 [![License](https://img.shields.io/github/license/nogic1008/nuxt-ts-template)](LICENSE)
