@@ -6,7 +6,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template/badge)](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template)
 [![License](https://img.shields.io/github/license/nogic1008/nuxt-ts-template)](LICENSE)
 
-Template
+Template for Nuxt.js with TypeScript
 
 ## Use this Template
 
