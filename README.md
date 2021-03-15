@@ -1,12 +1,12 @@
 # nuxt-ts-template
 
 [![release version](https://img.shields.io/github/v/release/nogic1008/nuxt-ts-template "release version")](https://github.com/nogic1008/nuxt-ts-template/releases)
-[![Node CI Status](https://github.com/nogic1008/nuxt-ts-template/workflows/Node%20CI/badge.svg "Node CI Status")](/nogic1008/nuxt-ts-template/actions?query=workflow%3A%22Node+CI%22)
+[![Node CI Status](https://github.com/nogic1008/nuxt-ts-template/actions/workflows/nodejs.yml/badge.svg "Node CI Status")](https://github.com/nogic1008/nuxt-ts-template/actions/workflows/nodejs.yml)
 [![codecov](https://codecov.io/gh/nogic1008/nuxt-ts-template/branch/master/graph/badge.svg)](https://codecov.io/gh/nogic1008/nuxt-ts-template)
 [![CodeFactor](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template/badge)](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template)
 [![License](https://img.shields.io/github/license/nogic1008/nuxt-ts-template)](LICENSE)
 
-Template
+Template for Nuxt.js with TypeScript
 
 ## Use this Template
 
@@ -16,17 +16,17 @@ See [Migrate guide](./migrate.md).
 
 ``` bash
 # install dependencies
-$ npm install
+$ yarn install
 
 # serve with hot reload at localhost:3000
-$ npm run dev
+$ yarn dev
 
 # build for production and launch server
-$ npm run build
-$ npm run start
+$ yarn build
+$ yarn start
 
 # generate static project
-$ npm run generate
+$ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
