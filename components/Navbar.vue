@@ -34,7 +34,8 @@ import Flag from '~/components/Flag.vue'
 export default class NavbarComponent extends Vue {
   get selectedLocale() {
     return (this.$i18n.locales as (string | LocaleObject)[]).find(
-      (l): l is LocaleObject => typeof l === 'object' && l.code === this.$i18n.locale
+      (l): l is LocaleObject =>
+        typeof l === 'object' && l.code === this.$i18n.locale
     )!
   }
 
