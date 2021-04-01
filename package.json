@@ -24,7 +24,7 @@
   "dependencies": {
     "@nuxtjs/pwa": "^3.3.5",
     "flag-icon-css": "^3.5.0",
-    "nuxt": "^2.15.3",
+    "nuxt": "^2.15.4",
     "nuxt-buefy": "^0.4.5",
     "nuxt-i18n": "^6.22.3",
     "nuxt-property-decorator": "^2.9.1",
