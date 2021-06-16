@@ -76,7 +76,8 @@ const nuxtConfig: NuxtConfig = {
   build: {
     extend: (config, _) => {
       config.node = { fs: 'empty' }
-    }
+    },
+    loaders: { scss: { sassOptions: { quietDeps: true } } }
   }
 }
 
