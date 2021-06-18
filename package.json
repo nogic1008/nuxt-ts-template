@@ -50,6 +50,7 @@
     "vue-jest": "^4.0.1"
   },
   "resolutions": {
-    "@types/webpack": "^4.41.29"
+    "@types/webpack": "^4.41.29",
+    "chokidar": "^3.5.2"
   }
 }
