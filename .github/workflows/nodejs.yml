@@ -33,4 +33,4 @@ jobs:
       - name: Test
         run: yarn test --ci
       - name: Report Code Coverage to codecov
-        uses: codecov/codecov-action@v2.0.1
+        uses: codecov/codecov-action@v2.0.2
