@@ -31,7 +31,7 @@ Fix package info to that of your application.
   ```diff
    1: {
   -2:   "name": "nuxt-ts-template",
-  -3:   "version": "1.4.2",
+  -3:   "version": "1.4.3",
   -4:   "description": "Template",
   -5:   "author": "nogic",
   +2:   "name": "your-app-name",
