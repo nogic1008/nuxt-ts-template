@@ -1,6 +1,9 @@
 name: Production
 
-on: release
+on:
+  release:
+    types:
+      - published
 
 jobs:
   build:
