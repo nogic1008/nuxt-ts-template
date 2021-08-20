@@ -2,9 +2,7 @@
 
 ## Short Hands
 
-1. Remove [`dependabot.yml`](./.github/dependabot.yml) file.
-1. Remove [README badges](./README.md#L3-7).
-1. Remove [Report Code Coverage to codecov step](./.github/workflows/nodejs.yml#L47-50) in Node CI Workflow.
+1. Remove or replace [README badges](./README.md#L3-7).
 1. Replace `nuxt-ts-template` with `your-app-name`.
 1. Replace `(N|n)ogic` with `Owner Name`.
 1. Set your app version to [package.json](./package.json#L3).
@@ -28,7 +26,7 @@ So you should remove or replace them.
 
 ```diff
  3: [![release version](https://img.shields.io/github/v/release/nogic1008/nuxt-ts-template "release version")](https://github.com/nogic1008/nuxt-ts-template/releases)
- 4: [![Node CI Status](https://github.com/nogic1008/nuxt-ts-template/workflows/Node%20CI/badge.svg "Node CI Status")](/nogic1008/nuxt-ts-template/actions?query=workflow%3A%22Node+CI%22)
+ 4: [![Node.js CI Status](https://github.com/nogic1008/nuxt-ts-template/workflows/Node%20CI/badge.svg "Node CI Status")](/nogic1008/nuxt-ts-template/actions?query=workflow%3A%22Node+CI%22)
  5: [![codecov](https://codecov.io/gh/nogic1008/nuxt-ts-template/branch/master/graph/badge.svg)](https://codecov.io/gh/nogic1008/nuxt-ts-template)
  6: [![CodeFactor](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template/badge)](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template)
  7: [![License](https://img.shields.io/github/license/nogic1008/nuxt-ts-template)](LICENSE)
@@ -93,11 +91,11 @@ Or replace LICENSE file and [package.json#L7](./package.json#L7) if you want to 
 
 #### Disable Codecov
 
-1. Remove "Report Code Coverage to codecov" action in [Node CI workflow](./.github/workflows/nodejs.yml#L45-46).
+1. Remove "Report Code Coverage to codecov" action in [Node CI workflow](./.github/workflows/nodejs.yml#L63-64).
 
     ```diff
-    -45:      - name: Report Code Coverage to codecov
-    -46:        uses: codecov/codecov-action@v1
+    -63:      - name: Report Code Coverage to codecov
+    -64:        uses: codecov/codecov-action@v2.0.2
     ```
 
 1. Remove Codecov badge in [README](./README.md#L5).
@@ -148,11 +146,11 @@ This repository uses GitHub Actions for unit test and deployment.
 The following job is executed when you commit to `master` or send pull request.
 
 - Lint (ESLint, Prettier)
-- Build (`nuxt build`)
+- Build (`nuxt generate`)
 - Unit Test (Jest)
 - Report coverage to Codecov
 
-In addition, deploy job is execuded when tag is pushed.
+In addition, deploy job is execuded when released.
 
 - Deploy to GitHub Pages
 
