@@ -15,7 +15,7 @@ So you should remove or replace them.
 ```diff
  3: [![release version](https://img.shields.io/github/v/release/nogic1008/nuxt-ts-template "release version")](https://github.com/nogic1008/nuxt-ts-template/releases)
  4: [![Node.js CI Status](https://github.com/nogic1008/nuxt-ts-template/workflows/Node%20CI/badge.svg "Node.js CI Status")](/nogic1008/nuxt-ts-template/actions?query=workflow%3A%22Node+CI%22)
- 5: [![codecov](https://codecov.io/gh/nogic1008/nuxt-ts-template/branch/master/graph/badge.svg)](https://codecov.io/gh/nogic1008/nuxt-ts-template)
+ 5: [![codecov](https://codecov.io/gh/nogic1008/nuxt-ts-template/branch/master/graph/badge.svg?token=kqxUANskoN)](https://codecov.io/gh/nogic1008/nuxt-ts-template)
  6: [![CodeFactor](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template/badge)](https://www.codefactor.io/repository/github/nogic1008/nuxt-ts-template)
  7: [![License](https://img.shields.io/github/license/nogic1008/nuxt-ts-template)](LICENSE)
 ```
@@ -31,7 +31,7 @@ Fix package info to that of your application.
   ```diff
    1: {
   -2:   "name": "nuxt-ts-template",
-  -3:   "version": "1.4.2",
+  -3:   "version": "1.4.3",
   -4:   "description": "Template",
   -5:   "author": "nogic",
   +2:   "name": "your-app-name",
@@ -89,7 +89,7 @@ Or replace LICENSE file and [package.json#L7](./package.json#L7) if you want to 
 1. Remove Codecov badge in [README](./README.md#L5).
 
     ```diff
-    - 5: [![codecov](https://codecov.io/gh/nogic1008/nuxt-ts-template/branch/master/graph/badge.svg)](https://codecov.io/gh/nogic1008/nuxt-ts-template)
+    - 5: [![codecov](https://codecov.io/gh/nogic1008/nuxt-ts-template/branch/master/graph/badge.svg?token=kqxUANskoN)](https://codecov.io/gh/nogic1008/nuxt-ts-template)
     ```
 
 #### Enable Codecov
@@ -97,11 +97,13 @@ Or replace LICENSE file and [package.json#L7](./package.json#L7) if you want to 
 1. Sign up from [Codecov web page](https://codecov.io/).
 1. Add your repository in Codecov web console.
 1. Install [Codecov](https://github.com/marketplace/codecov) GitHub App.
-1. Change Codecov badge URL in [README](./README.md#L5).
+1. Open your repository on Codecov web console.
+1. Copy badge text from `Settings` -> `Badge` -> `Markdown` section.
+1. Paste and replace it on [README](./README.md#L5).
 
     ```diff
-    - 5: [![codecov](https://codecov.io/gh/nogic1008/nuxt-ts-template/branch/master/graph/badge.svg)](https://codecov.io/gh/nogic1008/nuxt-ts-template)
-    + 5: [![codecov](https://codecov.io/gh/owner/repo/branch/master/graph/badge.svg)](https://codecov.io/gh/owner/repo)
+    - 5: [![codecov](https://codecov.io/gh/nogic1008/nuxt-ts-template/branch/master/graph/badge.svg?token=kqxUANskoN)](https://codecov.io/gh/nogic1008/nuxt-ts-template)
+    + 5: [![codecov](https://codecov.io/gh/owner/repo/branch/master/graph/badge.svg?token=XXXXXXXXXX)](https://codecov.io/gh/owner/repo)
     ```
 
 ### CodeFactor
