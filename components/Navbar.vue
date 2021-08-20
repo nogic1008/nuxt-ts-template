@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import type { LocaleObject } from 'nuxt-i18n'
+import type { LocaleObject } from '@nuxtjs/i18n'
 import { Component, Vue } from 'nuxt-property-decorator'
 
 import Flag from '~/components/Flag.vue'

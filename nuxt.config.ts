@@ -51,7 +51,7 @@ const nuxtConfig: NuxtConfig = {
     'nuxt-buefy',
     '@nuxtjs/pwa',
     // Doc: https://i18n.nuxtjs.org/
-    'nuxt-i18n'
+    '@nuxtjs/i18n'
   ],
   i18n: {
     locales: [
