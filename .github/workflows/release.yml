@@ -1,15 +1,10 @@
-name: Release
+name: Production
 
-on:
-  push:
-    tags:
-      - v*
-    paths-ignore:
-      - '**.md'
+on: release
 
 jobs:
-  deploy:
-    name: Deploy to GitHub Pages
+  build:
+    name: Build
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -23,10 +18,27 @@ jobs:
       - name: Install Dependencies
         run: yarn --frozen-lockfile
 
-      - name: Production Build
-        run: |
-          BASE_PATH=/${GITHUB_REPOSITORY##*/} yarn generate
-          rm dist/README.md
+      - name: Build
+        run: BASE_PATH=/${GITHUB_REPOSITORY##*/} yarn generate
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2.2.4
+        with:
+          name: dist
+          path: |
+            dist
+            !dist/**.md
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-20.04
+    needs: build
+    steps:
+      - name: Download Artifact
+        uses: actions/download-artifact@v2.0.10
+        with:
+          name: dist
+          path: dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3.8.0
