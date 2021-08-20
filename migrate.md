@@ -7,18 +7,6 @@
 1. Replace `(N|n)ogic` with `Owner Name`.
 1. Set your app version to [package.json](./package.json#L3).
 
-## TOC
-
-- [Short Hands](#short-hands)
-- [README badges](#readme-badges)
-- [Package Description](#package-description)
-- [License](#license)
-- [Services](#services)
-  - [Dependabot](#dependabot)
-  - [Codecov](#codecov)
-  - [CodeFactor](#codefactor)
-- [GitHub Actions](#github-actions)
-
 ## README badges
 
 [Badges in README](./README.md#L3-7) include absolute path depends on this repository.
