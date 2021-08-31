@@ -22,7 +22,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@nuxtjs/i18n": "^7.0.2",
+    "@nuxtjs/i18n": "^7.0.3",
     "@nuxtjs/pwa": "^3.3.5",
     "flag-icon-css": "^3.5.0",
     "nuxt": "^2.15.8",
