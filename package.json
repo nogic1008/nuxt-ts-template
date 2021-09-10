@@ -34,22 +34,23 @@
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-config-typescript": "^6.0.1",
-    "@types/jest": "^26.0.24",
+    "@types/jest": "^27.0.1",
     "@vue/test-utils": "^1.2.2",
+    "@vue/vue2-jest": "^27.0.0-alpha.2",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "jest": "^26.6.3",
+    "jest": "^27.1.1",
     "npm-run-all2": "^5.0.2",
     "prettier": "^2.4.0",
     "sass": "^1.39.0",
-    "ts-jest": "^26.5.6",
+    "ts-jest": "^27.0.5",
     "ts-node": "^9.1.1",
-    "vue-i18n-jest": "^1.1.0",
-    "vue-jest": "^4.0.1"
+    "vue-i18n-jest": "^1.1.0"
   },
   "resolutions": {
+    "@types/babel__core": "^7.0.0",
     "@types/webpack": "^4.41.29",
     "chokidar": "^3.5.2"
   }
