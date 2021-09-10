@@ -1,6 +1,6 @@
 import { createLocalVue, mount, RouterLinkStub } from '@vue/test-utils'
 import Buefy from 'buefy'
-import { IVueI18n } from 'vue-i18n'
+import type { IVueI18n } from 'vue-i18n'
 
 import NavbarComponent from '~/components/Navbar.vue'
 

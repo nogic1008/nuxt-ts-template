@@ -1,6 +1,7 @@
 import type { Config } from '@jest/types'
 
 const config: Config.InitialOptions = {
+  testEnvironment: 'jsdom',
   moduleNameMapper: {
     '^~/(.*)$': '<rootDir>/$1',
     '^vue$': 'vue/dist/vue.common.js'
@@ -8,7 +9,7 @@ const config: Config.InitialOptions = {
   moduleFileExtensions: ['js', 'ts', 'vue', 'json'],
   transform: {
     '^.+\\.ts$': 'ts-jest',
-    '.*\\.(vue)$': 'vue-jest'
+    '.*\\.(vue)$': '@vue/vue2-jest'
   },
   transformIgnorePatterns: ['<rootDir>/node_modules/(?!typed-vuex/lib)'],
   globals: {
