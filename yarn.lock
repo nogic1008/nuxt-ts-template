@@ -10394,10 +10394,10 @@ vue-hot-reload-api@^2.3.0:
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
 
-vue-i18n-jest@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/vue-i18n-jest/-/vue-i18n-jest-1.1.0.tgz#6a31e34fa534eadd8bae1afa6a60199fcc9ecdcd"
-  integrity sha512-6aly+Zg7Oq7QL+8l+THq4UgTzkgDXQHrpxpXlu4rCAn4jOEZHi/RFF+uds2gGB3C0N1QrdgP5dq2YZq35VUq9Q==
+vue-i18n-jest@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/vue-i18n-jest/-/vue-i18n-jest-1.1.1.tgz#f4c3ab42a20d17402d004946b9f0e26341d76b8f"
+  integrity sha512-hSxRLJt0Mc2aH8MJnt6cXSFmlSS79A4ji8f7dQzjq4ayurdbqe+FcRBZMpE1nB2I7vc99eOesywPHpaV3vFjow==
   dependencies:
     debug "^4.1.1"
     js-yaml "^3.13.1"
