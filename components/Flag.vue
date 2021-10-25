@@ -30,5 +30,5 @@ export default class FlagComponent extends Vue {
 <style scoped lang="scss">
 $flag-icon-css-path: '~flag-icon-css/flags';
 $include: jp, us;
-@import '~flag-icon-css/sass/flag-icon';
+@import '~flag-icon-css/sass/flag-icons';
 </style>
