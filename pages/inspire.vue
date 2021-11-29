@@ -23,14 +23,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, useContext, useMeta } from '@nuxtjs/composition-api'
+import { defineComponent, useMeta, wrapProperty } from '@nuxtjs/composition-api'
+
+const useI18n = wrapProperty('$i18n', false)
 
 export default defineComponent({
   name: 'InspirePage',
   setup() {
-    const {
-      app: { i18n }
-    } = useContext()
+    const i18n = useI18n()
 
     // Lifecycle
     useMeta(() => ({ title: i18n.t('title').toString().replace(' {0}', '') }))

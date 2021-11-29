@@ -28,16 +28,17 @@ import {
   computed,
   defineComponent,
   useContext,
-  useMeta
+  useMeta,
+  wrapProperty
 } from '@nuxtjs/composition-api'
+
+const useI18n = wrapProperty('$i18n', false)
 
 export default defineComponent({
   name: 'EnvironmentPage',
   setup() {
-    const {
-      $config,
-      app: { i18n }
-    } = useContext()
+    const { $config } = useContext()
+    const i18n = useI18n()
 
     // Lifecycle
     useMeta(() => ({ title: i18n.t('title').toString() }))
