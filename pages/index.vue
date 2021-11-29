@@ -65,18 +65,15 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
-import type { MetaInfo } from 'vue-meta'
+import { defineComponent } from '@nuxtjs/composition-api'
 
 import Card from '~/components/Card.vue'
 import Counter from '~/components/Counter.vue'
 import pkg from '~/package.json'
 
-@Component({ components: { Card, Counter } })
-export default class IndexPage extends Vue {
-  head: MetaInfo = {
-    title: pkg.name,
-    titleTemplate: ''
-  }
-}
+export default defineComponent({
+  name: 'IndexPage',
+  components: { Card, Counter },
+  head: { title: pkg.name, titleTemplate: '' }
+})
 </script>

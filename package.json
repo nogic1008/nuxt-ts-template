@@ -22,12 +22,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nuxtjs/composition-api": "^0.30.0",
     "@nuxtjs/i18n": "^7.2.0",
     "@nuxtjs/pwa": "^3.3.5",
     "flag-icon-css": "^4.1.6",
     "nuxt": "^2.15.8",
     "nuxt-buefy": "^0.4.13",
-    "nuxt-property-decorator": "^2.9.1",
     "nuxt-typed-vuex": "^0.2.0"
   },
   "devDependencies": {

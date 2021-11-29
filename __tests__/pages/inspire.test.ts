@@ -12,7 +12,8 @@ describe('pages/inspire.vue', () => {
   describe.each(['en', 'ja'])('{ locale: %s } snapshot test', (locale) => {
     const i18n = new VueI18n({ locale, silentFallbackWarn: true })
     test('renders correctly', () => {
-      const wrapper = mount(Inspire, { localVue, i18n })
+      const mocks = { $nuxt: { context: { app: { i18n } } } }
+      const wrapper = mount(Inspire, { localVue, i18n, mocks })
       expect(wrapper.element).toMatchSnapshot()
     })
   })
@@ -24,11 +25,12 @@ describe('pages/inspire.vue', () => {
     ])('{ locale: %s } returns { title: "%s" }', (locale, title) => {
       // Arrange
       const i18n = new VueI18n({ locale, silentFallbackWarn: true })
-      const wrapper = shallowMount(Inspire, { localVue, i18n })
+      const mocks = { $nuxt: { context: { app: { i18n } } } }
+      const wrapper = shallowMount(Inspire, { localVue, i18n, mocks })
 
       // Act & Assert
       const head = wrapper.vm.$options.head as Function
-      expect(head.call(wrapper.vm)).toStrictEqual({ title })
+      expect(head.call(wrapper.vm).title).toBe(title)
     })
   })
 })

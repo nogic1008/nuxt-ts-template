@@ -23,14 +23,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import { defineComponent } from '@nuxtjs/composition-api'
 
-@Component
-export default class CardComponent extends Vue {
-  @Prop({ required: true, type: String })
-  readonly title!: string
-
-  @Prop({ required: true, type: String })
-  readonly icon!: string
-}
+export default defineComponent({
+  name: 'CardComponent',
+  props: {
+    title: { type: String, required: true },
+    icon: { type: String, required: true }
+  }
+})
 </script>

@@ -18,22 +18,30 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import {
+  computed,
+  defineComponent,
+  wrapProperty
+} from '@nuxtjs/composition-api'
 
 import Card from '~/components/Card.vue'
 
-@Component({ components: { Card } })
-export default class CounterComponent extends Vue {
-  get count() {
-    return this.$accessor.counter.count
-  }
+const useAccessor = wrapProperty('$accessor', false)
 
-  increment() {
-    this.$accessor.counter.increment()
-  }
+export default defineComponent({
+  name: 'CounterComponent',
+  components: { Card },
+  setup() {
+    const accessor = useAccessor()
 
-  decrement() {
-    this.$accessor.counter.decrement()
+    // Computed
+    const count = computed(() => accessor.counter.count)
+
+    // Method
+    const increment = () => accessor.counter.increment()
+    const decrement = () => accessor.counter.decrement()
+
+    return { count, increment, decrement }
   }
-}
+})
 </script>

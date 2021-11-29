@@ -22,35 +22,25 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
 import type { RawLocation } from 'vue-router'
 
 import Navbar from '~/components/Navbar.vue'
 
-type MenuItem = {
-  title: string
-  icon: string
-  to: RawLocation
-}
+type MenuItem = { title: string; icon: string; to: RawLocation }
 
-@Component({ components: { Navbar } })
-export default class DefaultLayout extends Vue {
-  readonly items: MenuItem[] = [
-    {
-      title: 'Home',
-      icon: 'home',
-      to: { name: 'index' }
-    },
-    {
-      title: 'Inspire',
-      icon: 'lightbulb',
-      to: { name: 'inspire' }
-    },
-    {
-      title: 'Environment',
-      icon: 'rocket',
-      to: { name: 'environment' }
-    }
-  ]
-}
+export default defineComponent({
+  name: 'DefaultLayout',
+  components: { Navbar },
+  setup() {
+    // Data
+    const items = ref<MenuItem[]>([
+      { title: 'Home', icon: 'home', to: { name: 'index' } },
+      { title: 'Inspire', icon: 'lightbulb', to: { name: 'inspire' } },
+      { title: 'Environment', icon: 'rocket', to: { name: 'environment' } }
+    ])
+
+    return { items }
+  }
+})
 </script>

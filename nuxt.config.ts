@@ -42,6 +42,8 @@ const nuxtConfig: NuxtConfig = {
   buildModules: [
     // Doc: https://typescript.nuxtjs.org/
     '@nuxt/typescript-build',
+    // Doc: https://composition-api.nuxtjs.org/
+    '@nuxtjs/composition-api/module',
     // Doc: https://typed-vuex.roe.dev/
     'nuxt-typed-vuex'
   ],
