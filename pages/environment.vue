@@ -34,15 +34,17 @@ import {
 export default defineComponent({
   name: 'EnvironmentPage',
   setup() {
-    const { i18n, $config } = useContext()
+    const {
+      $config,
+      app: { i18n }
+    } = useContext()
 
     // Lifecycle
     useMeta(() => ({ title: i18n.t('title').toString() }))
 
     // Computed
     const environmentList = computed(() =>
-      Object.entries($config)
-        .map(([key, value]) => ({ key, value }))
+      Object.entries($config).map(([key, value]) => ({ key, value }))
     )
 
     return { environmentList }
