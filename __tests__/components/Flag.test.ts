@@ -20,8 +20,8 @@ describe('components/Flag.vue', () => {
   })
 
   describe('props', () => {
-    test('sets { squared: false, title: undefined } default', () => {
-      const expected = { ...propsData, squared: false, title: undefined }
+    test('sets { squared: false, title: null } default', () => {
+      const expected = { ...propsData, squared: false, title: null }
       expect(wrapper.props()).toStrictEqual(expected)
     })
   })

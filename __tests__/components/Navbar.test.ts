@@ -11,7 +11,7 @@ localVue.use(Buefy)
 localVue.mixin(i18nMethods)
 
 describe('components/Navbar.vue', () => {
-  const $i18n: Partial<IVueI18n> = {
+  const i18n: Partial<IVueI18n> = {
     locale: 'en',
     locales: [
       { code: 'en', iso: 'en-US', flag: 'us', name: 'English' },
@@ -20,7 +20,7 @@ describe('components/Navbar.vue', () => {
   }
 
   test('renders correctly', () => {
-    const mocks = { $i18n }
+    const mocks = { $nuxt: { context: { i18n } } }
     const stubs = { NuxtLink: RouterLinkStub, Nuxt: true }
     const wrapper = mount(NavbarComponent, { localVue, mocks, stubs })
     expect(wrapper.element).toMatchSnapshot()

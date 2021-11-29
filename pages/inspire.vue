@@ -23,15 +23,16 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
-import type { MetaInfo } from 'vue-meta'
+import { defineComponent, useContext, useMeta } from '@nuxtjs/composition-api'
 
-@Component
-export default class InspirePage extends Vue {
-  head(): MetaInfo {
-    return {
-      title: this.$t('title').toString().replace(' {0}', '')
-    }
-  }
-}
+export default defineComponent({
+  name: 'InspirePage',
+  setup() {
+    const { i18n } = useContext()
+
+    // Lifecycle
+    useMeta(() => ({ title: i18n.t('title').toString().replace(' {0}', '') }))
+  },
+  head: {}
+})
 </script>

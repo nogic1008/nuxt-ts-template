@@ -24,19 +24,29 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
-import type { MetaInfo } from 'vue-meta'
+import {
+  computed,
+  defineComponent,
+  useContext,
+  useMeta
+} from '@nuxtjs/composition-api'
 
-@Component
-export default class EnvironmentPage extends Vue {
-  head(): MetaInfo {
-    return { title: this.$t('title').toString() }
-  }
+export default defineComponent({
+  name: 'EnvironmentPage',
+  setup() {
+    const { i18n, $config } = useContext()
 
-  get environmentList() {
-    return Object.entries(this.$config)
-      .filter(([key, _]) => !!key)
-      .map(([key, value]) => ({ key, value }))
-  }
-}
+    // Lifecycle
+    useMeta(() => ({ title: i18n.t('title').toString() }))
+
+    // Computed
+    const environmentList = computed(() =>
+      Object.entries($config)
+        .map(([key, value]) => ({ key, value }))
+    )
+
+    return { environmentList }
+  },
+  head: {}
+})
 </script>
