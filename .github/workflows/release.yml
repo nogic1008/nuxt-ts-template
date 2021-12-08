@@ -25,7 +25,7 @@ jobs:
         run: BASE_PATH=/${GITHUB_REPOSITORY##*/} yarn generate
 
       - name: Upload Artifact
-        uses: actions/upload-artifact@v2.2.4
+        uses: actions/upload-artifact@v2.3.0
         with:
           name: dist
           path: |
