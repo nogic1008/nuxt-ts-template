@@ -5005,6 +5005,11 @@ flag-icon-css@^4.1.6:
   resolved "https://registry.yarnpkg.com/flag-icon-css/-/flag-icon-css-4.1.6.tgz#d9730b82567afe0f4ab2a2ba2ec6f0f8eb9e0999"
   integrity sha512-3VJPAZJg9x3/Av1Gv6T+hznRcag+mlIThp7Ku1oI2F8yxAGfLwuTI5VMEdw5m2M8mbFMZO2F66Cix5bQ8m2Xag==
 
+flag-icons@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/flag-icons/-/flag-icons-5.0.2.tgz#b5af803ad015ba11855eb50145d38c4af7f712f7"
+  integrity sha512-qpYarhyZt016/f3nvqL+vDm/5zhQsNfVq88JLgfyuIRgZ3J/S2zCXsmZAjWcGdkCsSA2c/mpmS1CidEbo2qYHw==
+
 flat-cache@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/flat-cache/-/flat-cache-3.0.4.tgz#61b0338302b2fe9f957dcc32fc2a87f1c3048b11"
