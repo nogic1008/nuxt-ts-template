@@ -28,7 +28,7 @@ export default defineComponent({
 </script>
 
 <style scoped lang="scss">
-$flag-icons-path: '~flag-icon-css/flags';
+$flag-icons-path: '~flag-icons/flags';
 $include: jp, us;
-@import '~flag-icon-css/sass/flag-icons';
+@import '~flag-icons/sass/flag-icons';
 </style>
