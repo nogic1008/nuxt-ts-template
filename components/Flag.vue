@@ -15,9 +15,7 @@ export default defineComponent({
   setup(props) {
     // Computed
     const flagIconClass = computed(() => [
-      {
-        'fis': props.squared
-      },
+      { fis: props.squared },
       `fi-${props.iso.toLowerCase()}`
     ])
     const flagTitle = computed(() => props.title || props.iso)
