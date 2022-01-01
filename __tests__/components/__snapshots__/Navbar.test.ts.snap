@@ -53,7 +53,7 @@ exports[`components/Navbar.vue renders correctly 1`] = `
           tabindex="0"
         >
           <span
-            class="flag-icon flag-icon-us"
+            class="fi fi-us"
             title="us"
           />
            English
@@ -67,7 +67,7 @@ exports[`components/Navbar.vue renders correctly 1`] = `
             class="navbar-item"
           >
             <span
-              class="flag-icon flag-icon-jp"
+              class="fi fi-jp"
               title="jp"
             />
              

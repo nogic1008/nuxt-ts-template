@@ -28,23 +28,23 @@ describe('components/Flag.vue', () => {
 
   describe('class', () => {
     test.each([
-      ['ja', 'flag-icon-ja'],
-      ['US', 'flag-icon-us'],
-      ['foo', 'flag-icon-foo']
+      ['ja', 'fi-ja'],
+      ['US', 'fi-us'],
+      ['foo', 'fi-foo']
     ])('{ iso: "%s" } has "%s" class', async (iso, expectedClass) => {
       wrapper.setProps({ iso })
       await wrapper.vm.$nextTick()
       expect(wrapper.find('span').classes()).toContain(expectedClass)
     })
-    test('{ squared: true } has "flag-icon-squared" class', async () => {
+    test('{ squared: true } has "fis" class', async () => {
       wrapper.setProps({ squared: true })
       await wrapper.vm.$nextTick()
-      expect(wrapper.find('span').classes()).toContain('flag-icon-squared')
+      expect(wrapper.find('span').classes()).toContain('fis')
     })
-    test('{ squared: false } does not have "flag-icon-squared" class', async () => {
+    test('{ squared: false } does not have "fis" class', async () => {
       wrapper.setProps({ squared: false })
       await wrapper.vm.$nextTick()
-      expect(wrapper.find('span').classes()).not.toContain('flag-icon-squared')
+      expect(wrapper.find('span').classes()).not.toContain('fis')
     })
   })
 

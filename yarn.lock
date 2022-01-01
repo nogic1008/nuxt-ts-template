@@ -5000,10 +5000,10 @@ find-up@^4.0.0, find-up@^4.1.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
-flag-icons@^5.0.3:
-  version "5.0.3"
-  resolved "https://registry.yarnpkg.com/flag-icons/-/flag-icons-5.0.3.tgz#bb217fb02df0cfd781a54645f33a1ed6d85c2343"
-  integrity sha512-3lP0dI99oMlxFpFFra/GxcSWxWQylIev7Fd0uRDZGut3LN54TFmwOs5fH51ldwfH2bWSRuJfmmWfGq3YAb91rA==
+flag-icons@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/flag-icons/-/flag-icons-6.0.0.tgz#0ff45fca76ca7bf96297dbb8ef4f25d445584284"
+  integrity sha512-DHibS8eGjwGehRReqZRuIhtVp9qt2XIqBUBY3sX1U+dkVjbKVPjfidkQ0LFDA5dtds9seGooEl8XxlUCN1A4tA==
 
 flat-cache@^3.0.4:
   version "3.0.4"

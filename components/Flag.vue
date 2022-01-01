@@ -1,5 +1,5 @@
 <template>
-  <span class="flag-icon" :class="flagIconClass" :title="flagTitle" />
+  <span class="fi" :class="flagIconClass" :title="flagTitle" />
 </template>
 
 <script lang="ts">
@@ -15,10 +15,8 @@ export default defineComponent({
   setup(props) {
     // Computed
     const flagIconClass = computed(() => [
-      {
-        'flag-icon-squared': props.squared
-      },
-      `flag-icon-${props.iso.toLowerCase()}`
+      { fis: props.squared },
+      `fi-${props.iso.toLowerCase()}`
     ])
     const flagTitle = computed(() => props.title || props.iso)
 
