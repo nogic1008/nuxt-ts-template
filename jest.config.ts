@@ -9,7 +9,7 @@ const config: Config.InitialOptions = {
   moduleFileExtensions: ['js', 'ts', 'vue', 'json'],
   transform: {
     '^.+\\.ts$': 'ts-jest',
-    '.*\\.(vue)$': '@vue/vue2-jest'
+    '.*\\.(vue)$': 'unplugin-vue2-script-setup/jest'
   },
   transformIgnorePatterns: ['<rootDir>/node_modules/(?!typed-vuex/lib)'],
   globals: {

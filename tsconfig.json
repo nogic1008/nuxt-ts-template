@@ -14,7 +14,12 @@
     "paths": {
       "~/*": ["./*"]
     },
-    "types": ["jest", "node", "@nuxtjs/i18n"]
+    "types": [
+      "jest",
+      "node",
+      "@nuxtjs/i18n",
+      "unplugin-vue2-script-setup/types"
+    ]
   },
   "exclude": ["node_modules"],
   "vueCompilerOptions": {
