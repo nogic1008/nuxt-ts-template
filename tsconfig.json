@@ -16,5 +16,8 @@
     },
     "types": ["jest", "node", "@nuxtjs/i18n"]
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "vueCompilerOptions": {
+    "experimentalCompatMode": 2
+  }
 }
