@@ -13,46 +13,35 @@
           tag="nuxt-link"
           :to="switchLocalePath(locale.code)"
         >
-          <flag :iso="locale.flag" />
+          <Flag :iso="locale.flag" />
           <span>&nbsp;{{ locale.name }}</span>
         </b-navbar-item>
         <template #label>
-          <flag :iso="selectedLocale.flag" />&nbsp;{{ selectedLocale.name }}
+          <Flag :iso="selectedLocale.flag" />&nbsp;{{ selectedLocale.name }}
         </template>
       </b-navbar-dropdown>
     </template>
   </b-navbar>
 </template>
 
-<script lang="ts">
-import { computed, defineComponent, useContext } from '@nuxtjs/composition-api'
+<script lang="ts" setup>
+import { computed, useContext } from '@nuxtjs/composition-api'
 import type { LocaleObject } from '@nuxtjs/i18n'
 
 import Flag from '~/components/Flag.vue'
 
-export default defineComponent({
-  name: 'NavbarComponent',
-  components: { Flag },
-  setup() {
-    const { i18n } = useContext()
+const { i18n } = useContext()
 
-    // Computed
-    const selectedLocale = computed(
-      () =>
-        (i18n.locales as (string | LocaleObject)[]).find(
-          (l): l is LocaleObject =>
-            typeof l === 'object' && l.code === i18n.locale
-        )!
-    )
-    const availableLocales = computed(
-      () =>
-        (i18n.locales as (string | LocaleObject)[]).filter(
-          (l): l is LocaleObject =>
-            typeof l === 'object' && l.code !== i18n.locale
-        ) ?? []
-    )
-
-    return { selectedLocale, availableLocales }
-  }
-})
+const selectedLocale = computed(
+  () =>
+    (i18n.locales as (string | LocaleObject)[]).find(
+      (l): l is LocaleObject => typeof l === 'object' && l.code === i18n.locale
+    )!
+)
+const availableLocales = computed(
+  () =>
+    (i18n.locales as (string | LocaleObject)[]).filter(
+      (l): l is LocaleObject => typeof l === 'object' && l.code !== i18n.locale
+    ) ?? []
+)
 </script>

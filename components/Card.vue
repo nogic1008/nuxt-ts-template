@@ -22,14 +22,8 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+<script lang="ts" setup>
+type Props = { title: string; icon: string }
 
-export default defineComponent({
-  name: 'CardComponent',
-  props: {
-    title: { type: String, required: true },
-    icon: { type: String, required: true }
-  }
-})
+const props = defineProps<Props>()
 </script>
