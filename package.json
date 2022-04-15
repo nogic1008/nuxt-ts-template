@@ -18,7 +18,7 @@
     "lint": "run-p lint:*",
     "lint:eslint": "eslint --ext .ts,.vue --ignore-path .gitignore .",
     "lint:prettier": "prettier --ignore-path .gitignore -l \"**/*.{json,yaml,yml,ts,vue}\"",
-    "lint:tsc": "tsc",
+    "lint:tsc": "tsc --noEmit",
     "test": "jest"
   },
   "dependencies": {
@@ -34,6 +34,7 @@
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-config-typescript": "^9.0.0",
+    "@types/estree": "^0.0.51",
     "@types/jest": "^27.4.0",
     "@vue/runtime-dom": "^3.2.31",
     "@vue/test-utils": "^1.3.0",
