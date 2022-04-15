@@ -1,4 +1,5 @@
 import type { NuxtConfig } from '@nuxt/types'
+import { bulmaConfig } from '@oruga-ui/theme-bulma'
 import { config } from 'dotenv'
 
 import pkg from './package.json'
@@ -51,6 +52,8 @@ const nuxtConfig: NuxtConfig = {
   modules: [
     // Doc: https://buefy.org/documentation/
     'nuxt-buefy',
+    // Doc: https://oruga.io/documentation/
+    '@oruga-ui/oruga/nuxt',
     '@nuxtjs/pwa',
     // Doc: https://i18n.nuxtjs.org/
     '@nuxtjs/i18n'
@@ -66,6 +69,7 @@ const nuxtConfig: NuxtConfig = {
     },
     vueI18nLoader: true
   },
+  oruga: bulmaConfig,
   /* eslint-disable no-process-env */
   publicRuntimeConfig: {
     basePath
