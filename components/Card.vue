@@ -23,7 +23,9 @@
 </template>
 
 <script lang="ts" setup>
-type Props = { title: string; icon: string }
+import type { TranslateResult } from 'vue-i18n'
+
+type Props = { title: TranslateResult; icon: string }
 
 const props = defineProps<Props>()
 </script>
