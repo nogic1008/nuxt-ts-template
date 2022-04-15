@@ -8,7 +8,7 @@
       </header>
       <div class="card-content">
         <div class="content has-text-centered">
-          <b-icon :icon="icon" size="is-large" type="is-primary" />
+          <o-icon :icon="icon" size="large" variant="primary" />
         </div>
       </div>
       <footer class="card-footer">

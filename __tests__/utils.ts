@@ -1,3 +1,5 @@
+import Oruga from '@oruga-ui/oruga'
+import { bulmaConfig } from '@oruga-ui/theme-bulma'
 import { createLocalVue } from '@vue/test-utils'
 import Buefy from 'buefy'
 import VueI18n from 'vue-i18n'
@@ -15,6 +17,7 @@ export const createVue = () => {
     }
   }
   localVue.use(Buefy)
+  localVue.use(Oruga, bulmaConfig)
   localVue.use(VueI18n)
   localVue.mixin(i18nMethods)
   return localVue
