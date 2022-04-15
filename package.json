@@ -18,7 +18,7 @@
     "lint": "run-p lint:*",
     "lint:eslint": "eslint --ext .ts,.vue --ignore-path .gitignore .",
     "lint:prettier": "prettier --ignore-path .gitignore -l \"**/*.{json,yaml,yml,ts,vue}\"",
-    "lint:tsc": "tsc --noEmit",
+    "lint:tsc": "vue-tsc",
     "test": "jest"
   },
   "dependencies": {
@@ -49,7 +49,8 @@
     "sass": "^1.44.0",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",
-    "vue-i18n-jest": "^1.1.1"
+    "vue-i18n-jest": "^1.1.1",
+    "vue-tsc": "^0.34.6"
   },
   "resolutions": {
     "@types/babel__core": "^7.0.0",
