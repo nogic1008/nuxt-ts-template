@@ -6,6 +6,9 @@ on:
       - main
   pull_request:
 
+env:
+  NODE_VERSION: 14
+
 jobs:
   lint:
     name: Lint
@@ -13,10 +16,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3.0.1
-      - name: Setup Node.js 12
+      - name: Setup Node.js
         uses: actions/setup-node@v3.1.1
         with:
-          node-version: 12
+          node-version: ${{ env.NODE_VERSION }}
           cache: yarn
 
       - name: Install Dependencies
@@ -31,10 +34,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3.0.1
-      - name: Setup Node.js 12
+      - name: Setup Node.js
         uses: actions/setup-node@v3.1.1
         with:
-          node-version: 12
+          node-version: ${{ env.NODE_VERSION }}
           cache: yarn
 
       - name: Install Dependencies
@@ -49,10 +52,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3.0.1
-      - name: Setup Node.js 12
+      - name: Setup Node.js
         uses: actions/setup-node@v3.1.1
         with:
-          node-version: 12
+          node-version: ${{ env.NODE_VERSION }}
           cache: yarn
 
       - name: Install Dependencies
