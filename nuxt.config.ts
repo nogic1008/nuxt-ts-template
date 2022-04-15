@@ -41,7 +41,7 @@ const nuxtConfig: NuxtConfig = {
   /** Nuxt.js dev-modules */
   buildModules: [
     // Doc: https://typescript.nuxtjs.org/
-    '@nuxt/typescript-build',
+    ['@nuxt/typescript-build', { typeCheck: false }],
     // Doc: https://composition-api.nuxtjs.org/
     '@nuxtjs/composition-api/module',
     // Doc: https://typed-vuex.roe.dev/
