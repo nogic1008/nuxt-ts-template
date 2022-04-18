@@ -29,6 +29,13 @@ const nuxtConfig: NuxtConfig = {
         rel: 'icon',
         type: 'image/x-icon',
         href: `${basePath}favicon.ico`
+      },
+      {
+        rel: 'preload',
+        type: 'text/css',
+        href: 'https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css',
+        as: 'style',
+        onload: "this.rel='stylesheet'"
       }
     ]
   },
@@ -36,7 +43,7 @@ const nuxtConfig: NuxtConfig = {
   /** Customize the progress-bar color */
   loading: { color: '#fff' },
   /** Global CSS */
-  css: [],
+  css: ['@oruga-ui/theme-bulma/dist/bulma.css'],
   /** Plugins to load before mounting the App */
   plugins: [],
   /** Nuxt.js dev-modules */
@@ -51,7 +58,7 @@ const nuxtConfig: NuxtConfig = {
   /** Nuxt.js modules */
   modules: [
     // Doc: https://oruga.io/documentation/
-    '@oruga-ui/oruga/nuxt',
+    ['@oruga-ui/oruga/nuxt', { includeCss: false, ...bulmaConfig }],
     '@nuxtjs/pwa',
     // Doc: https://i18n.nuxtjs.org/
     '@nuxtjs/i18n'
@@ -67,7 +74,6 @@ const nuxtConfig: NuxtConfig = {
     },
     vueI18nLoader: true
   },
-  oruga: bulmaConfig,
   /* eslint-disable no-process-env */
   publicRuntimeConfig: {
     basePath
