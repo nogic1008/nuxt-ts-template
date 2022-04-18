@@ -2,7 +2,8 @@
   <nav aria-label="main navigation" class="navbar is-primary" role="navigation">
     <div class="navbar-brand">
       <nuxt-link class="navbar-item" :to="localePath('/')">
-        <img src="~assets/buefy.png" alt="Buefy" height="28" />
+        <img src="~assets/logo.png" alt="Oruga" height="28" />
+        <b>Oruga</b>
       </nuxt-link>
       <a
         aria-label="menu"

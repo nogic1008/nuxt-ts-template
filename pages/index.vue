@@ -38,7 +38,7 @@
     <div class="columns is-mobile">
       <card :title="$t('title.free')" icon="github">
         <i18n path="description.free">
-          <a href="https://github.com/buefy/buefy">GitHub</a>
+          <a href="https://github.com/oruga-ui/oruga">GitHub</a>
         </i18n>
       </card>
 
