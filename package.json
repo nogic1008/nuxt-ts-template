@@ -29,7 +29,6 @@
     "@oruga-ui/theme-bulma": "^0.2.5",
     "flag-icons": "^6.2.0",
     "nuxt": "^2.15.8",
-    "nuxt-buefy": "^0.4.21",
     "nuxt-typed-vuex": "^0.3.0"
   },
   "devDependencies": {

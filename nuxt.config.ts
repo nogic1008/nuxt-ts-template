@@ -50,8 +50,6 @@ const nuxtConfig: NuxtConfig = {
   ],
   /** Nuxt.js modules */
   modules: [
-    // Doc: https://buefy.org/documentation/
-    'nuxt-buefy',
     // Doc: https://oruga.io/documentation/
     '@oruga-ui/oruga/nuxt',
     '@nuxtjs/pwa',
