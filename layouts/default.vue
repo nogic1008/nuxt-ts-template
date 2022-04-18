@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar />
+    <Navbar />
 
     <section class="main-content columns">
       <aside class="column is-2 section">
@@ -21,26 +21,17 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from '@nuxtjs/composition-api'
+<script lang="ts" setup>
+import { ref } from '@nuxtjs/composition-api'
 import type { RawLocation } from 'vue-router'
 
 import Navbar from '~/components/Navbar.vue'
 
 type MenuItem = { title: string; icon: string; to: RawLocation }
 
-export default defineComponent({
-  name: 'DefaultLayout',
-  components: { Navbar },
-  setup() {
-    // Data
-    const items = ref<MenuItem[]>([
-      { title: 'Home', icon: 'home', to: { name: 'index' } },
-      { title: 'Inspire', icon: 'lightbulb', to: { name: 'inspire' } },
-      { title: 'Environment', icon: 'rocket', to: { name: 'environment' } }
-    ])
-
-    return { items }
-  }
-})
+const items = ref<MenuItem[]>([
+  { title: 'Home', icon: 'home', to: { name: 'index' } },
+  { title: 'Inspire', icon: 'lightbulb', to: { name: 'inspire' } },
+  { title: 'Environment', icon: 'rocket', to: { name: 'environment' } }
+])
 </script>

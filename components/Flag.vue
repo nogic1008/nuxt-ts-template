@@ -2,27 +2,20 @@
   <span class="fi" :class="flagIconClass" :title="flagTitle" />
 </template>
 
-<script lang="ts">
-import { computed, defineComponent } from '@nuxtjs/composition-api'
+<script lang="ts" setup>
+import { computed } from '@nuxtjs/composition-api'
 
-export default defineComponent({
-  name: 'FlagComponent',
-  props: {
-    iso: { type: String, required: true },
-    title: { type: String, default: null },
-    squared: { type: Boolean, default: false }
-  },
-  setup(props) {
-    // Computed
-    const flagIconClass = computed(() => [
-      { fis: props.squared },
-      `fi-${props.iso.toLowerCase()}`
-    ])
-    const flagTitle = computed(() => props.title || props.iso)
+type Props = { iso: string; title?: string | null; squared?: boolean }
 
-    return { flagTitle, flagIconClass }
-  }
+const props = withDefaults(defineProps<Props>(), {
+  title: null,
+  squared: false
 })
+const flagIconClass = computed(() => [
+  { fis: props.squared },
+  `fi-${props.iso.toLowerCase()}`
+])
+const flagTitle = computed(() => props.title || props.iso)
 </script>
 
 <style scoped lang="scss">

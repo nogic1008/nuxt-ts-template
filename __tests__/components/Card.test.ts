@@ -1,10 +1,9 @@
-import { createLocalVue, mount } from '@vue/test-utils'
-import Buefy from 'buefy'
+import { mount } from '@vue/test-utils'
 
+import { createVue } from '~/__tests__/utils'
 import Card from '~/components/Card.vue'
 
-const localVue = createLocalVue()
-localVue.use(Buefy)
+const localVue = createVue()
 
 describe('components/Card.vue', () => {
   const propsData = {

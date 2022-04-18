@@ -4,6 +4,7 @@
     "module": "esnext",
     "moduleResolution": "node",
     "lib": ["esnext", "esnext.asynciterable", "dom"],
+    "jsx": "preserve",
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
@@ -14,7 +15,15 @@
     "paths": {
       "~/*": ["./*"]
     },
-    "types": ["jest", "node", "@nuxtjs/i18n"]
+    "types": [
+      "jest",
+      "node",
+      "@nuxtjs/i18n",
+      "unplugin-vue2-script-setup/types"
+    ]
   },
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
+  "vueCompilerOptions": {
+    "experimentalCompatMode": 2
+  }
 }

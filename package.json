@@ -6,7 +6,7 @@
   "private": true,
   "license": "MIT",
   "engines": {
-    "node": ">=12",
+    "node": ">=14",
     "yarn": "^1.22.4"
   },
   "scripts": {
@@ -18,7 +18,7 @@
     "lint": "run-p lint:*",
     "lint:eslint": "eslint --ext .ts,.vue --ignore-path .gitignore .",
     "lint:prettier": "prettier --ignore-path .gitignore -l \"**/*.{json,yaml,yml,ts,vue}\"",
-    "lint:tsc": "tsc",
+    "lint:tsc": "vue-tsc",
     "test": "jest"
   },
   "dependencies": {
@@ -34,7 +34,9 @@
     "@nuxt/types": "^2.15.8",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/eslint-config-typescript": "^9.0.0",
+    "@types/estree": "^0.0.51",
     "@types/jest": "^27.4.0",
+    "@vue/runtime-dom": "^3.2.31",
     "@vue/test-utils": "^1.3.0",
     "@vue/vue2-jest": "^27.0.0-alpha.4",
     "eslint": "^8.13.0",
@@ -47,7 +49,8 @@
     "sass": "^1.44.0",
     "ts-jest": "^27.1.4",
     "ts-node": "^10.7.0",
-    "vue-i18n-jest": "^1.1.1"
+    "vue-i18n-jest": "^1.1.1",
+    "vue-tsc": "^0.34.6"
   },
   "resolutions": {
     "@types/babel__core": "^7.0.0",

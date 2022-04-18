@@ -22,14 +22,10 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+<script lang="ts" setup>
+import type { TranslateResult } from 'vue-i18n'
 
-export default defineComponent({
-  name: 'CardComponent',
-  props: {
-    title: { type: String, required: true },
-    icon: { type: String, required: true }
-  }
-})
+type Props = { title: TranslateResult; icon: string }
+
+const props = defineProps<Props>()
 </script>
