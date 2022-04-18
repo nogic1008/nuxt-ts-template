@@ -1,31 +1,47 @@
 <template>
-  <b-navbar type="is-primary">
-    <template slot="brand">
-      <b-navbar-item tag="nuxt-link" :to="localePath('/')">
+  <nav aria-label="main navigation" class="navbar is-primary" role="navigation">
+    <div class="navbar-brand">
+      <nuxt-link class="navbar-item" :to="localePath('/')">
         <img src="~assets/buefy.png" alt="Buefy" height="28" />
-      </b-navbar-item>
-    </template>
-    <template slot="end">
-      <b-navbar-dropdown right collapsible>
-        <b-navbar-item
-          v-for="locale in availableLocales"
-          :key="locale.code"
-          tag="nuxt-link"
-          :to="switchLocalePath(locale.code)"
-        >
-          <Flag :iso="locale.flag" />
-          <span>&nbsp;{{ locale.name }}</span>
-        </b-navbar-item>
-        <template #label>
-          <Flag :iso="selectedLocale.flag" />&nbsp;{{ selectedLocale.name }}
-        </template>
-      </b-navbar-dropdown>
-    </template>
-  </b-navbar>
+      </nuxt-link>
+      <a
+        aria-label="menu"
+        class="navbar-burger burger"
+        role="button"
+        tabindex="0"
+        @click="toggleActive"
+      >
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
+        <span aria-hidden="true" />
+      </a>
+    </div>
+    <div class="navbar-menu" :class="{ 'is-active': isOpened }">
+      <div class="navbar-start"></div>
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <span class="navbar-link" aria-haspopup="true" tabindex="0">
+            <Flag :iso="selectedLocale.flag" />&nbsp;{{ selectedLocale.name }}
+          </span>
+          <div class="navbar-dropdown is-right">
+            <nuxt-link
+              v-for="locale in availableLocales"
+              :key="locale.code"
+              class="navbar-item"
+              :to="switchLocalePath(locale.code)"
+            >
+              <Flag :iso="locale.flag" />
+              <span>&nbsp;{{ locale.name }}</span>
+            </nuxt-link>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
 </template>
 
 <script lang="ts" setup>
-import { computed, useContext } from '@nuxtjs/composition-api'
+import { computed, ref, useContext } from '@nuxtjs/composition-api'
 import type { LocaleObject } from '@nuxtjs/i18n'
 
 import Flag from '~/components/Flag.vue'
@@ -44,4 +60,9 @@ const availableLocales = computed(
       (l): l is LocaleObject => typeof l === 'object' && l.code !== i18n.locale
     ) ?? []
 )
+
+const isOpened = ref(false)
+const toggleActive = () => {
+  isOpened.value = !isOpened.value
+}
 </script>
