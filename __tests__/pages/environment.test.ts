@@ -1,15 +1,14 @@
-import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
-import VueI18n from 'vue-i18n'
+import { mount, shallowMount } from '@vue/test-utils'
 
+import { createI18n, createVue } from '~/__tests__/utils'
 import Environment from '~/pages/environment.vue'
 
-const localVue = createLocalVue()
-localVue.use(VueI18n)
+const localVue = createVue()
 
 describe('pages/environment.vue', () => {
   const $config = { basePath: 'foo' }
   describe.each(['en', 'ja'])('{ locale: %s } snapshot test', (locale) => {
-    const i18n = new VueI18n({ locale, silentFallbackWarn: true })
+    const i18n = createI18n(locale)
 
     test('renders correctly', () => {
       const mocks = {
@@ -26,7 +25,7 @@ describe('pages/environment.vue', () => {
       ['ja', 'クライアントサイド 環境変数']
     ])('{ locale: %s } returns { title: "%s" }', (locale, title) => {
       // Arrange
-      const i18n = new VueI18n({ locale, silentFallbackWarn: true })
+      const i18n = createI18n(locale)
       const mocks = {
         $nuxt: { context: { $config: { basePath: 'foo' }, app: { i18n } } }
       }

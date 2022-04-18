@@ -1,16 +1,13 @@
-import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
-import Buefy from 'buefy'
-import VueI18n from 'vue-i18n'
+import { mount, shallowMount } from '@vue/test-utils'
 
+import { createI18n, createVue } from '~/__tests__/utils'
 import Inspire from '~/pages/inspire.vue'
 
-const localVue = createLocalVue()
-localVue.use(Buefy)
-localVue.use(VueI18n)
+const localVue = createVue()
 
 describe('pages/inspire.vue', () => {
   describe.each(['en', 'ja'])('{ locale: %s } snapshot test', (locale) => {
-    const i18n = new VueI18n({ locale, silentFallbackWarn: true })
+    const i18n = createI18n(locale)
     test('renders correctly', () => {
       const mocks = { $nuxt: { context: { app: { i18n } } } }
       const wrapper = mount(Inspire, { localVue, i18n, mocks })
@@ -24,7 +21,7 @@ describe('pages/inspire.vue', () => {
       ['ja', '"さあ、始めよう"']
     ])('{ locale: %s } returns { title: "%s" }', (locale, title) => {
       // Arrange
-      const i18n = new VueI18n({ locale, silentFallbackWarn: true })
+      const i18n = createI18n(locale)
       const mocks = { $nuxt: { context: { app: { i18n } } } }
       const wrapper = shallowMount(Inspire, { localVue, i18n, mocks })
 

@@ -1,14 +1,10 @@
-import { createLocalVue, mount, RouterLinkStub } from '@vue/test-utils'
-import Buefy from 'buefy'
+import { mount, RouterLinkStub } from '@vue/test-utils'
 import type { IVueI18n } from 'vue-i18n'
 
+import { createVue } from '~/__tests__/utils'
 import NavbarComponent from '~/components/Navbar.vue'
 
-import { i18nMethods } from '../utils'
-
-const localVue = createLocalVue()
-localVue.use(Buefy)
-localVue.mixin(i18nMethods)
+const localVue = createVue()
 
 describe('components/Navbar.vue', () => {
   const i18n: Partial<IVueI18n> = {

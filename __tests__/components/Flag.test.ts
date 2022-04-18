@@ -1,10 +1,9 @@
-import { createLocalVue, mount, shallowMount } from '@vue/test-utils'
+import { mount, shallowMount } from '@vue/test-utils'
 
+import { createVue, randomString } from '~/__tests__/utils'
 import FlagComponent from '~/components/Flag.vue'
 
-import { randomString as random } from '../utils'
-
-const localVue = createLocalVue()
+const localVue = createVue()
 
 interface FlagProps {
   iso: string
@@ -50,14 +49,14 @@ describe('components/Flag.vue', () => {
 
   describe('title attribute', () => {
     test('renders props.iso value if props.title is undefined', async () => {
-      const iso = random(10)
+      const iso = randomString(10)
       wrapper.setProps({ iso })
       await wrapper.vm.$nextTick()
       expect(wrapper.find('span').attributes().title).toBe(iso)
     })
     test('renders props.title value', async () => {
-      const title = random(10)
-      const iso = random(10)
+      const title = randomString(10)
+      const iso = randomString(10)
       wrapper.setProps({ title, iso })
       await wrapper.vm.$nextTick()
       expect(wrapper.find('span').attributes().title).toBe(title)

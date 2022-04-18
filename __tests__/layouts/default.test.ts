@@ -1,13 +1,9 @@
-import { createLocalVue, mount, RouterLinkStub } from '@vue/test-utils'
-import Buefy from 'buefy'
+import { mount, RouterLinkStub } from '@vue/test-utils'
 
+import { createVue } from '~/__tests__/utils'
 import DefaultLayout from '~/layouts/default.vue'
 
-import { i18nMethods } from '../utils'
-
-const localVue = createLocalVue()
-localVue.use(Buefy)
-localVue.mixin(i18nMethods)
+const localVue = createVue()
 
 describe('layouts/default.vue', () => {
   test('renders correctly', () => {
