@@ -1,4 +1,5 @@
 import type { NuxtConfig } from '@nuxt/types'
+import { bulmaConfig } from '@oruga-ui/theme-bulma'
 import { config } from 'dotenv'
 
 import pkg from './package.json'
@@ -28,6 +29,13 @@ const nuxtConfig: NuxtConfig = {
         rel: 'icon',
         type: 'image/x-icon',
         href: `${basePath}favicon.ico`
+      },
+      {
+        rel: 'preload',
+        type: 'text/css',
+        href: 'https://cdn.jsdelivr.net/npm/@mdi/font@5.8.55/css/materialdesignicons.min.css',
+        as: 'style',
+        onload: "this.rel='stylesheet'"
       }
     ]
   },
@@ -35,7 +43,7 @@ const nuxtConfig: NuxtConfig = {
   /** Customize the progress-bar color */
   loading: { color: '#fff' },
   /** Global CSS */
-  css: [],
+  css: ['@oruga-ui/theme-bulma/dist/bulma.css'],
   /** Plugins to load before mounting the App */
   plugins: [],
   /** Nuxt.js dev-modules */
@@ -49,8 +57,8 @@ const nuxtConfig: NuxtConfig = {
   ],
   /** Nuxt.js modules */
   modules: [
-    // Doc: https://buefy.org/documentation/
-    'nuxt-buefy',
+    // Doc: https://oruga.io/documentation/
+    ['@oruga-ui/oruga/nuxt', { includeCss: false, ...bulmaConfig }],
     '@nuxtjs/pwa',
     // Doc: https://i18n.nuxtjs.org/
     '@nuxtjs/i18n'

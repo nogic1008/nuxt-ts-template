@@ -29,7 +29,7 @@ describe('components/Counter.vue', () => {
 
   test.each([1, 2, 10])(
     'click plus button calls counter.increment()',
-    (pressCount) => {
+    async (pressCount) => {
       // Arrange
       const mocks = { $accessor: { counter } }
       const wrapper = mount(CounterComponent, { localVue, mocks, i18n })
@@ -37,7 +37,7 @@ describe('components/Counter.vue', () => {
       // Act
       const button = wrapper.find('button.plus')
       for (let i = 0; i < pressCount; i++) {
-        button.trigger('click')
+        await button.trigger('click')
       }
 
       // Assert
@@ -48,7 +48,7 @@ describe('components/Counter.vue', () => {
 
   test.each([1, 2, 10])(
     'click minus button calls counter.decrement()',
-    (pressCount) => {
+    async (pressCount) => {
       // Arrange
       const mocks = { $accessor: { counter } }
       const wrapper = mount(CounterComponent, { localVue, mocks, i18n })
@@ -56,7 +56,7 @@ describe('components/Counter.vue', () => {
       // Act
       const button = wrapper.find('button.minus')
       for (let i = 0; i < pressCount; i++) {
-        button.trigger('click')
+        await button.trigger('click')
       }
 
       // Assert

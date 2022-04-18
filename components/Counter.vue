@@ -11,9 +11,9 @@
 
 <template>
   <Card :title="$t('title')" icon="counter">
-    <b-button class="plus" icon-left="plus" @click="increment()" />
+    <o-button class="plus" icon-left="plus" @click="increment()" />
     <span class="subtitle">{{ count }}</span>
-    <b-button class="minus" icon-left="minus" @click="decrement()" />
+    <o-button class="minus" icon-left="minus" @click="decrement()" />
   </Card>
 </template>
 

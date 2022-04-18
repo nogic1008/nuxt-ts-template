@@ -1,4 +1,4 @@
-import { mount, RouterLinkStub } from '@vue/test-utils'
+import { mount, RouterLinkStub, shallowMount } from '@vue/test-utils'
 import type { IVueI18n } from 'vue-i18n'
 
 import { createVue } from '~/__tests__/utils'
@@ -7,6 +7,7 @@ import NavbarComponent from '~/components/Navbar.vue'
 const localVue = createVue()
 
 describe('components/Navbar.vue', () => {
+  const stubs = { NuxtLink: RouterLinkStub, Flag: true }
   const i18n: Partial<IVueI18n> = {
     locale: 'en',
     locales: [
@@ -15,10 +16,29 @@ describe('components/Navbar.vue', () => {
     ]
   }
 
-  test('renders correctly', () => {
+  test.each([true, false])('{ isOpened: %p } renders correctly', (isOpened) => {
     const mocks = { $nuxt: { context: { i18n } } }
-    const stubs = { NuxtLink: RouterLinkStub, Nuxt: true }
-    const wrapper = mount(NavbarComponent, { localVue, mocks, stubs })
+    const data = () => ({ isOpened })
+    const wrapper = mount(NavbarComponent, { localVue, mocks, stubs, data })
     expect(wrapper.element).toMatchSnapshot()
+  })
+
+  // Event
+  describe('click navbar-barger', () => {
+    test.each([
+      [true, false],
+      [false, true]
+    ])('changes { isOpened: %p } to %p', async (isOpened, expected) => {
+      // Arrange
+      const mocks = { $nuxt: { context: { i18n } } }
+      const wrapper = shallowMount(NavbarComponent, { localVue, mocks, stubs })
+      await wrapper.setData({ isOpened })
+
+      // Act
+      await wrapper.find('.navbar-burger').trigger('click')
+
+      // Assert
+      expect(wrapper.vm.$data.isOpened).toBe(expected)
+    })
   })
 })

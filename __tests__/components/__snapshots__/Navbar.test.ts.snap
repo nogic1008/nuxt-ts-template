@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`components/Navbar.vue renders correctly 1`] = `
+exports[`components/Navbar.vue { isOpened: false } renders correctly 1`] = `
 <nav
   aria-label="main navigation"
   class="navbar is-primary"
@@ -13,11 +13,16 @@ exports[`components/Navbar.vue renders correctly 1`] = `
       class="navbar-item"
     >
       <img
-        alt="Buefy"
+        alt="Oruga"
         height="28"
-        src="~assets/buefy.png"
+        src="~assets/logo.png"
       />
+       
+      <b>
+        Oruga
+      </b>
     </a>
+     
     <a
       aria-label="menu"
       class="navbar-burger burger"
@@ -27,48 +32,139 @@ exports[`components/Navbar.vue renders correctly 1`] = `
       <span
         aria-hidden="true"
       />
+       
       <span
         aria-hidden="true"
       />
+       
       <span
         aria-hidden="true"
       />
     </a>
   </div>
+   
   <div
     class="navbar-menu"
   >
     <div
       class="navbar-start"
     />
+     
     <div
       class="navbar-end"
     >
       <div
-        class="navbar-item has-dropdown"
+        class="navbar-item has-dropdown is-hoverable"
       >
-        <a
+        <span
           aria-haspopup="true"
           class="navbar-link"
           tabindex="0"
         >
-          <span
-            class="fi fi-us"
-            title="us"
+          <flag-stub
+            iso="us"
           />
            English
-      
-        </a>
+        
+        </span>
+         
         <div
           class="navbar-dropdown is-right"
-          style="display: none;"
         >
           <a
             class="navbar-item"
           >
-            <span
-              class="fi fi-jp"
-              title="jp"
+            <flag-stub
+              iso="jp"
+            />
+             
+            <span>
+               日本語
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`components/Navbar.vue { isOpened: true } renders correctly 1`] = `
+<nav
+  aria-label="main navigation"
+  class="navbar is-primary"
+  role="navigation"
+>
+  <div
+    class="navbar-brand"
+  >
+    <a
+      class="navbar-item"
+    >
+      <img
+        alt="Oruga"
+        height="28"
+        src="~assets/logo.png"
+      />
+       
+      <b>
+        Oruga
+      </b>
+    </a>
+     
+    <a
+      aria-label="menu"
+      class="navbar-burger burger"
+      role="button"
+      tabindex="0"
+    >
+      <span
+        aria-hidden="true"
+      />
+       
+      <span
+        aria-hidden="true"
+      />
+       
+      <span
+        aria-hidden="true"
+      />
+    </a>
+  </div>
+   
+  <div
+    class="navbar-menu is-active"
+  >
+    <div
+      class="navbar-start"
+    />
+     
+    <div
+      class="navbar-end"
+    >
+      <div
+        class="navbar-item has-dropdown is-hoverable"
+      >
+        <span
+          aria-haspopup="true"
+          class="navbar-link"
+          tabindex="0"
+        >
+          <flag-stub
+            iso="us"
+          />
+           English
+        
+        </span>
+         
+        <div
+          class="navbar-dropdown is-right"
+        >
+          <a
+            class="navbar-item"
+          >
+            <flag-stub
+              iso="jp"
             />
              
             <span>

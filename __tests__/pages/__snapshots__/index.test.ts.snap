@@ -14,7 +14,7 @@ exports[`pages/index.vue { locale: en } snapshot test renders correctly 1`] = `
       <span>
         Open source on 
         <a
-          href="https://github.com/buefy/buefy"
+          href="https://github.com/oruga-ui/oruga"
         >
           GitHub
         </a>
@@ -82,7 +82,7 @@ exports[`pages/index.vue { locale: ja } snapshot test renders correctly 1`] = `
     >
       <span>
         <a
-          href="https://github.com/buefy/buefy"
+          href="https://github.com/oruga-ui/oruga"
         >
           GitHub
         </a>

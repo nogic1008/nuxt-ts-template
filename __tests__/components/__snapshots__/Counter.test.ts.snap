@@ -26,7 +26,7 @@ exports[`components/Counter.vue snapshot test (en) renders correctly 1`] = `
         class="content has-text-centered"
       >
         <span
-          class="icon has-text-primary is-large"
+          class="icon is-large has-text-primary"
         >
           <i
             class="mdi mdi-counter mdi-48px"
@@ -43,18 +43,22 @@ exports[`components/Counter.vue snapshot test (en) renders correctly 1`] = `
       >
         <span>
           <button
-            class="button plus"
+            class="plus button"
             type="button"
           >
             <span
-              class="icon is-small"
+              class="button-wrapper"
             >
-              <i
-                class="mdi mdi-plus"
-              />
+              <span
+                class="icon"
+              >
+                <i
+                  class="mdi mdi-plus mdi-24px"
+                />
+              </span>
+              <!---->
+              <!---->
             </span>
-            <!---->
-            <!---->
           </button>
            
           <span
@@ -64,18 +68,22 @@ exports[`components/Counter.vue snapshot test (en) renders correctly 1`] = `
           </span>
            
           <button
-            class="button minus"
+            class="minus button"
             type="button"
           >
             <span
-              class="icon is-small"
+              class="button-wrapper"
             >
-              <i
-                class="mdi mdi-minus"
-              />
+              <span
+                class="icon"
+              >
+                <i
+                  class="mdi mdi-minus mdi-24px"
+                />
+              </span>
+              <!---->
+              <!---->
             </span>
-            <!---->
-            <!---->
           </button>
         </span>
       </div>
@@ -110,7 +118,7 @@ exports[`components/Counter.vue snapshot test (ja) renders correctly 1`] = `
         class="content has-text-centered"
       >
         <span
-          class="icon has-text-primary is-large"
+          class="icon is-large has-text-primary"
         >
           <i
             class="mdi mdi-counter mdi-48px"
@@ -127,18 +135,22 @@ exports[`components/Counter.vue snapshot test (ja) renders correctly 1`] = `
       >
         <span>
           <button
-            class="button plus"
+            class="plus button"
             type="button"
           >
             <span
-              class="icon is-small"
+              class="button-wrapper"
             >
-              <i
-                class="mdi mdi-plus"
-              />
+              <span
+                class="icon"
+              >
+                <i
+                  class="mdi mdi-plus mdi-24px"
+                />
+              </span>
+              <!---->
+              <!---->
             </span>
-            <!---->
-            <!---->
           </button>
            
           <span
@@ -148,18 +160,22 @@ exports[`components/Counter.vue snapshot test (ja) renders correctly 1`] = `
           </span>
            
           <button
-            class="button minus"
+            class="minus button"
             type="button"
           >
             <span
-              class="icon is-small"
+              class="button-wrapper"
             >
-              <i
-                class="mdi mdi-minus"
-              />
+              <span
+                class="icon"
+              >
+                <i
+                  class="mdi mdi-minus mdi-24px"
+                />
+              </span>
+              <!---->
+              <!---->
             </span>
-            <!---->
-            <!---->
           </button>
         </span>
       </div>

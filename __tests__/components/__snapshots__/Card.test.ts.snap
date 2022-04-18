@@ -26,7 +26,7 @@ exports[`components/Card.vue renders correctly 1`] = `
         class="content has-text-centered"
       >
         <span
-          class="icon has-text-primary is-large"
+          class="icon is-large has-text-primary"
         >
           <i
             class="mdi mdi-github-circle mdi-48px"
