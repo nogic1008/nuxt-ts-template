@@ -18,13 +18,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, wrapProperty } from '@nuxtjs/composition-api'
-
 import Card from '~/components/Card.vue'
+import useCounter from '~/composables/useCounter'
 
-const accessor = wrapProperty('$accessor', false)()
-
-const count = computed(() => accessor.counter.count)
-const increment = () => accessor.counter.increment()
-const decrement = () => accessor.counter.decrement()
+const { count, increment, decrement } = useCounter()
 </script>
