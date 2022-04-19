@@ -64,16 +64,19 @@
   </section>
 </template>
 
-<script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+<script lang="ts" setup>
+import { defineComponent, useMeta } from '@nuxtjs/composition-api'
 
 import Card from '~/components/Card.vue'
 import Counter from '~/components/Counter.vue'
 import pkg from '~/package.json'
 
-export default defineComponent({
-  name: 'IndexPage',
-  components: { Card, Counter },
-  head: { title: pkg.name, titleTemplate: '' }
-})
+// Lifecycle
+const { title, titleTemplate } = useMeta()
+titleTemplate.value = ''
+title.value = pkg.name
+</script>
+
+<script lang="ts">
+export default defineComponent({ head: {} })
 </script>
