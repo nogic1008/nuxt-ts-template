@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, jest, test } from '@jest/globals'
 import { mount } from '@vue/test-utils'
 
 import { createI18n, createVue } from '~/__tests__/utils'
@@ -13,7 +14,7 @@ describe('components/Counter.vue', () => {
     counter.decrement.mockClear()
   })
 
-  describe.each(['en', 'ja'])('snapshot test (%s)', (locale) => {
+  describe.each(['en', 'ja'])('snapshot test (%s)', (locale: string) => {
     test('renders correctly', () => {
       // Arrange
       const i18n = createI18n(locale)
@@ -29,7 +30,7 @@ describe('components/Counter.vue', () => {
 
   test.each([1, 2, 10])(
     'click plus button calls counter.increment()',
-    async (pressCount) => {
+    async (pressCount: number) => {
       // Arrange
       const mocks = { $accessor: { counter } }
       const wrapper = mount(CounterComponent, { localVue, mocks, i18n })
@@ -48,7 +49,7 @@ describe('components/Counter.vue', () => {
 
   test.each([1, 2, 10])(
     'click minus button calls counter.decrement()',
-    async (pressCount) => {
+    async (pressCount: number) => {
       // Arrange
       const mocks = { $accessor: { counter } }
       const wrapper = mount(CounterComponent, { localVue, mocks, i18n })

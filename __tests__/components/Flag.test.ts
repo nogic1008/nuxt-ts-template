@@ -1,3 +1,4 @@
+import { beforeEach, describe, expect, test } from '@jest/globals'
 import { mount, shallowMount } from '@vue/test-utils'
 
 import { createVue, randomString } from '~/__tests__/utils'
@@ -30,11 +31,14 @@ describe('components/Flag.vue', () => {
       ['ja', 'fi-ja'],
       ['US', 'fi-us'],
       ['foo', 'fi-foo']
-    ])('{ iso: "%s" } has "%s" class', async (iso, expectedClass) => {
-      wrapper.setProps({ iso })
-      await wrapper.vm.$nextTick()
-      expect(wrapper.find('span').classes()).toContain(expectedClass)
-    })
+    ])(
+      '{ iso: "%s" } has "%s" class',
+      async (iso: string, expectedClass: string) => {
+        wrapper.setProps({ iso })
+        await wrapper.vm.$nextTick()
+        expect(wrapper.find('span').classes()).toContain(expectedClass)
+      }
+    )
     test('{ squared: true } has "fis" class', async () => {
       wrapper.setProps({ squared: true })
       await wrapper.vm.$nextTick()

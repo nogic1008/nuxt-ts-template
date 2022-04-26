@@ -1,3 +1,4 @@
+import { describe, expect, test } from '@jest/globals'
 import { mount, RouterLinkStub, shallowMount } from '@vue/test-utils'
 import type { IVueI18n } from 'vue-i18n'
 
@@ -16,29 +17,39 @@ describe('components/Navbar.vue', () => {
     ]
   }
 
-  test.each([true, false])('{ isOpened: %p } renders correctly', (isOpened) => {
-    const mocks = { $nuxt: { context: { i18n } } }
-    const data = () => ({ isOpened })
-    const wrapper = mount(NavbarComponent, { localVue, mocks, stubs, data })
-    expect(wrapper.element).toMatchSnapshot()
-  })
+  test.each([true, false])(
+    '{ isOpened: %p } renders correctly',
+    (isOpened: boolean) => {
+      const mocks = { $nuxt: { context: { i18n } } }
+      const data = () => ({ isOpened })
+      const wrapper = mount(NavbarComponent, { localVue, mocks, stubs, data })
+      expect(wrapper.element).toMatchSnapshot()
+    }
+  )
 
   // Event
   describe('click navbar-barger', () => {
     test.each([
       [true, false],
       [false, true]
-    ])('changes { isOpened: %p } to %p', async (isOpened, expected) => {
-      // Arrange
-      const mocks = { $nuxt: { context: { i18n } } }
-      const wrapper = shallowMount(NavbarComponent, { localVue, mocks, stubs })
-      await wrapper.setData({ isOpened })
+    ])(
+      'changes { isOpened: %p } to %p',
+      async (isOpened: boolean, expected: boolean) => {
+        // Arrange
+        const mocks = { $nuxt: { context: { i18n } } }
+        const wrapper = shallowMount(NavbarComponent, {
+          localVue,
+          mocks,
+          stubs
+        })
+        await wrapper.setData({ isOpened })
 
-      // Act
-      await wrapper.find('.navbar-burger').trigger('click')
+        // Act
+        await wrapper.find('.navbar-burger').trigger('click')
 
-      // Assert
-      expect(wrapper.vm.$data.isOpened).toBe(expected)
-    })
+        // Assert
+        expect(wrapper.vm.$data.isOpened).toBe(expected)
+      }
+    )
   })
 })

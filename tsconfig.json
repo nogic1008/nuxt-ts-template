@@ -5,6 +5,7 @@
     "moduleResolution": "node",
     "lib": ["esnext", "esnext.asynciterable", "dom"],
     "jsx": "preserve",
+    "skipLibCheck": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
     "experimentalDecorators": true,
@@ -15,12 +16,7 @@
     "paths": {
       "~/*": ["./*"]
     },
-    "types": [
-      "jest",
-      "node",
-      "@nuxtjs/i18n",
-      "unplugin-vue2-script-setup/types"
-    ]
+    "types": ["node", "@nuxtjs/i18n", "unplugin-vue2-script-setup/types"]
   },
   "exclude": ["node_modules"],
   "vueCompilerOptions": {
