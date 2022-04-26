@@ -22,19 +22,16 @@
   </section>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { defineComponent, useMeta, wrapProperty } from '@nuxtjs/composition-api'
 
-const useI18n = wrapProperty('$i18n', false)
+const _i18n = wrapProperty('$i18n', false)()
 
-export default defineComponent({
-  name: 'InspirePage',
-  setup() {
-    const i18n = useI18n()
+// Lifecycle
+const { title } = useMeta()
+title.value = _i18n.t('title').toString().replace(' {0}', '')
+</script>
 
-    // Lifecycle
-    useMeta(() => ({ title: i18n.t('title').toString().replace(' {0}', '') }))
-  },
-  head: {}
-})
+<script lang="ts">
+export default defineComponent({ head: {} })
 </script>

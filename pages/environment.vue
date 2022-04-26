@@ -23,7 +23,7 @@
   </section>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import {
   computed,
   defineComponent,
@@ -32,24 +32,19 @@ import {
   wrapProperty
 } from '@nuxtjs/composition-api'
 
-const useI18n = wrapProperty('$i18n', false)
+const { $config } = useContext()
+const i18n = wrapProperty('$i18n', false)()
 
-export default defineComponent({
-  name: 'EnvironmentPage',
-  setup() {
-    const { $config } = useContext()
-    const i18n = useI18n()
+// Lifecycle
+const { title } = useMeta()
+title.value = i18n.t('title').toString()
 
-    // Lifecycle
-    useMeta(() => ({ title: i18n.t('title').toString() }))
+// Computed
+const environmentList = computed(() =>
+  Object.entries($config).map(([key, value]) => ({ key, value }))
+)
+</script>
 
-    // Computed
-    const environmentList = computed(() =>
-      Object.entries($config).map(([key, value]) => ({ key, value }))
-    )
-
-    return { environmentList }
-  },
-  head: {}
-})
+<script lang="ts">
+export default defineComponent({ head: {} })
 </script>

@@ -51,9 +51,7 @@ const nuxtConfig: NuxtConfig = {
     // Doc: https://typescript.nuxtjs.org/
     ['@nuxt/typescript-build', { typeCheck: false }],
     // Doc: https://composition-api.nuxtjs.org/
-    '@nuxtjs/composition-api/module',
-    // Doc: https://typed-vuex.roe.dev/
-    'nuxt-typed-vuex'
+    '@nuxtjs/composition-api/module'
   ],
   /** Nuxt.js modules */
   modules: [
@@ -84,9 +82,6 @@ const nuxtConfig: NuxtConfig = {
   /* eslint-enable no-process-env */
   /** Build configuration */
   build: {
-    extend: (config, _) => {
-      config.node = { fs: 'empty' }
-    },
     loaders: { scss: { sassOptions: { quietDeps: true } } }
   }
 }
