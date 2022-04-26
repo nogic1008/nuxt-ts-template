@@ -11,7 +11,6 @@ const config: Config.InitialOptions = {
     '^.+\\.ts$': 'ts-jest',
     '.*\\.(vue)$': 'unplugin-vue2-script-setup/jest'
   },
-  transformIgnorePatterns: ['<rootDir>/node_modules/(?!typed-vuex/lib)'],
   globals: {
     'vue-jest': {
       transform: {
