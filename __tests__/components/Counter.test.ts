@@ -17,7 +17,7 @@ describe('components/Counter.vue', () => {
   beforeEach(() => {
     jest
       .mocked(useCounter)
-      .mockReturnValue({ count: ref(0), increment, decrement })
+      .mockReturnValue({ count: ref(0) as any, increment, decrement })
     increment.mockClear()
     decrement.mockClear()
   })

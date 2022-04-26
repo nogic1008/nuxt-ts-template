@@ -1,12 +1,13 @@
-import { ref } from '@nuxtjs/composition-api'
+import { computed, ref } from '@nuxtjs/composition-api'
 
 export default function () {
-  const count = ref(0)
+  const refCount = ref(0)
+  const count = computed(() => refCount.value)
   const increment = () => {
-    count.value++
+    refCount.value++
   }
   const decrement = () => {
-    count.value--
+    refCount.value--
   }
   return { count, increment, decrement }
 }
