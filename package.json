@@ -41,7 +41,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-nuxt": "^3.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
-    "jest": "^28.0.2",
+    "jest": "^28.0.3",
     "jest-environment-jsdom": "^28.0.2",
     "npm-run-all2": "^5.0.2",
     "prettier": "^2.6.2",
