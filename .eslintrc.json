@@ -16,7 +16,8 @@
     "no-process-env": "error",
     "sort-imports": "off",
     "import/order": "off",
-    "simple-import-sort/imports": "error"
+    "simple-import-sort/imports": "error",
+    "vue/multi-word-component-names": "off"
   },
   "overrides": [
     {
