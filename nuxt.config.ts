@@ -1,4 +1,4 @@
-import type { NuxtConfig } from '@nuxt/types'
+import { defineNuxtConfig } from '@nuxt/bridge'
 import { bulmaConfig } from '@oruga-ui/theme-bulma'
 import { config } from 'dotenv'
 
@@ -10,9 +10,8 @@ config()
 // eslint-disable-next-line no-process-env
 const basePath = process.env.BASE_PATH || '/'
 
-const nuxtConfig: NuxtConfig = {
+export default defineNuxtConfig({
   target: 'static',
-  /** Headers of the page */
   head: {
     titleTemplate: `%s - ${pkg.name}`,
     meta: [
@@ -40,20 +39,8 @@ const nuxtConfig: NuxtConfig = {
     ]
   },
   router: { base: basePath },
-  /** Customize the progress-bar color */
   loading: { color: '#fff' },
-  /** Global CSS */
   css: ['@oruga-ui/theme-bulma/dist/bulma.css'],
-  /** Plugins to load before mounting the App */
-  plugins: [],
-  /** Nuxt.js dev-modules */
-  buildModules: [
-    // Doc: https://typescript.nuxtjs.org/
-    ['@nuxt/typescript-build', { typeCheck: false }],
-    // Doc: https://composition-api.nuxtjs.org/
-    '@nuxtjs/composition-api/module'
-  ],
-  /** Nuxt.js modules */
   modules: [
     // Doc: https://oruga.io/documentation/
     ['@oruga-ui/oruga/nuxt', { includeCss: false, ...bulmaConfig }],
@@ -80,10 +67,7 @@ const nuxtConfig: NuxtConfig = {
     nodeEnv: process.env.NODE_ENV
   },
   /* eslint-enable no-process-env */
-  /** Build configuration */
   build: {
     loaders: { scss: { sassOptions: { quietDeps: true } } }
   }
-}
-
-export default nuxtConfig
+})
