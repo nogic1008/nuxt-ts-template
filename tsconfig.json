@@ -1,24 +1,8 @@
 {
+  "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "target": "es2018",
-    "module": "esnext",
-    "moduleResolution": "node",
-    "lib": ["esnext", "esnext.asynciterable", "dom"],
-    "jsx": "preserve",
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "resolveJsonModule": true,
-    "experimentalDecorators": true,
-    "sourceMap": true,
-    "strict": true,
-    "noEmit": true,
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["./*"]
-    },
-    "types": ["node", "@nuxtjs/i18n", "unplugin-vue2-script-setup/types"]
+    "strict": true
   },
-  "exclude": ["node_modules"],
   "vueCompilerOptions": {
     "target": 2
   }
