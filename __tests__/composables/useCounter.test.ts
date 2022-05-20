@@ -1,12 +1,14 @@
-import { beforeAll, describe, expect, test } from '@jest/globals'
-import VueCompositionApi from '@vue/composition-api'
+import { beforeAll, describe, expect, jest, test } from '@jest/globals'
+import VueCompositionApi, { ref } from '@vue/composition-api'
 import Vue from 'vue'
 
+import { useState } from '#app'
 import useCounter from '~/composables/useCounter'
 
 describe('composables/useCounter.ts', () => {
   beforeAll(() => {
     Vue.use(VueCompositionApi)
+    jest.mocked(useState).mockReturnValue(ref(0))
   })
 
   test('.count returns 0', () => {

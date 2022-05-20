@@ -22,7 +22,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from '@nuxtjs/composition-api'
 import type { RawLocation } from 'vue-router'
 
 import Navbar from '~/components/Navbar.vue'

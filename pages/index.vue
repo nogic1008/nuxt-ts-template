@@ -65,16 +65,14 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent, useMeta } from '@nuxtjs/composition-api'
-
 import Card from '~/components/Card.vue'
 import Counter from '~/components/Counter.vue'
 import pkg from '~/package.json'
 
 // Lifecycle
-const { title, titleTemplate } = useMeta()
-titleTemplate.value = ''
-title.value = pkg.name
+const title = ref(pkg.name)
+const titleTemplate = ref('')
+useNuxt2Meta({ title, titleTemplate })
 </script>
 
 <script lang="ts">

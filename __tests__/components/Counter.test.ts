@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, jest, test } from '@jest/globals'
-import { ref } from '@nuxtjs/composition-api'
 import { mount } from '@vue/test-utils'
 
+import { ref } from '#app'
 import { createI18n, createVue } from '~/__tests__/utils'
 import CounterComponent from '~/components/Counter.vue'
 import useCounter from '~/composables/useCounter'

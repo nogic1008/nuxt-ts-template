@@ -23,13 +23,11 @@
 </template>
 
 <script lang="ts" setup>
-import { defineComponent, useMeta, wrapProperty } from '@nuxtjs/composition-api'
-
-const _i18n = wrapProperty('$i18n', false)()
+const _i18n = getCurrentInstance()!.proxy.$i18n
 
 // Lifecycle
-const { title } = useMeta()
-title.value = _i18n.t('title').toString().replace(' {0}', '')
+const title = ref(_i18n.t('title').toString().replace(' {0}', ''))
+useNuxt2Meta({ title })
 </script>
 
 <script lang="ts">

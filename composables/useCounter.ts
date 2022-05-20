@@ -1,7 +1,7 @@
-import { computed, ref } from '@nuxtjs/composition-api'
+import { computed, useState } from '#app'
 
 export default function () {
-  const refCount = ref(0)
+  const refCount = useState('count', () => 0)
   const count = computed(() => refCount.value)
   const increment = () => {
     refCount.value++

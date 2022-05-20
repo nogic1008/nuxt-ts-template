@@ -24,20 +24,12 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  computed,
-  defineComponent,
-  useContext,
-  useMeta,
-  wrapProperty
-} from '@nuxtjs/composition-api'
-
-const { $config } = useContext()
-const i18n = wrapProperty('$i18n', false)()
+const { $config } = useNuxtApp()
+const _i18n = getCurrentInstance()!.proxy.$i18n
 
 // Lifecycle
-const { title } = useMeta()
-title.value = i18n.t('title').toString()
+const title = ref(_i18n.t('title').toString())
+useNuxt2Meta({ title })
 
 // Computed
 const environmentList = computed(() =>

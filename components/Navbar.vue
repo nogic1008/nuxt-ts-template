@@ -42,12 +42,11 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, useContext } from '@nuxtjs/composition-api'
 import type { LocaleObject } from '@nuxtjs/i18n'
 
 import Flag from '~/components/Flag.vue'
 
-const { i18n } = useContext()
+const { i18n } = useNuxtApp()
 
 const selectedLocale = computed(
   () =>

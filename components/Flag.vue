@@ -3,8 +3,6 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from '@nuxtjs/composition-api'
-
 type Props = { iso: string; title?: string | null; squared?: boolean }
 
 const props = withDefaults(defineProps<Props>(), {
