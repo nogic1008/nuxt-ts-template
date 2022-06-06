@@ -23,7 +23,6 @@
   },
   "dependencies": {
     "@nuxtjs/i18n": "^7.3.0",
-    "@nuxtjs/pwa": "^3.3.5",
     "@oruga-ui/oruga": "^0.5.5",
     "@oruga-ui/theme-bulma": "^0.2.6",
     "flag-icons": "^6.6.6",

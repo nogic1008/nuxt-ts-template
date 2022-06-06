@@ -44,7 +44,6 @@ export default defineNuxtConfig({
   modules: [
     // Doc: https://oruga.io/documentation/
     ['@oruga-ui/oruga/nuxt', { includeCss: false, ...bulmaConfig }],
-    '@nuxtjs/pwa',
     // Doc: https://i18n.nuxtjs.org/
     '@nuxtjs/i18n'
   ],
