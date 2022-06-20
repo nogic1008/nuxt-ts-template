@@ -27,7 +27,7 @@
     "@nuxtjs/pwa": "^3.3.5",
     "@oruga-ui/oruga": "^0.5.5",
     "@oruga-ui/theme-bulma": "^0.2.6",
-    "flag-icons": "^6.5.1",
+    "flag-icons": "^6.6.0",
     "nuxt": "^2.15.8"
   },
   "devDependencies": {
