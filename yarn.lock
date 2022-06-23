@@ -5155,10 +5155,10 @@ find-up@^4.0.0, find-up@^4.1.0:
     locate-path "^5.0.0"
     path-exists "^4.0.0"
 
-flag-icons@^6.6.0:
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/flag-icons/-/flag-icons-6.6.0.tgz#4fd4bb7e873369cbd9aa904887d67c9eaea63b2f"
-  integrity sha512-1ldq0+VJ73D6PHAD1x166FJh5Qwf2z3mZWojNXREkFp1uyZ4bKHlGgANOtV1f37MtHCjDMp+AMAnttpUEGWUqA==
+flag-icons@^6.6.2:
+  version "6.6.2"
+  resolved "https://registry.yarnpkg.com/flag-icons/-/flag-icons-6.6.2.tgz#c3f9adb17cd6e45e5e2d051d3fcc5298b5270b15"
+  integrity sha512-QmBC3UF3/A1WuTrl85HApCN6RCK0Fmgr8+EB37goMuEwSSTIodLW9dWV4DZoMnX9uIeDYMX16gWsHCr2tmfDFQ==
 
 flat-cache@^3.0.4:
   version "3.0.4"
