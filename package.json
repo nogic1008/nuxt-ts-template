@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@nuxtjs/composition-api": "^0.32.0",
-    "@nuxtjs/i18n": "^7.2.2",
+    "@nuxtjs/i18n": "^7.2.3",
     "@nuxtjs/pwa": "^3.3.5",
     "@oruga-ui/oruga": "^0.5.5",
     "@oruga-ui/theme-bulma": "^0.2.6",
