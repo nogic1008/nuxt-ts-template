@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Node.js CI/CD
 
 on:
   push:
@@ -44,7 +44,17 @@ jobs:
         run: yarn --frozen-lockfile
 
       - name: Build
-        run: yarn generate
+        run: BASE_PATH=/${GITHUB_REPOSITORY##*/} yarn generate
+
+      - name: Remove unused README.md
+        if: github.event_name == 'push'
+        run: rm -rf ./dist/README.md
+
+      - name: Upload Production Artifact
+        if: github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v1.0.3
+        with:
+          path: dist
 
   test:
     name: Unit Test
@@ -65,3 +75,19 @@ jobs:
         run: yarn test --ci
       - name: Report Code Coverage to codecov
         uses: codecov/codecov-action@v3.1.0
+
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-20.04
+    needs: build
+    if: github.event_name == 'push'
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1.0.9
