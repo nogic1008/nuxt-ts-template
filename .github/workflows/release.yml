@@ -5,6 +5,9 @@ on:
     types:
       - published
 
+env:
+  NODE_VERSION: 14
+
 jobs:
   build:
     name: Build
@@ -12,10 +15,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3.0.2
-      - name: Setup Node.js 12
+      - name: Setup Node.js
         uses: actions/setup-node@v3.4.1
         with:
-          node-version: 12
+          node-version: ${{ env.NODE_VERSION }}
           cache: yarn
 
       - name: Install Dependencies
@@ -24,10 +27,9 @@ jobs:
       - name: Build
         run: BASE_PATH=/${GITHUB_REPOSITORY##*/} yarn generate
 
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v3.1.0
+      - name: Upload Production Artifact
+        uses: actions/upload-pages-artifact@v1.0.3
         with:
-          name: dist
           path: |
             dist
             !dist/**.md
@@ -36,16 +38,13 @@ jobs:
     name: Deploy
     runs-on: ubuntu-20.04
     needs: build
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Download Artifact
-        uses: actions/download-artifact@v3.0.0
-        with:
-          name: dist
-          path: dist
-
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3.8.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          commit_message: 'ci: auto deployment from'
+        id: deployment
+        uses: actions/deploy-pages@v1.0.9
