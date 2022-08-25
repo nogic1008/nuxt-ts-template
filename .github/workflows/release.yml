@@ -27,12 +27,13 @@ jobs:
       - name: Build
         run: BASE_PATH=/${GITHUB_REPOSITORY##*/} yarn generate
 
+      - name: Remove unused README.md
+        run: rm -rf ./dist/README.md
+
       - name: Upload Production Artifact
         uses: actions/upload-pages-artifact@v1.0.3
         with:
-          path: |
-            dist
-            !dist/**.md
+          path: dist
 
   deploy:
     name: Deploy
