@@ -48,8 +48,8 @@ describe('components/Counter.vue', () => {
       }
 
       // Assert
-      expect(increment).toBeCalledTimes(pressCount)
-      expect(decrement).not.toBeCalled()
+      expect(increment).toHaveBeenCalledTimes(pressCount)
+      expect(decrement).not.toHaveBeenCalled()
     }
   )
 
@@ -66,8 +66,8 @@ describe('components/Counter.vue', () => {
       }
 
       // Assert
-      expect(decrement).toBeCalledTimes(pressCount)
-      expect(increment).not.toBeCalled()
+      expect(decrement).toHaveBeenCalledTimes(pressCount)
+      expect(increment).not.toHaveBeenCalled()
     }
   )
 })
