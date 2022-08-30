@@ -37,9 +37,9 @@
     "@vue/runtime-dom": "^3.2.37",
     "@vue/test-utils": "^1.3.0",
     "@vue/vue2-jest": "^29.0.0",
-    "eslint": "^8.22.0",
+    "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-jest": "^26.8.7",
+    "eslint-plugin-jest": "^27.0.1",
     "eslint-plugin-nuxt": "^3.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "jest": "^29.0.1",
@@ -50,7 +50,7 @@
     "ts-jest": "^29.0.0-next.0",
     "ts-node": "^10.9.1",
     "vue-i18n-jest": "^1.1.1",
-    "vue-tsc": "^0.40.1"
+    "vue-tsc": "^0.40.4"
   },
   "resolutions": {
     "@types/babel__core": "^7.1.14",
