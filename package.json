@@ -46,7 +46,7 @@
     "jest-environment-jsdom": "^29.0.1",
     "npm-run-all2": "^5.0.2",
     "prettier": "^2.7.1",
-    "sass": "^1.54.6",
+    "sass": "^1.54.8",
     "ts-jest": "^29.0.0-next.0",
     "ts-node": "^10.9.1",
     "vue-i18n-jest": "^1.1.1",
