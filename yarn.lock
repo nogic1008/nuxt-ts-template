@@ -2549,10 +2549,10 @@
     lodash "^4.17.15"
     pretty "^2.0.0"
 
-"@vue/vue2-jest@^29.0.0":
-  version "29.0.0"
-  resolved "https://registry.yarnpkg.com/@vue/vue2-jest/-/vue2-jest-29.0.0.tgz#9e70949173fabe19b91f7e714354dbcf8c88d85c"
-  integrity sha512-+d+Byv9Zg78nG48LS2yP86Megtm+GXoDgePOOnAC82Z3TeQqesavDR3v7nWDXXhGSEJb3Ff4Vxybs8NHHWAxLA==
+"@vue/vue2-jest@^29.1.1":
+  version "29.1.1"
+  resolved "https://registry.yarnpkg.com/@vue/vue2-jest/-/vue2-jest-29.1.1.tgz#0dedd31961b4ad8db5d58cf993037304ca5d4dd4"
+  integrity sha512-k70XE8BKpCg/SwnmSvz2rRvykvmyMebNY2C8EG8HCW+go5ihA+Y8hDmiKkVX4Iv1SEfmo3F+Rc1KvS9dyffsGA==
   dependencies:
     "@babel/plugin-transform-modules-commonjs" "^7.2.0"
     "@vue/component-compiler-utils" "^3.1.0"
