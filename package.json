@@ -50,7 +50,7 @@
     "ts-jest": "^29.0.3",
     "ts-node": "^10.9.1",
     "vue-i18n-jest": "^1.1.1",
-    "vue-tsc": "^1.0.3"
+    "vue-tsc": "^1.0.6"
   },
   "resolutions": {
     "@types/babel__core": "^7.1.14",
