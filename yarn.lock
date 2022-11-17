@@ -1777,10 +1777,10 @@
     mustache "^2.3.0"
     stack-trace "0.0.10"
 
-"@oruga-ui/oruga@^0.5.8":
-  version "0.5.8"
-  resolved "https://registry.yarnpkg.com/@oruga-ui/oruga/-/oruga-0.5.8.tgz#347af36a2de75fe073f844ec79152c1ab84a913f"
-  integrity sha512-FvJ1LxWqC95xNfaCfvrn1SwTBjVuNYkf95tMeHxKDs0jBepUxaoqjhhxUzLqLyHKu7ddN/+jntB1M/EXOKG1lg==
+"@oruga-ui/oruga@^0.5.9":
+  version "0.5.9"
+  resolved "https://registry.yarnpkg.com/@oruga-ui/oruga/-/oruga-0.5.9.tgz#ca2d27775754b1d9862c4384a9db0845a2a31379"
+  integrity sha512-lTo8wsPRtwn7TbFzlxVHfanOSy2BY64hXgdvrEyHMVabKhgPrKUk8FrbvMmkI+8XpKEwXe8rnAdE5Fi1pAlc0A==
 
 "@oruga-ui/theme-bulma@^0.2.7":
   version "0.2.7"
