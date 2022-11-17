@@ -52,7 +52,7 @@ jobs:
 
       - name: Upload Production Artifact
         if: github.event_name == 'push'
-        uses: actions/upload-pages-artifact@v1.0.4
+        uses: actions/upload-pages-artifact@v1.0.5
         with:
           path: dist
 
