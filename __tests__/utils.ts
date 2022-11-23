@@ -21,5 +21,5 @@ export const createVue = () => {
   return localVue
 }
 
-export const createI18n = (locale: string = 'en') =>
+export const createI18n = (locale = 'en') =>
   new VueI18n({ locale, silentFallbackWarn: true })
